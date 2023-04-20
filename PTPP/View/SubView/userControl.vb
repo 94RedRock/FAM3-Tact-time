@@ -365,6 +365,20 @@ Public Class userControl
         End If
     End Sub
 
+    Private Sub txtPath1_Click(sender As Object, e As EventArgs) Handles TextBox4.Click '마스터DB 클릭 시 파일 선택, DB 확인, txt 박스 클릭
+        Dim ofd As OpenFileDialog = New OpenFileDialog With {
+            .Filter = "모든 파일 (*.*) | *.*"
+        }
+        ofd.ShowDialog()
+        Dim path As String = ofd.FileName
+        txtPath.Text = ofd.FileName
+        'Dim variableType As Type = txtPath.GetType() 'hsj test
+        Console.WriteLine(txtPath.GetType.Name) 'hsj test
+        If txtPath.Text IsNot "" Then
+            NewfileLead()
+        End If
+    End Sub
+
     Private Sub NewfileLead()
         AllRead()
         newDBTable.Clear()
@@ -595,7 +609,31 @@ Public Class userControl
 
     End Sub
 
-    Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles TextBox4.TextChanged
+    'Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles TextBox4.TextChanged
+    'Private Sub txtPath1_TextChanged(sender As Object, e As EventArgs) Handles txtPath1.TextChanged 'txtPath1 = Master-"클릭시 파일 선택"
+
+    'End Sub
+
+    Private Sub txtPath_TextChanged(sender As Object, e As EventArgs) Handles txtPath.TextChanged
+
+    End Sub
+
+    'Private Sub TextBox16_TextChanged(sender As Object, e As EventArgs) Handles TextBox16.TextChanged
+    Private Sub TextBox16_TextChanged(sender As Object, e As EventArgs) Handles TextBox16.TextChanged 'txtPath2 = Limit-"클릭시 파일 선택"
+
+    End Sub
+
+    'Private Sub TextBox8_TextChanged(sender As Object, e As EventArgs) Handles TextBox8.TextChanged
+    Private Sub TextBox8_TextChanged(sender As Object, e As EventArgs) Handles TextBox8.TextChanged 'txtPath2 = Suffix-"클릭시 파일 선택"
+
+    End Sub
+
+    'Private Sub TextBox12_TextChanged(sender As Object, e As EventArgs) Handles TextBox12.TextChanged
+    Private Sub TextBox12_TextChanged(sender As Object, e As EventArgs) Handles TextBox12.TextChanged 'txtPath3 = Carrier-"클릭시 파일 선택"
+
+    End Sub
+
+    Private Sub txtPath1_TextChanged(sender As Object, e As EventArgs) Handles TextBox4.TextChanged 'hsj - 마스터 db ;클릭시 파일 선택; 눌렀을때 이벤트 처리?
 
     End Sub
 End Class
