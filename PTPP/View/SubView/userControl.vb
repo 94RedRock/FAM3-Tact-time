@@ -337,7 +337,8 @@ Public Class userControl
                 DbTable.Rows.Add(Replace(colArray(0), CChar(vbLf), ""), colArray(1), colArray(2), colArray(3), colArray(4), colArray(5), colArray(6), colArray(7), colArray(8), colArray(9), colArray(10), colArray(11), Replace(colArray(12), "\c", ","))
             Next
             DbTable.DefaultView.Sort = "No"
-            grdRead.DataSource = DbTable
+            'grdRead.DataSource = DbTable  'hsj test할려고 제거
+            grd_master.DataSource = DbTable
 
         Catch ex As Exception
             SystemLogger.Instance.ErrorLog(ProgramEnum.LogType.File, "btnAllRead_Click()", ex.Message)
@@ -365,15 +366,15 @@ Public Class userControl
         End If
     End Sub
 
-    Private Sub txtPath1_Click(sender As Object, e As EventArgs) Handles TextBox4.Click '마스터DB 클릭 시 파일 선택, DB 확인, txt 박스 클릭
+    Private Sub TextBox4_Click(sender As Object, e As EventArgs) Handles TextBox4.Click '마스터DB 클릭 시 파일 선택, DB 확인, txt 박스 클릭
         Dim ofd As OpenFileDialog = New OpenFileDialog With {
             .Filter = "모든 파일 (*.*) | *.*"
         }
         ofd.ShowDialog()
         Dim path As String = ofd.FileName
         'txtPath.Text = ofd.FileName 'hsj del
-        txtPath.Text = ofd.FileName
-        If txtPath.Text IsNot "" Then
+        TextBox4.Text = ofd.FileName
+        If TextBox4.Text IsNot "" Then
             NewfileLead()
         End If
     End Sub
@@ -390,7 +391,8 @@ Public Class userControl
                 cn.Open()
                 Try
                     newDBTable.Load(cmd.ExecuteReader)
-                    grdRead.DataSource = newDBTable
+                    'grdRead.DataSource = newDBTable
+                    grd_master.DataSource = newDBTable
 
                     CompareData()
 

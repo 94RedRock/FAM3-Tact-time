@@ -22,15 +22,15 @@ Partial Class userControl
     '코드 편집기에서는 수정하지 마세요.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
@@ -69,7 +69,7 @@ Partial Class userControl
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.grd_master = New System.Windows.Forms.DataGridView()
         Me.TableLayoutPanel13 = New System.Windows.Forms.TableLayoutPanel()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -84,7 +84,7 @@ Partial Class userControl
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.grd_suffix = New System.Windows.Forms.DataGridView()
         Me.TableLayoutPanel16 = New System.Windows.Forms.TableLayoutPanel()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -99,7 +99,7 @@ Partial Class userControl
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button8 = New System.Windows.Forms.Button()
         Me.TextBox11 = New System.Windows.Forms.TextBox()
-        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.grd_carrier = New System.Windows.Forms.DataGridView()
         Me.TableLayoutPanel19 = New System.Windows.Forms.TableLayoutPanel()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -114,7 +114,7 @@ Partial Class userControl
         Me.Button10 = New System.Windows.Forms.Button()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.TextBox15 = New System.Windows.Forms.TextBox()
-        Me.DataGridView4 = New System.Windows.Forms.DataGridView()
+        Me.grd_limit = New System.Windows.Forms.DataGridView()
         Me.TableLayoutPanel22 = New System.Windows.Forms.TableLayoutPanel()
         Me.Button12 = New System.Windows.Forms.Button()
         Me.Label18 = New System.Windows.Forms.Label()
@@ -166,22 +166,22 @@ Partial Class userControl
         Me.TabPage6.SuspendLayout()
         Me.TableLayoutPanel11.SuspendLayout()
         Me.TableLayoutPanel12.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grd_master, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel13.SuspendLayout()
         Me.TabPage7.SuspendLayout()
         Me.TableLayoutPanel14.SuspendLayout()
         Me.TableLayoutPanel15.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grd_suffix, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel16.SuspendLayout()
         Me.TabPage8.SuspendLayout()
         Me.TableLayoutPanel17.SuspendLayout()
         Me.TableLayoutPanel18.SuspendLayout()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grd_carrier, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel19.SuspendLayout()
         Me.TabPage9.SuspendLayout()
         Me.TableLayoutPanel20.SuspendLayout()
         Me.TableLayoutPanel21.SuspendLayout()
-        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grd_limit, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel22.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
@@ -286,34 +286,34 @@ Partial Class userControl
         '
         'grdDetailModel
         '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdDetailModel.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdDetailModel.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
         Me.grdDetailModel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grdDetailModel.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grdDetailModel.DefaultCellStyle = DataGridViewCellStyle11
         Me.grdDetailModel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdDetailModel.Location = New System.Drawing.Point(3, 3)
         Me.grdDetailModel.Name = "grdDetailModel"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdDetailModel.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdDetailModel.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
         Me.grdDetailModel.RowHeadersWidth = 51
         Me.grdDetailModel.RowTemplate.Height = 23
         Me.grdDetailModel.Size = New System.Drawing.Size(1503, 659)
@@ -345,35 +345,35 @@ Partial Class userControl
         '
         'grdSimpleModel
         '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdSimpleModel.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle13.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
+        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdSimpleModel.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle13
         Me.grdSimpleModel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grdSimpleModel.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
+        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grdSimpleModel.DefaultCellStyle = DataGridViewCellStyle14
         Me.grdSimpleModel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdSimpleModel.Location = New System.Drawing.Point(3, 3)
         Me.grdSimpleModel.Name = "grdSimpleModel"
         Me.grdSimpleModel.ReadOnly = True
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdSimpleModel.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle15.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
+        DataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdSimpleModel.RowHeadersDefaultCellStyle = DataGridViewCellStyle15
         Me.grdSimpleModel.RowHeadersWidth = 51
         Me.grdSimpleModel.RowTemplate.Height = 23
         Me.grdSimpleModel.Size = New System.Drawing.Size(1503, 659)
@@ -405,35 +405,35 @@ Partial Class userControl
         '
         'grdInspectionEquipment
         '
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdInspectionEquipment.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle16.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
+        DataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdInspectionEquipment.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle16
         Me.grdInspectionEquipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grdInspectionEquipment.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle17.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
+        DataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grdInspectionEquipment.DefaultCellStyle = DataGridViewCellStyle17
         Me.grdInspectionEquipment.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdInspectionEquipment.Location = New System.Drawing.Point(3, 3)
         Me.grdInspectionEquipment.Name = "grdInspectionEquipment"
         Me.grdInspectionEquipment.ReadOnly = True
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdInspectionEquipment.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle18.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
+        DataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdInspectionEquipment.RowHeadersDefaultCellStyle = DataGridViewCellStyle18
         Me.grdInspectionEquipment.RowHeadersWidth = 51
         Me.grdInspectionEquipment.RowTemplate.Height = 23
         Me.grdInspectionEquipment.Size = New System.Drawing.Size(1503, 659)
@@ -491,7 +491,7 @@ Partial Class userControl
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 136.0!))
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93.0!))
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 128.0!))
-        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106.0!))
+        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 107.0!))
         Me.TableLayoutPanel10.Controls.Add(Me.labTotalWorker, 5, 1)
         Me.TableLayoutPanel10.Controls.Add(Me.labAssamblyWorker, 3, 1)
         Me.TableLayoutPanel10.Controls.Add(Me.labTotalTime, 5, 0)
@@ -519,9 +519,9 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labTotalWorker.AutoSize = True
         Me.labTotalWorker.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.labTotalWorker.Location = New System.Drawing.Point(600, 28)
+        Me.labTotalWorker.Location = New System.Drawing.Point(599, 28)
         Me.labTotalWorker.Name = "labTotalWorker"
-        Me.labTotalWorker.Size = New System.Drawing.Size(101, 28)
+        Me.labTotalWorker.Size = New System.Drawing.Size(102, 28)
         Me.labTotalWorker.TabIndex = 11
         Me.labTotalWorker.Text = "-"
         Me.labTotalWorker.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -533,7 +533,7 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labAssamblyWorker.AutoSize = True
         Me.labAssamblyWorker.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.labAssamblyWorker.Location = New System.Drawing.Point(379, 28)
+        Me.labAssamblyWorker.Location = New System.Drawing.Point(378, 28)
         Me.labAssamblyWorker.Name = "labAssamblyWorker"
         Me.labAssamblyWorker.Size = New System.Drawing.Size(87, 28)
         Me.labAssamblyWorker.TabIndex = 10
@@ -547,9 +547,9 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labTotalTime.AutoSize = True
         Me.labTotalTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.labTotalTime.Location = New System.Drawing.Point(600, 0)
+        Me.labTotalTime.Location = New System.Drawing.Point(599, 0)
         Me.labTotalTime.Name = "labTotalTime"
-        Me.labTotalTime.Size = New System.Drawing.Size(101, 28)
+        Me.labTotalTime.Size = New System.Drawing.Size(102, 28)
         Me.labTotalTime.TabIndex = 9
         Me.labTotalTime.Text = "-"
         Me.labTotalTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -565,7 +565,7 @@ Partial Class userControl
         Me.Label4.Font = New System.Drawing.Font("굴림", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
         Me.Label4.Location = New System.Drawing.Point(3, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(136, 28)
+        Me.Label4.Size = New System.Drawing.Size(135, 28)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "총 마운팅 시간"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -579,7 +579,7 @@ Partial Class userControl
         Me.ss.BackColor = System.Drawing.Color.LightGreen
         Me.ss.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ss.Font = New System.Drawing.Font("굴림", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.ss.Location = New System.Drawing.Point(243, 0)
+        Me.ss.Location = New System.Drawing.Point(242, 0)
         Me.ss.Name = "ss"
         Me.ss.Size = New System.Drawing.Size(130, 28)
         Me.ss.TabIndex = 1
@@ -610,7 +610,7 @@ Partial Class userControl
         Me.Label7.BackColor = System.Drawing.Color.LightGreen
         Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label7.Font = New System.Drawing.Font("굴림", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.Label7.Location = New System.Drawing.Point(243, 28)
+        Me.Label7.Location = New System.Drawing.Point(242, 28)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(130, 28)
         Me.Label7.TabIndex = 3
@@ -626,7 +626,7 @@ Partial Class userControl
         Me.Label8.BackColor = System.Drawing.Color.SkyBlue
         Me.Label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label8.Font = New System.Drawing.Font("굴림", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.Label8.Location = New System.Drawing.Point(472, 0)
+        Me.Label8.Location = New System.Drawing.Point(471, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(122, 28)
         Me.Label8.TabIndex = 4
@@ -642,7 +642,7 @@ Partial Class userControl
         Me.Label9.BackColor = System.Drawing.Color.SkyBlue
         Me.Label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label9.Font = New System.Drawing.Font("굴림", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.Label9.Location = New System.Drawing.Point(472, 28)
+        Me.Label9.Location = New System.Drawing.Point(471, 28)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(122, 28)
         Me.Label9.TabIndex = 5
@@ -656,7 +656,7 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labMauntingTime.AutoSize = True
         Me.labMauntingTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.labMauntingTime.Location = New System.Drawing.Point(145, 0)
+        Me.labMauntingTime.Location = New System.Drawing.Point(144, 0)
         Me.labMauntingTime.Name = "labMauntingTime"
         Me.labMauntingTime.Size = New System.Drawing.Size(92, 28)
         Me.labMauntingTime.TabIndex = 6
@@ -670,7 +670,7 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labMauntingWorker.AutoSize = True
         Me.labMauntingWorker.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.labMauntingWorker.Location = New System.Drawing.Point(145, 28)
+        Me.labMauntingWorker.Location = New System.Drawing.Point(144, 28)
         Me.labMauntingWorker.Name = "labMauntingWorker"
         Me.labMauntingWorker.Size = New System.Drawing.Size(92, 28)
         Me.labMauntingWorker.TabIndex = 7
@@ -684,7 +684,7 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labAssamblyTime.AutoSize = True
         Me.labAssamblyTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.labAssamblyTime.Location = New System.Drawing.Point(379, 0)
+        Me.labAssamblyTime.Location = New System.Drawing.Point(378, 0)
         Me.labAssamblyTime.Name = "labAssamblyTime"
         Me.labAssamblyTime.Size = New System.Drawing.Size(87, 28)
         Me.labAssamblyTime.TabIndex = 8
@@ -732,7 +732,7 @@ Partial Class userControl
         Me.TableLayoutPanel11.ColumnCount = 1
         Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1529.0!))
         Me.TableLayoutPanel11.Controls.Add(Me.TableLayoutPanel12, 0, 0)
-        Me.TableLayoutPanel11.Controls.Add(Me.DataGridView1, 0, 2)
+        Me.TableLayoutPanel11.Controls.Add(Me.grd_master, 0, 2)
         Me.TableLayoutPanel11.Controls.Add(Me.TableLayoutPanel13, 0, 1)
         Me.TableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel11.Location = New System.Drawing.Point(3, 3)
@@ -799,17 +799,17 @@ Partial Class userControl
         Me.TextBox3.TabIndex = 2
         Me.TextBox3.Text = "모델명 입력"
         '
-        'DataGridView1
+        'grd_master
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView1.Location = New System.Drawing.Point(3, 87)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(1523, 590)
-        Me.DataGridView1.TabIndex = 2
+        Me.grd_master.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grd_master.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grd_master.Location = New System.Drawing.Point(3, 87)
+        Me.grd_master.Name = "grd_master"
+        Me.grd_master.ReadOnly = True
+        Me.grd_master.RowHeadersWidth = 51
+        Me.grd_master.RowTemplate.Height = 23
+        Me.grd_master.Size = New System.Drawing.Size(1523, 590)
+        Me.grd_master.TabIndex = 2
         '
         'TableLayoutPanel13
         '
@@ -935,7 +935,7 @@ Partial Class userControl
         Me.TableLayoutPanel14.ColumnCount = 1
         Me.TableLayoutPanel14.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1529.0!))
         Me.TableLayoutPanel14.Controls.Add(Me.TableLayoutPanel15, 0, 0)
-        Me.TableLayoutPanel14.Controls.Add(Me.DataGridView2, 0, 2)
+        Me.TableLayoutPanel14.Controls.Add(Me.grd_suffix, 0, 2)
         Me.TableLayoutPanel14.Controls.Add(Me.TableLayoutPanel16, 0, 1)
         Me.TableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel14.Location = New System.Drawing.Point(3, 3)
@@ -1002,17 +1002,17 @@ Partial Class userControl
         Me.TextBox7.TabIndex = 2
         Me.TextBox7.Text = "모델명 입력"
         '
-        'DataGridView2
+        'grd_suffix
         '
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView2.Location = New System.Drawing.Point(3, 87)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.ReadOnly = True
-        Me.DataGridView2.RowHeadersWidth = 51
-        Me.DataGridView2.RowTemplate.Height = 23
-        Me.DataGridView2.Size = New System.Drawing.Size(1523, 590)
-        Me.DataGridView2.TabIndex = 2
+        Me.grd_suffix.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grd_suffix.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grd_suffix.Location = New System.Drawing.Point(3, 87)
+        Me.grd_suffix.Name = "grd_suffix"
+        Me.grd_suffix.ReadOnly = True
+        Me.grd_suffix.RowHeadersWidth = 51
+        Me.grd_suffix.RowTemplate.Height = 23
+        Me.grd_suffix.Size = New System.Drawing.Size(1523, 590)
+        Me.grd_suffix.TabIndex = 2
         '
         'TableLayoutPanel16
         '
@@ -1138,7 +1138,7 @@ Partial Class userControl
         Me.TableLayoutPanel17.ColumnCount = 1
         Me.TableLayoutPanel17.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1529.0!))
         Me.TableLayoutPanel17.Controls.Add(Me.TableLayoutPanel18, 0, 0)
-        Me.TableLayoutPanel17.Controls.Add(Me.DataGridView3, 0, 2)
+        Me.TableLayoutPanel17.Controls.Add(Me.grd_carrier, 0, 2)
         Me.TableLayoutPanel17.Controls.Add(Me.TableLayoutPanel19, 0, 1)
         Me.TableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel17.Location = New System.Drawing.Point(3, 3)
@@ -1205,17 +1205,17 @@ Partial Class userControl
         Me.TextBox11.TabIndex = 2
         Me.TextBox11.Text = "모델명 입력"
         '
-        'DataGridView3
+        'grd_carrier
         '
-        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView3.Location = New System.Drawing.Point(3, 87)
-        Me.DataGridView3.Name = "DataGridView3"
-        Me.DataGridView3.ReadOnly = True
-        Me.DataGridView3.RowHeadersWidth = 51
-        Me.DataGridView3.RowTemplate.Height = 23
-        Me.DataGridView3.Size = New System.Drawing.Size(1523, 590)
-        Me.DataGridView3.TabIndex = 2
+        Me.grd_carrier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grd_carrier.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grd_carrier.Location = New System.Drawing.Point(3, 87)
+        Me.grd_carrier.Name = "grd_carrier"
+        Me.grd_carrier.ReadOnly = True
+        Me.grd_carrier.RowHeadersWidth = 51
+        Me.grd_carrier.RowTemplate.Height = 23
+        Me.grd_carrier.Size = New System.Drawing.Size(1523, 590)
+        Me.grd_carrier.TabIndex = 2
         '
         'TableLayoutPanel19
         '
@@ -1341,7 +1341,7 @@ Partial Class userControl
         Me.TableLayoutPanel20.ColumnCount = 1
         Me.TableLayoutPanel20.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1529.0!))
         Me.TableLayoutPanel20.Controls.Add(Me.TableLayoutPanel21, 0, 0)
-        Me.TableLayoutPanel20.Controls.Add(Me.DataGridView4, 0, 2)
+        Me.TableLayoutPanel20.Controls.Add(Me.grd_limit, 0, 2)
         Me.TableLayoutPanel20.Controls.Add(Me.TableLayoutPanel22, 0, 1)
         Me.TableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel20.Location = New System.Drawing.Point(3, 3)
@@ -1408,17 +1408,17 @@ Partial Class userControl
         Me.TextBox15.TabIndex = 2
         Me.TextBox15.Text = "모델명 입력"
         '
-        'DataGridView4
+        'grd_limit
         '
-        Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView4.Location = New System.Drawing.Point(3, 87)
-        Me.DataGridView4.Name = "DataGridView4"
-        Me.DataGridView4.ReadOnly = True
-        Me.DataGridView4.RowHeadersWidth = 51
-        Me.DataGridView4.RowTemplate.Height = 23
-        Me.DataGridView4.Size = New System.Drawing.Size(1523, 590)
-        Me.DataGridView4.TabIndex = 2
+        Me.grd_limit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grd_limit.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grd_limit.Location = New System.Drawing.Point(3, 87)
+        Me.grd_limit.Name = "grd_limit"
+        Me.grd_limit.ReadOnly = True
+        Me.grd_limit.RowHeadersWidth = 51
+        Me.grd_limit.RowTemplate.Height = 23
+        Me.grd_limit.Size = New System.Drawing.Size(1523, 590)
+        Me.grd_limit.TabIndex = 2
         '
         'TableLayoutPanel22
         '
@@ -1807,28 +1807,28 @@ Partial Class userControl
         Me.TableLayoutPanel11.ResumeLayout(False)
         Me.TableLayoutPanel12.ResumeLayout(False)
         Me.TableLayoutPanel12.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grd_master, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel13.ResumeLayout(False)
         Me.TableLayoutPanel13.PerformLayout()
         Me.TabPage7.ResumeLayout(False)
         Me.TableLayoutPanel14.ResumeLayout(False)
         Me.TableLayoutPanel15.ResumeLayout(False)
         Me.TableLayoutPanel15.PerformLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grd_suffix, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel16.ResumeLayout(False)
         Me.TableLayoutPanel16.PerformLayout()
         Me.TabPage8.ResumeLayout(False)
         Me.TableLayoutPanel17.ResumeLayout(False)
         Me.TableLayoutPanel18.ResumeLayout(False)
         Me.TableLayoutPanel18.PerformLayout()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grd_carrier, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel19.ResumeLayout(False)
         Me.TableLayoutPanel19.PerformLayout()
         Me.TabPage9.ResumeLayout(False)
         Me.TableLayoutPanel20.ResumeLayout(False)
         Me.TableLayoutPanel21.ResumeLayout(False)
         Me.TableLayoutPanel21.PerformLayout()
-        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grd_limit, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel22.ResumeLayout(False)
         Me.TableLayoutPanel22.PerformLayout()
         Me.TableLayoutPanel3.ResumeLayout(False)
@@ -1897,7 +1897,7 @@ Partial Class userControl
     Friend WithEvents btnMasterSet As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents txtPath As TextBox
-    Friend WithEvents txtPath1 As TextBox 'hsj Master - 데이터 선택, 변수 선언?
+    'Friend WithEvents txtPath1 As TextBox 'hsj Master - 데이터 선택, 변수 선언?
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label2 As Label
@@ -1907,7 +1907,7 @@ Partial Class userControl
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents grd_master As DataGridView
     Friend WithEvents TableLayoutPanel13 As TableLayoutPanel
     Friend WithEvents Button3 As Button
     Friend WithEvents Label5 As Label
@@ -1921,7 +1921,7 @@ Partial Class userControl
     Friend WithEvents Button4 As Button
     Friend WithEvents Button5 As Button
     Friend WithEvents TextBox7 As TextBox
-    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents grd_suffix As DataGridView
     Friend WithEvents TableLayoutPanel16 As TableLayoutPanel
     Friend WithEvents Button6 As Button
     Friend WithEvents Label12 As Label
@@ -1935,7 +1935,7 @@ Partial Class userControl
     Friend WithEvents Button7 As Button
     Friend WithEvents Button8 As Button
     Friend WithEvents TextBox11 As TextBox
-    Friend WithEvents DataGridView3 As DataGridView
+    Friend WithEvents grd_carrier As DataGridView
     Friend WithEvents TableLayoutPanel19 As TableLayoutPanel
     Friend WithEvents Button9 As Button
     Friend WithEvents Label15 As Label
@@ -1949,7 +1949,7 @@ Partial Class userControl
     Friend WithEvents Button10 As Button
     Friend WithEvents Button11 As Button
     Friend WithEvents TextBox15 As TextBox
-    Friend WithEvents DataGridView4 As DataGridView
+    Friend WithEvents grd_limit As DataGridView
     Friend WithEvents TableLayoutPanel22 As TableLayoutPanel
     Friend WithEvents Button12 As Button
     Friend WithEvents Label18 As Label
