@@ -385,7 +385,8 @@ Public Class userControl
         Dim SelectStatement As String = "SELECT [No], [모델 명], FORMAT([部品SET], 'HH:mm:ss') as [部品SET], FORMAT([前付け], 'HH:mm:ss') as [前付け], FORMAT([MT], 'HH:mm:ss') as [MT], FORMAT([L/C], 'HH:mm:ss') as [L/C], FORMAT([目視], 'HH:mm:ss') as [目視], FORMAT([Pick up], 'HH:mm:ss') as [Pick up],
                                            FORMAT([組立], 'HH:mm:ss') as [組立], FORMAT([機能検査(수동)], 'HH:mm:ss') as [機能検査_수동], FORMAT([機能検査(자동)], 'HH:mm:ss') as [機能検査_자동], FORMAT([2者検査], 'HH:mm:ss') as [2者検査], [검사 설비]  FROM [Sheet1$]"
 
-        Using cn As New OleDb.OleDbConnection With {.ConnectionString = Connection.HeaderConnectionString(txtPath.Text)}
+        Using cn As New OleDb.OleDbConnection With {.ConnectionString = Connection.HeaderConnectionString(TextBox4.Text)}
+            'Using cn As New OleDb.OleDbConnection With {.ConnectionString = Connection.HeaderConnectionString(txtPath.Text)}
             Using cmd As New OleDbCommand With {.Connection = cn, .CommandText = SelectStatement}
 
                 cn.Open()
