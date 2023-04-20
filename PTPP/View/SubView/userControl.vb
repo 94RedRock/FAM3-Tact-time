@@ -414,24 +414,34 @@ Public Class userControl
         Dim dbModel As String() = arrOb.Cast(Of String)().ToArray()
 
         For i As Integer = 0 To newDBTable.Rows.Count - 1 ' Range.Rows.Count
-            If dbModel.Contains(Replace(newDBTable.Rows(i).ItemArray(1).ToString(), " ", "")) Then
-                For j As Integer = 0 To DbTable.Rows.Count - 1
-                    If Replace(newDBTable.Rows(i).ItemArray(1).ToString(), " ", "") = DbTable.Rows(j).ItemArray(1).ToString() Then
-                        For t As Integer = 2 To 12
-                            If Replace(newDBTable.Rows(i).ItemArray(t).ToString(), " ", "") = DbTable.Rows(j).ItemArray(t).ToString() Then
-                            Else
-                                grdRead.Rows(i).Cells(t).Style.BackColor = Color.Yellow
-                                grdRead.Rows(i).Cells(0).Style.BackColor = Color.Yellow
-                                grdRead.Rows(i).Cells(1).Style.BackColor = Color.Yellow
-                            End If
-                        Next
-                    End If
-                Next
-            Else
-                For f As Integer = 0 To 12
-                    grdRead.Rows(i).Cells(f).Style.BackColor = Color.DarkOrange
-                Next
-            End If
+            Try ' 에러 확인 용 try
+                If dbModel.Contains(Replace(newDBTable.Rows(i).ItemArray(1).ToString(), " ", "")) Then
+                    For j As Integer = 0 To DbTable.Rows.Count - 1
+                        If Replace(newDBTable.Rows(i).ItemArray(1).ToString(), " ", "") = DbTable.Rows(j).ItemArray(1).ToString() Then
+                            For t As Integer = 2 To 12
+                                If Replace(newDBTable.Rows(i).ItemArray(t).ToString(), " ", "") = DbTable.Rows(j).ItemArray(t).ToString() Then
+                                Else
+                                    grd_master.Rows(i).Cells(t).Style.BackColor = Color.Yellow
+                                    grd_master.Rows(i).Cells(0).Style.BackColor = Color.Yellow
+                                    grd_master.Rows(i).Cells(1).Style.BackColor = Color.Yellow
+                                    'grdRead.Rows(i).Cells(t).Style.BackColor = Color.Yellow  ' grdRead 변수 변경 필요
+                                    'grdRead.Rows(i).Cells(0).Style.BackColor = Color.Yellow  ' Cells(0), (1)가 뭐냐
+                                    'grdRead.Rows(i).Cells(1).Style.BackColor = Color.Yellow
+                                End If
+                            Next
+                        End If
+                    Next
+                Else
+                    For f As Integer = 0 To 12
+                        grdRead.Rows(i).Cells(f).Style.BackColor = Color.DarkOrange
+                    Next
+                End If
+            Catch ex As Exception
+                Console.WriteLine(ex.Message)
+                MessageBox.Show("Data Compare NG.")
+
+            End Try
+
 
         Next
     End Sub
