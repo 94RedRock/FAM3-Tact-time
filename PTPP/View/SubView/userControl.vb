@@ -371,9 +371,8 @@ Public Class userControl
         }
         ofd.ShowDialog()
         Dim path As String = ofd.FileName
+        'txtPath.Text = ofd.FileName 'hsj del
         txtPath.Text = ofd.FileName
-        'Dim variableType As Type = txtPath.GetType() 'hsj test
-        Console.WriteLine(txtPath.GetType.Name) 'hsj test
         If txtPath.Text IsNot "" Then
             NewfileLead()
         End If
