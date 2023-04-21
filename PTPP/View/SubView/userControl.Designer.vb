@@ -62,13 +62,13 @@ Partial Class userControl
         Me.labMauntingWorker = New System.Windows.Forms.Label()
         Me.labAssamblyTime = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.TabControl3 = New System.Windows.Forms.TabControl()
+        Me.txtbox_search_limit = New System.Windows.Forms.TabControl()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel11 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel12 = New System.Windows.Forms.TableLayoutPanel()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.txtbox_search_model = New System.Windows.Forms.TextBox()
         Me.grd_master = New System.Windows.Forms.DataGridView()
         Me.TableLayoutPanel13 = New System.Windows.Forms.TableLayoutPanel()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -83,12 +83,12 @@ Partial Class userControl
         Me.TableLayoutPanel15 = New System.Windows.Forms.TableLayoutPanel()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.txtbox_search_suffix = New System.Windows.Forms.TextBox()
         Me.grd_suffix = New System.Windows.Forms.DataGridView()
         Me.TableLayoutPanel16 = New System.Windows.Forms.TableLayoutPanel()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.txtbox_suffix_path = New System.Windows.Forms.TextBox()
         Me.TextBox9 = New System.Windows.Forms.TextBox()
         Me.TextBox10 = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -98,12 +98,12 @@ Partial Class userControl
         Me.TableLayoutPanel18 = New System.Windows.Forms.TableLayoutPanel()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button8 = New System.Windows.Forms.Button()
-        Me.TextBox11 = New System.Windows.Forms.TextBox()
+        Me.txtbox_search_carrier = New System.Windows.Forms.TextBox()
         Me.grd_carrier = New System.Windows.Forms.DataGridView()
         Me.TableLayoutPanel19 = New System.Windows.Forms.TableLayoutPanel()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.TextBox12 = New System.Windows.Forms.TextBox()
+        Me.txtbox_carrier_path = New System.Windows.Forms.TextBox()
         Me.TextBox13 = New System.Windows.Forms.TextBox()
         Me.TextBox14 = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -118,7 +118,7 @@ Partial Class userControl
         Me.TableLayoutPanel22 = New System.Windows.Forms.TableLayoutPanel()
         Me.Button12 = New System.Windows.Forms.Button()
         Me.Label18 = New System.Windows.Forms.Label()
-        Me.TextBox16 = New System.Windows.Forms.TextBox()
+        Me.txtbox_limit_path = New System.Windows.Forms.TextBox()
         Me.TextBox17 = New System.Windows.Forms.TextBox()
         Me.TextBox18 = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -162,7 +162,7 @@ Partial Class userControl
         Me.TableLayoutPanel4.SuspendLayout()
         Me.TableLayoutPanel10.SuspendLayout()
         Me.TabPage2.SuspendLayout()
-        Me.TabControl3.SuspendLayout()
+        Me.txtbox_search_limit.SuspendLayout()
         Me.TabPage6.SuspendLayout()
         Me.TableLayoutPanel11.SuspendLayout()
         Me.TableLayoutPanel12.SuspendLayout()
@@ -491,7 +491,7 @@ Partial Class userControl
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 136.0!))
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93.0!))
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 128.0!))
-        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108.0!))
+        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110.0!))
         Me.TableLayoutPanel10.Controls.Add(Me.labTotalWorker, 5, 1)
         Me.TableLayoutPanel10.Controls.Add(Me.labAssamblyWorker, 3, 1)
         Me.TableLayoutPanel10.Controls.Add(Me.labTotalTime, 5, 0)
@@ -519,9 +519,9 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labTotalWorker.AutoSize = True
         Me.labTotalWorker.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.labTotalWorker.Location = New System.Drawing.Point(598, 28)
+        Me.labTotalWorker.Location = New System.Drawing.Point(596, 28)
         Me.labTotalWorker.Name = "labTotalWorker"
-        Me.labTotalWorker.Size = New System.Drawing.Size(103, 28)
+        Me.labTotalWorker.Size = New System.Drawing.Size(105, 28)
         Me.labTotalWorker.TabIndex = 11
         Me.labTotalWorker.Text = "-"
         Me.labTotalWorker.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -533,7 +533,7 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labAssamblyWorker.AutoSize = True
         Me.labAssamblyWorker.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.labAssamblyWorker.Location = New System.Drawing.Point(377, 28)
+        Me.labAssamblyWorker.Location = New System.Drawing.Point(375, 28)
         Me.labAssamblyWorker.Name = "labAssamblyWorker"
         Me.labAssamblyWorker.Size = New System.Drawing.Size(87, 28)
         Me.labAssamblyWorker.TabIndex = 10
@@ -547,9 +547,9 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labTotalTime.AutoSize = True
         Me.labTotalTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.labTotalTime.Location = New System.Drawing.Point(598, 0)
+        Me.labTotalTime.Location = New System.Drawing.Point(596, 0)
         Me.labTotalTime.Name = "labTotalTime"
-        Me.labTotalTime.Size = New System.Drawing.Size(103, 28)
+        Me.labTotalTime.Size = New System.Drawing.Size(105, 28)
         Me.labTotalTime.TabIndex = 9
         Me.labTotalTime.Text = "-"
         Me.labTotalTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -565,7 +565,7 @@ Partial Class userControl
         Me.Label4.Font = New System.Drawing.Font("굴림", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
         Me.Label4.Location = New System.Drawing.Point(3, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(135, 28)
+        Me.Label4.Size = New System.Drawing.Size(134, 28)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "총 마운팅 시간"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -579,7 +579,7 @@ Partial Class userControl
         Me.ss.BackColor = System.Drawing.Color.LightGreen
         Me.ss.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ss.Font = New System.Drawing.Font("굴림", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.ss.Location = New System.Drawing.Point(241, 0)
+        Me.ss.Location = New System.Drawing.Point(239, 0)
         Me.ss.Name = "ss"
         Me.ss.Size = New System.Drawing.Size(130, 28)
         Me.ss.TabIndex = 1
@@ -610,7 +610,7 @@ Partial Class userControl
         Me.Label7.BackColor = System.Drawing.Color.LightGreen
         Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label7.Font = New System.Drawing.Font("굴림", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.Label7.Location = New System.Drawing.Point(241, 28)
+        Me.Label7.Location = New System.Drawing.Point(239, 28)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(130, 28)
         Me.Label7.TabIndex = 3
@@ -626,7 +626,7 @@ Partial Class userControl
         Me.Label8.BackColor = System.Drawing.Color.SkyBlue
         Me.Label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label8.Font = New System.Drawing.Font("굴림", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.Label8.Location = New System.Drawing.Point(470, 0)
+        Me.Label8.Location = New System.Drawing.Point(468, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(122, 28)
         Me.Label8.TabIndex = 4
@@ -642,7 +642,7 @@ Partial Class userControl
         Me.Label9.BackColor = System.Drawing.Color.SkyBlue
         Me.Label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label9.Font = New System.Drawing.Font("굴림", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.Label9.Location = New System.Drawing.Point(470, 28)
+        Me.Label9.Location = New System.Drawing.Point(468, 28)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(122, 28)
         Me.Label9.TabIndex = 5
@@ -656,9 +656,9 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labMauntingTime.AutoSize = True
         Me.labMauntingTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.labMauntingTime.Location = New System.Drawing.Point(144, 0)
+        Me.labMauntingTime.Location = New System.Drawing.Point(143, 0)
         Me.labMauntingTime.Name = "labMauntingTime"
-        Me.labMauntingTime.Size = New System.Drawing.Size(91, 28)
+        Me.labMauntingTime.Size = New System.Drawing.Size(90, 28)
         Me.labMauntingTime.TabIndex = 6
         Me.labMauntingTime.Text = "-"
         Me.labMauntingTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -670,9 +670,9 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labMauntingWorker.AutoSize = True
         Me.labMauntingWorker.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.labMauntingWorker.Location = New System.Drawing.Point(144, 28)
+        Me.labMauntingWorker.Location = New System.Drawing.Point(143, 28)
         Me.labMauntingWorker.Name = "labMauntingWorker"
-        Me.labMauntingWorker.Size = New System.Drawing.Size(91, 28)
+        Me.labMauntingWorker.Size = New System.Drawing.Size(90, 28)
         Me.labMauntingWorker.TabIndex = 7
         Me.labMauntingWorker.Text = "-"
         Me.labMauntingWorker.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -684,7 +684,7 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labAssamblyTime.AutoSize = True
         Me.labAssamblyTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.labAssamblyTime.Location = New System.Drawing.Point(377, 0)
+        Me.labAssamblyTime.Location = New System.Drawing.Point(375, 0)
         Me.labAssamblyTime.Name = "labAssamblyTime"
         Me.labAssamblyTime.Size = New System.Drawing.Size(87, 28)
         Me.labAssamblyTime.TabIndex = 8
@@ -693,7 +693,7 @@ Partial Class userControl
         '
         'TabPage2
         '
-        Me.TabPage2.Controls.Add(Me.TabControl3)
+        Me.TabPage2.Controls.Add(Me.txtbox_search_limit)
         Me.TabPage2.Controls.Add(Me.TableLayoutPanel3)
         Me.TabPage2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
         Me.TabPage2.Location = New System.Drawing.Point(4, 26)
@@ -704,17 +704,17 @@ Partial Class userControl
         Me.TabPage2.Text = "마스터 데이터 관리"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
-        'TabControl3
+        'txtbox_search_limit
         '
-        Me.TabControl3.Controls.Add(Me.TabPage6)
-        Me.TabControl3.Controls.Add(Me.TabPage7)
-        Me.TabControl3.Controls.Add(Me.TabPage8)
-        Me.TabControl3.Controls.Add(Me.TabPage9)
-        Me.TabControl3.Location = New System.Drawing.Point(11, 113)
-        Me.TabControl3.Name = "TabControl3"
-        Me.TabControl3.SelectedIndex = 0
-        Me.TabControl3.Size = New System.Drawing.Size(1400, 388)
-        Me.TabControl3.TabIndex = 1
+        Me.txtbox_search_limit.Controls.Add(Me.TabPage6)
+        Me.txtbox_search_limit.Controls.Add(Me.TabPage7)
+        Me.txtbox_search_limit.Controls.Add(Me.TabPage8)
+        Me.txtbox_search_limit.Controls.Add(Me.TabPage9)
+        Me.txtbox_search_limit.Location = New System.Drawing.Point(11, 113)
+        Me.txtbox_search_limit.Name = "txtbox_search_limit"
+        Me.txtbox_search_limit.SelectedIndex = 0
+        Me.txtbox_search_limit.Size = New System.Drawing.Size(1400, 388)
+        Me.txtbox_search_limit.TabIndex = 1
         '
         'TabPage6
         '
@@ -753,7 +753,7 @@ Partial Class userControl
         Me.TableLayoutPanel12.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 959.0!))
         Me.TableLayoutPanel12.Controls.Add(Me.Button1, 0, 0)
         Me.TableLayoutPanel12.Controls.Add(Me.Button2, 2, 0)
-        Me.TableLayoutPanel12.Controls.Add(Me.TextBox3, 1, 0)
+        Me.TableLayoutPanel12.Controls.Add(Me.txtbox_search_model, 1, 0)
         Me.TableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel12.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel12.Name = "TableLayoutPanel12"
@@ -786,18 +786,18 @@ Partial Class userControl
         Me.Button2.Text = "모델명 검색"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'TextBox3
+        'txtbox_search_model
         '
-        Me.TextBox3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.txtbox_search_model.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox3.Font = New System.Drawing.Font("굴림", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.TextBox3.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.TextBox3.Location = New System.Drawing.Point(104, 3)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(351, 29)
-        Me.TextBox3.TabIndex = 2
-        Me.TextBox3.Text = "모델명 입력"
+        Me.txtbox_search_model.Font = New System.Drawing.Font("굴림", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
+        Me.txtbox_search_model.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.txtbox_search_model.Location = New System.Drawing.Point(104, 3)
+        Me.txtbox_search_model.Name = "txtbox_search_model"
+        Me.txtbox_search_model.Size = New System.Drawing.Size(351, 29)
+        Me.txtbox_search_model.TabIndex = 2
+        Me.txtbox_search_model.Text = "모델명 입력"
         '
         'grd_master
         '
@@ -956,7 +956,7 @@ Partial Class userControl
         Me.TableLayoutPanel15.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 959.0!))
         Me.TableLayoutPanel15.Controls.Add(Me.Button4, 0, 0)
         Me.TableLayoutPanel15.Controls.Add(Me.Button5, 2, 0)
-        Me.TableLayoutPanel15.Controls.Add(Me.TextBox7, 1, 0)
+        Me.TableLayoutPanel15.Controls.Add(Me.txtbox_search_suffix, 1, 0)
         Me.TableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel15.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel15.Name = "TableLayoutPanel15"
@@ -989,18 +989,18 @@ Partial Class userControl
         Me.Button5.Text = "모델명 검색"
         Me.Button5.UseVisualStyleBackColor = True
         '
-        'TextBox7
+        'txtbox_search_suffix
         '
-        Me.TextBox7.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.txtbox_search_suffix.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox7.Font = New System.Drawing.Font("굴림", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.TextBox7.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.TextBox7.Location = New System.Drawing.Point(104, 3)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(351, 29)
-        Me.TextBox7.TabIndex = 2
-        Me.TextBox7.Text = "모델명 입력"
+        Me.txtbox_search_suffix.Font = New System.Drawing.Font("굴림", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
+        Me.txtbox_search_suffix.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.txtbox_search_suffix.Location = New System.Drawing.Point(104, 3)
+        Me.txtbox_search_suffix.Name = "txtbox_search_suffix"
+        Me.txtbox_search_suffix.Size = New System.Drawing.Size(351, 29)
+        Me.txtbox_search_suffix.TabIndex = 2
+        Me.txtbox_search_suffix.Text = "모델명 입력"
         '
         'grd_suffix
         '
@@ -1028,7 +1028,7 @@ Partial Class userControl
         Me.TableLayoutPanel16.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 681.0!))
         Me.TableLayoutPanel16.Controls.Add(Me.Button6, 2, 0)
         Me.TableLayoutPanel16.Controls.Add(Me.Label12, 0, 0)
-        Me.TableLayoutPanel16.Controls.Add(Me.TextBox8, 1, 0)
+        Me.TableLayoutPanel16.Controls.Add(Me.txtbox_suffix_path, 1, 0)
         Me.TableLayoutPanel16.Controls.Add(Me.TextBox9, 4, 0)
         Me.TableLayoutPanel16.Controls.Add(Me.TextBox10, 6, 0)
         Me.TableLayoutPanel16.Controls.Add(Me.Label13, 5, 0)
@@ -1065,18 +1065,18 @@ Partial Class userControl
         Me.Label12.Text = "Master Data"
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TextBox8
+        'txtbox_suffix_path
         '
-        Me.TextBox8.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.txtbox_suffix_path.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox8.Font = New System.Drawing.Font("굴림", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox8.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.TextBox8.Location = New System.Drawing.Point(104, 3)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(352, 29)
-        Me.TextBox8.TabIndex = 1
-        Me.TextBox8.Text = "클릭시 파일 선택"
+        Me.txtbox_suffix_path.Font = New System.Drawing.Font("굴림", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbox_suffix_path.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.txtbox_suffix_path.Location = New System.Drawing.Point(104, 3)
+        Me.txtbox_suffix_path.Name = "txtbox_suffix_path"
+        Me.txtbox_suffix_path.Size = New System.Drawing.Size(352, 29)
+        Me.txtbox_suffix_path.TabIndex = 1
+        Me.txtbox_suffix_path.Text = "클릭시 파일 선택"
         '
         'TextBox9
         '
@@ -1159,7 +1159,7 @@ Partial Class userControl
         Me.TableLayoutPanel18.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 959.0!))
         Me.TableLayoutPanel18.Controls.Add(Me.Button7, 0, 0)
         Me.TableLayoutPanel18.Controls.Add(Me.Button8, 2, 0)
-        Me.TableLayoutPanel18.Controls.Add(Me.TextBox11, 1, 0)
+        Me.TableLayoutPanel18.Controls.Add(Me.txtbox_search_carrier, 1, 0)
         Me.TableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel18.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel18.Name = "TableLayoutPanel18"
@@ -1192,18 +1192,18 @@ Partial Class userControl
         Me.Button8.Text = "모델명 검색"
         Me.Button8.UseVisualStyleBackColor = True
         '
-        'TextBox11
+        'txtbox_search_carrier
         '
-        Me.TextBox11.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.txtbox_search_carrier.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox11.Font = New System.Drawing.Font("굴림", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.TextBox11.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.TextBox11.Location = New System.Drawing.Point(104, 3)
-        Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(351, 29)
-        Me.TextBox11.TabIndex = 2
-        Me.TextBox11.Text = "모델명 입력"
+        Me.txtbox_search_carrier.Font = New System.Drawing.Font("굴림", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
+        Me.txtbox_search_carrier.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.txtbox_search_carrier.Location = New System.Drawing.Point(104, 3)
+        Me.txtbox_search_carrier.Name = "txtbox_search_carrier"
+        Me.txtbox_search_carrier.Size = New System.Drawing.Size(351, 29)
+        Me.txtbox_search_carrier.TabIndex = 2
+        Me.txtbox_search_carrier.Text = "모델명 입력"
         '
         'grd_carrier
         '
@@ -1231,7 +1231,7 @@ Partial Class userControl
         Me.TableLayoutPanel19.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 681.0!))
         Me.TableLayoutPanel19.Controls.Add(Me.Button9, 2, 0)
         Me.TableLayoutPanel19.Controls.Add(Me.Label15, 0, 0)
-        Me.TableLayoutPanel19.Controls.Add(Me.TextBox12, 1, 0)
+        Me.TableLayoutPanel19.Controls.Add(Me.txtbox_carrier_path, 1, 0)
         Me.TableLayoutPanel19.Controls.Add(Me.TextBox13, 4, 0)
         Me.TableLayoutPanel19.Controls.Add(Me.TextBox14, 6, 0)
         Me.TableLayoutPanel19.Controls.Add(Me.Label16, 5, 0)
@@ -1268,18 +1268,18 @@ Partial Class userControl
         Me.Label15.Text = "Master Data"
         Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TextBox12
+        'txtbox_carrier_path
         '
-        Me.TextBox12.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.txtbox_carrier_path.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox12.Font = New System.Drawing.Font("굴림", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox12.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.TextBox12.Location = New System.Drawing.Point(104, 3)
-        Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.Size = New System.Drawing.Size(352, 29)
-        Me.TextBox12.TabIndex = 1
-        Me.TextBox12.Text = "클릭시 파일 선택"
+        Me.txtbox_carrier_path.Font = New System.Drawing.Font("굴림", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbox_carrier_path.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.txtbox_carrier_path.Location = New System.Drawing.Point(104, 3)
+        Me.txtbox_carrier_path.Name = "txtbox_carrier_path"
+        Me.txtbox_carrier_path.Size = New System.Drawing.Size(352, 29)
+        Me.txtbox_carrier_path.TabIndex = 1
+        Me.txtbox_carrier_path.Text = "클릭시 파일 선택"
         '
         'TextBox13
         '
@@ -1434,7 +1434,7 @@ Partial Class userControl
         Me.TableLayoutPanel22.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 681.0!))
         Me.TableLayoutPanel22.Controls.Add(Me.Button12, 2, 0)
         Me.TableLayoutPanel22.Controls.Add(Me.Label18, 0, 0)
-        Me.TableLayoutPanel22.Controls.Add(Me.TextBox16, 1, 0)
+        Me.TableLayoutPanel22.Controls.Add(Me.txtbox_limit_path, 1, 0)
         Me.TableLayoutPanel22.Controls.Add(Me.TextBox17, 4, 0)
         Me.TableLayoutPanel22.Controls.Add(Me.TextBox18, 6, 0)
         Me.TableLayoutPanel22.Controls.Add(Me.Label19, 5, 0)
@@ -1471,18 +1471,18 @@ Partial Class userControl
         Me.Label18.Text = "Master Data"
         Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TextBox16
+        'txtbox_limit_path
         '
-        Me.TextBox16.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.txtbox_limit_path.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox16.Font = New System.Drawing.Font("굴림", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox16.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.TextBox16.Location = New System.Drawing.Point(104, 3)
-        Me.TextBox16.Name = "TextBox16"
-        Me.TextBox16.Size = New System.Drawing.Size(352, 29)
-        Me.TextBox16.TabIndex = 1
-        Me.TextBox16.Text = "클릭시 파일 선택"
+        Me.txtbox_limit_path.Font = New System.Drawing.Font("굴림", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbox_limit_path.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.txtbox_limit_path.Location = New System.Drawing.Point(104, 3)
+        Me.txtbox_limit_path.Name = "txtbox_limit_path"
+        Me.txtbox_limit_path.Size = New System.Drawing.Size(352, 29)
+        Me.txtbox_limit_path.TabIndex = 1
+        Me.txtbox_limit_path.Text = "클릭시 파일 선택"
         '
         'TextBox17
         '
@@ -1802,7 +1802,7 @@ Partial Class userControl
         Me.TableLayoutPanel10.ResumeLayout(False)
         Me.TableLayoutPanel10.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
-        Me.TabControl3.ResumeLayout(False)
+        Me.txtbox_search_limit.ResumeLayout(False)
         Me.TabPage6.ResumeLayout(False)
         Me.TableLayoutPanel11.ResumeLayout(False)
         Me.TableLayoutPanel12.ResumeLayout(False)
@@ -1882,7 +1882,7 @@ Partial Class userControl
     Friend WithEvents 마스터데이터관리ToolStripMenuItem As ToolStripMenuItem
     Protected WithEvents btnStart As Button
     Friend WithEvents TabPage2 As TabPage
-    Friend WithEvents TabControl3 As TabControl
+    Friend WithEvents txtbox_search_limit As TabControl
     Friend WithEvents TabPage6 As TabPage
     Friend WithEvents TabPage7 As TabPage
     Friend WithEvents TabPage8 As TabPage
@@ -1906,7 +1906,7 @@ Partial Class userControl
     Friend WithEvents TableLayoutPanel12 As TableLayoutPanel
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents txtbox_search_model As TextBox
     Friend WithEvents grd_master As DataGridView
     Friend WithEvents TableLayoutPanel13 As TableLayoutPanel
     Friend WithEvents Button3 As Button
@@ -1920,12 +1920,12 @@ Partial Class userControl
     Friend WithEvents TableLayoutPanel15 As TableLayoutPanel
     Friend WithEvents Button4 As Button
     Friend WithEvents Button5 As Button
-    Friend WithEvents TextBox7 As TextBox
+    Friend WithEvents txtbox_search_suffix As TextBox
     Friend WithEvents grd_suffix As DataGridView
     Friend WithEvents TableLayoutPanel16 As TableLayoutPanel
     Friend WithEvents Button6 As Button
     Friend WithEvents Label12 As Label
-    Friend WithEvents TextBox8 As TextBox
+    Friend WithEvents txtbox_suffix_path As TextBox
     Friend WithEvents TextBox9 As TextBox
     Friend WithEvents TextBox10 As TextBox
     Friend WithEvents Label13 As Label
@@ -1934,12 +1934,12 @@ Partial Class userControl
     Friend WithEvents TableLayoutPanel18 As TableLayoutPanel
     Friend WithEvents Button7 As Button
     Friend WithEvents Button8 As Button
-    Friend WithEvents TextBox11 As TextBox
+    Friend WithEvents txtbox_search_carrier As TextBox
     Friend WithEvents grd_carrier As DataGridView
     Friend WithEvents TableLayoutPanel19 As TableLayoutPanel
     Friend WithEvents Button9 As Button
     Friend WithEvents Label15 As Label
-    Friend WithEvents TextBox12 As TextBox
+    Friend WithEvents txtbox_carrier_path As TextBox
     Friend WithEvents TextBox13 As TextBox
     Friend WithEvents TextBox14 As TextBox
     Friend WithEvents Label16 As Label
@@ -1953,7 +1953,7 @@ Partial Class userControl
     Friend WithEvents TableLayoutPanel22 As TableLayoutPanel
     Friend WithEvents Button12 As Button
     Friend WithEvents Label18 As Label
-    Friend WithEvents TextBox16 As TextBox
+    Friend WithEvents txtbox_limit_path As TextBox
     Friend WithEvents TextBox17 As TextBox
     Friend WithEvents TextBox18 As TextBox
     Friend WithEvents Label19 As Label

@@ -366,7 +366,20 @@ Public Class userControl
         End If
     End Sub
 
-    Private Sub TextBox4_Click(sender As Object, e As EventArgs) Handles TextBox4.Click '마스터DB 클릭 시 파일 선택, DB 확인, txt 박스 클릭
+    Private Sub TextBox4_Click(sender As Object, e As EventArgs) Handles TextBox4.Click 'hsj test 마스터DB 클릭 시 파일 선택, DB 확인, txt 박스 클릭
+        Dim ofd As OpenFileDialog = New OpenFileDialog With {
+            .Filter = "모든 파일 (*.*) | *.*"
+        }
+        ofd.ShowDialog()
+        Dim path As String = ofd.FileName
+        'txtPath.Text = ofd.FileName 'hsj del
+        TextBox4.Text = ofd.FileName
+        If TextBox4.Text IsNot "" Then
+            NewfileLead()
+        End If
+    End Sub
+    '  업로드 db 경로 불러오기 기능 - 공통 함수로 test 중, 고의로 master db 찾는 부분은 제외할 거임
+    Private Sub txtbox_path_click(sender As Object, e As EventArgs) Handles txtbox_suffix_path.Click, txtbox_carrier_path.Click, txtbox_limit_path.Click, TextBox4.Click '
         Dim ofd As OpenFileDialog = New OpenFileDialog With {
             .Filter = "모든 파일 (*.*) | *.*"
         }
@@ -554,7 +567,7 @@ Public Class userControl
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>    
-    Private Sub txtSearch_Enter(sender As Object, e As EventArgs) Handles txtSearch.Enter
+    Private Sub txtSearch_Enter(sender As Object, e As EventArgs) Handles txtSearch.Enter 'hsj 텍스트 상자에서 포커스가 벗어났을때 발생하는 이벤트 핸들러
         If txtSearch.Text = "모델명 입력" Then
             txtSearch.Text = ""
             txtSearch.ForeColor = Color.Black
@@ -631,21 +644,29 @@ Public Class userControl
     End Sub
 
     'Private Sub TextBox16_TextChanged(sender As Object, e As EventArgs) Handles TextBox16.TextChanged
-    Private Sub TextBox16_TextChanged(sender As Object, e As EventArgs) Handles TextBox16.TextChanged 'txtPath2 = Limit-"클릭시 파일 선택"
+    Private Sub TextBox16_TextChanged(sender As Object, e As EventArgs) Handles txtbox_limit_path.TextChanged 'txtPath2 = Limit-"클릭시 파일 선택"
 
     End Sub
 
     'Private Sub TextBox8_TextChanged(sender As Object, e As EventArgs) Handles TextBox8.TextChanged
-    Private Sub TextBox8_TextChanged(sender As Object, e As EventArgs) Handles TextBox8.TextChanged 'txtPath2 = Suffix-"클릭시 파일 선택"
+    Private Sub TextBox8_TextChanged(sender As Object, e As EventArgs) Handles txtbox_suffix_path.TextChanged 'txtPath2 = Suffix-"클릭시 파일 선택"
 
     End Sub
 
     'Private Sub TextBox12_TextChanged(sender As Object, e As EventArgs) Handles TextBox12.TextChanged
-    Private Sub TextBox12_TextChanged(sender As Object, e As EventArgs) Handles TextBox12.TextChanged 'txtPath3 = Carrier-"클릭시 파일 선택"
+    Private Sub TextBox12_TextChanged(sender As Object, e As EventArgs) Handles txtbox_carrier_path.TextChanged 'txtPath3 = Carrier-"클릭시 파일 선택"
 
     End Sub
 
     Private Sub txtPath1_TextChanged(sender As Object, e As EventArgs) Handles TextBox4.TextChanged 'hsj - 마스터 db ;클릭시 파일 선택; 눌렀을때 이벤트 처리?
+
+    End Sub
+
+    Private Sub txtbox_search_suffix_TextChanged(sender As Object, e As EventArgs) Handles txtbox_search_suffix.TextChanged
+
+    End Sub
+
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
 
     End Sub
 End Class
