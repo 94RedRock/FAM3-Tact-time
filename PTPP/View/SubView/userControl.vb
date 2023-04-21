@@ -386,8 +386,22 @@ Public Class userControl
         ofd.ShowDialog()
         Dim path As String = ofd.FileName
         'txtPath.Text = ofd.FileName 'hsj del
-        TextBox4.Text = ofd.FileName
-        If TextBox4.Text IsNot "" Then
+        '공통 기능 수행을 위해 sender 매개 변수를 사용하여, 클릭한 텍스트 박스에 따라  별도 기능을 사용하도록 하게 한다.
+        If sender Is txtbox_suffix_path Then
+            txtbox_suffix_path.Text = ofd.FileName
+        ElseIf sender Is txtbox_carrier_path Then
+            txtbox_carrier_path.Text = ofd.FileName
+        ElseIf sender Is txtbox_limit_path Then
+            txtbox_limit_path.Text = ofd.FileName
+            'ElseIf sender Is txtbox_master_path Then  'master 모델 path 변경할 예정
+            '    txtbox_master_path.Text = ofd.FileName
+        End If
+        'TextBox4.Text = ofd.FileName
+
+        'If TextBox4.Text IsNot "" Then
+        '    NewfileLead()
+        'End If
+        If sender.Text IsNot "" Then
             NewfileLead()
         End If
     End Sub
