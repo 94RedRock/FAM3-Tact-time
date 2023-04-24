@@ -321,6 +321,32 @@ Public Class userControl
         AllRead()
     End Sub
 
+    ' hsj - DB 종류에 따라서 SqlCMD를 다르게 하기 위해서 새로 제작하는 함수
+    Private Sub AllReadNew()
+        Try
+            Cursor.Current = Cursors.WaitCursor
+
+            DbTable.Rows.Clear()
+            Dim ResultData As String = Nothing
+            Dim SqlCMD As String = " Select RECNO, MODEL, COMPONENT_SET, MAEDZUKE, MAUNT, LEAD_CUTTING, VISUAL_EXAMINATION, PICKUP, ASSAMBLY, M_FUNCTION_CHECK, A_FUNCTION_CHECK, PERSON_EXAMINE, INSPECTION_EQUIPMENT " & "from FAM3_PRODUCT_TIME_TB"
+            EtherUty.EtherSendSQL(ProgramConfig.ReadIniDBSetting("HostIP"), 2005, SqlCMD, ResultData)
+
+            Dim rowArray As String() = ResultData.Split(CChar(vbCrLf))
+            For i = 1 To rowArray.Length - 2
+                Dim colArray As String() = rowArray(i).Split(CChar(","))
+
+                DbTable.Rows.Add(Replace(colArray(0), CChar(vbLf), ""), colArray(1), colArray(2), colArray(3), colArray(4), colArray(5), colArray(6), colArray(7), colArray(8), colArray(9), colArray(10), colArray(11), Replace(colArray(12), "\c", ","))
+            Next
+            DbTable.DefaultView.Sort = "No"
+            'grdRead.DataSource = DbTable  'hsj test할려고 제거
+            grd_master.DataSource = DbTable
+
+        Catch ex As Exception
+            SystemLogger.Instance.ErrorLog(ProgramEnum.LogType.File, "btnAllRead_Click()", ex.Message)
+        End Try
+        Cursor.Current = Cursors.Default
+
+    End Sub
     Private Sub AllRead()
         Try
             Cursor.Current = Cursors.WaitCursor
@@ -402,7 +428,7 @@ Public Class userControl
         '    NewfileLead()
         'End If
         If sender.Text IsNot "" Then
-            NewfileLead()
+            NewfileLoad(sender)
         End If
     End Sub
 
@@ -432,7 +458,8 @@ Public Class userControl
             End Using
         End Using
     End Sub
-    Private Sub NewfileLoadTest()
+    ' hsj 공통으로 업로드할 엑셀 파일 불러오는 함수 제작 진행중
+    Private Sub NewfileLoad(ByVal sender As Object)
         AllRead()
         newDBTable.Clear()
         Dim SelectStatement As String = "SELECT [No], [모델 명], FORMAT([部品SET], 'HH:mm:ss') as [部品SET], FORMAT([前付け], 'HH:mm:ss') as [前付け], FORMAT([MT], 'HH:mm:ss') as [MT], FORMAT([L/C], 'HH:mm:ss') as [L/C], FORMAT([目視], 'HH:mm:ss') as [目視], FORMAT([Pick up], 'HH:mm:ss') as [Pick up],
