@@ -491,7 +491,13 @@ Public Class userControl
             For i = 1 To rowArray.Length - 2
                 Dim colArray As String() = rowArray(i).Split(CChar(","))
                 If sender Is txtbox_suffix_path Then
-                    DbTable.Rows.Add(Replace(colArray(0), CChar(vbLf), ""), colArray(1), colArray(2), colArray(3), colArray(4), colArray(5), colArray(6), colArray(7), colArray(8), colArray(9), colArray(10), colArray(11), Replace(colArray(12), "\c", ","))
+                    DbTable.Rows.Add(Replace(colArray(0), CChar(vbLf), ""), colArray(1), colArray(2), colArray(3), colArray(4))
+                ElseIf sender Is txtbox_carrier_path Then
+                    DbTable.Rows.Add(Replace(colArray(0), CChar(vbLf), ""), colArray(1), colArray(2))
+                ElseIf sender Is txtbox_limit_path Then
+                    DbTable.Rows.Add(Replace(colArray(0), CChar(vbLf), ""), colArray(1), colArray(2), colArray(3))
+                ElseIf sender Is txtbox_master_path Then
+                    DbTable.Rows.Add(Replace(colArray(0), CChar(vbLf), ""), colArray(1), colArray(2), colArray(3), colArray(4), colArray(5), colArray(6), colArray(7), colArray(8), colArray(9), colArray(10), colArray(11), colArray(12), colArray(13), colArray(14), Replace(colArray(15), "\c", ","))
                 End If
             Next
             DbTable.DefaultView.Sort = "No"
