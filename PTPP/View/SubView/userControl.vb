@@ -321,32 +321,6 @@ Public Class userControl
         AllRead()
     End Sub
 
-    ' hsj - DB 종류에 따라서 SqlCMD를 다르게 하기 위해서 새로 제작하는 함수
-    Private Sub AllReadNew()
-        Try
-            Cursor.Current = Cursors.WaitCursor
-
-            DbTable.Rows.Clear()
-            Dim ResultData As String = Nothing
-            Dim SqlCMD As String = " Select RECNO, MODEL, COMPONENT_SET, MAEDZUKE, MAUNT, LEAD_CUTTING, VISUAL_EXAMINATION, PICKUP, ASSAMBLY, M_FUNCTION_CHECK, A_FUNCTION_CHECK, PERSON_EXAMINE, INSPECTION_EQUIPMENT " & "from FAM3_PRODUCT_TIME_TB"
-            EtherUty.EtherSendSQL(ProgramConfig.ReadIniDBSetting("HostIP"), 2005, SqlCMD, ResultData)
-
-            Dim rowArray As String() = ResultData.Split(CChar(vbCrLf))
-            For i = 1 To rowArray.Length - 2
-                Dim colArray As String() = rowArray(i).Split(CChar(","))
-
-                DbTable.Rows.Add(Replace(colArray(0), CChar(vbLf), ""), colArray(1), colArray(2), colArray(3), colArray(4), colArray(5), colArray(6), colArray(7), colArray(8), colArray(9), colArray(10), colArray(11), Replace(colArray(12), "\c", ","))
-            Next
-            DbTable.DefaultView.Sort = "No"
-            'grdRead.DataSource = DbTable  'hsj test할려고 제거
-            grd_master.DataSource = DbTable
-
-        Catch ex As Exception
-            SystemLogger.Instance.ErrorLog(ProgramEnum.LogType.File, "btnAllRead_Click()", ex.Message)
-        End Try
-        Cursor.Current = Cursors.Default
-
-    End Sub
     Private Sub AllRead()
         Try
             Cursor.Current = Cursors.WaitCursor
@@ -392,20 +366,20 @@ Public Class userControl
         End If
     End Sub
 
-    Private Sub TextBox4_Click(sender As Object, e As EventArgs) Handles TextBox4.Click 'hsj test 마스터DB 클릭 시 파일 선택, DB 확인, txt 박스 클릭
+    Private Sub TextBox4_Click(sender As Object, e As EventArgs) Handles txtbox_master_path.Click 'hsj test 마스터DB 클릭 시 파일 선택, DB 확인, txt 박스 클릭
         Dim ofd As OpenFileDialog = New OpenFileDialog With {
             .Filter = "모든 파일 (*.*) | *.*"
         }
         ofd.ShowDialog()
         Dim path As String = ofd.FileName
         'txtPath.Text = ofd.FileName 'hsj del
-        TextBox4.Text = ofd.FileName
-        If TextBox4.Text IsNot "" Then
+        txtbox_master_path.Text = ofd.FileName
+        If txtbox_master_path.Text IsNot "" Then
             NewfileLead()
         End If
     End Sub
     '  업로드 db 경로 불러오기 기능 - 공통 함수로 test 중, 고의로 master db 찾는 부분은 제외할 거임
-    Private Sub txtbox_path_click(sender As Object, e As EventArgs) Handles txtbox_suffix_path.Click, txtbox_carrier_path.Click, txtbox_limit_path.Click, TextBox4.Click '
+    Private Sub txtbox_path_click(sender As Object, e As EventArgs) Handles txtbox_suffix_path.Click, txtbox_carrier_path.Click, txtbox_limit_path.Click, txtbox_master_path.Click '
         Dim ofd As OpenFileDialog = New OpenFileDialog With {
             .Filter = "모든 파일 (*.*) | *.*"
         }
@@ -419,8 +393,8 @@ Public Class userControl
             txtbox_carrier_path.Text = ofd.FileName
         ElseIf sender Is txtbox_limit_path Then
             txtbox_limit_path.Text = ofd.FileName
-            'ElseIf sender Is txtbox_master_path Then  'master 모델 path 변경할 예정
-            '    txtbox_master_path.Text = ofd.FileName
+        ElseIf sender Is txtbox_master_path Then
+            txtbox_master_path.Text = ofd.FileName
         End If
         'TextBox4.Text = ofd.FileName
 
@@ -438,7 +412,7 @@ Public Class userControl
         Dim SelectStatement As String = "SELECT [No], [모델 명], FORMAT([部品SET], 'HH:mm:ss') as [部品SET], FORMAT([前付け], 'HH:mm:ss') as [前付け], FORMAT([MT], 'HH:mm:ss') as [MT], FORMAT([L/C], 'HH:mm:ss') as [L/C], FORMAT([目視], 'HH:mm:ss') as [目視], FORMAT([Pick up], 'HH:mm:ss') as [Pick up],
                                            FORMAT([組立], 'HH:mm:ss') as [組立], FORMAT([機能検査(수동)], 'HH:mm:ss') as [機能検査_수동], FORMAT([機能検査(자동)], 'HH:mm:ss') as [機能検査_자동], FORMAT([2者検査], 'HH:mm:ss') as [2者検査], [검사 설비]  FROM [Sheet1$]"
 
-        Using cn As New OleDb.OleDbConnection With {.ConnectionString = Connection.HeaderConnectionString(TextBox4.Text)}
+        Using cn As New OleDb.OleDbConnection With {.ConnectionString = Connection.HeaderConnectionString(txtbox_master_path.Text)}
             'Using cn As New OleDb.OleDbConnection With {.ConnectionString = Connection.HeaderConnectionString(txtPath.Text)}
             Using cmd As New OleDbCommand With {.Connection = cn, .CommandText = SelectStatement}
 
@@ -460,12 +434,12 @@ Public Class userControl
     End Sub
     ' hsj 공통으로 업로드할 엑셀 파일 불러오는 함수 제작 진행중
     Private Sub NewfileLoad(ByVal sender As Object)
-        AllRead()
+        AllReadNew(sender)
         newDBTable.Clear()
         Dim SelectStatement As String = "SELECT [No], [모델 명], FORMAT([部品SET], 'HH:mm:ss') as [部品SET], FORMAT([前付け], 'HH:mm:ss') as [前付け], FORMAT([MT], 'HH:mm:ss') as [MT], FORMAT([L/C], 'HH:mm:ss') as [L/C], FORMAT([目視], 'HH:mm:ss') as [目視], FORMAT([Pick up], 'HH:mm:ss') as [Pick up],
                                            FORMAT([組立], 'HH:mm:ss') as [組立], FORMAT([機能検査(수동)], 'HH:mm:ss') as [機能検査_수동], FORMAT([機能検査(자동)], 'HH:mm:ss') as [機能検査_자동], FORMAT([2者検査], 'HH:mm:ss') as [2者検査], [검사 설비]  FROM [Sheet1$]"
 
-        Using cn As New OleDb.OleDbConnection With {.ConnectionString = Connection.HeaderConnectionString(TextBox4.Text)}
+        Using cn As New OleDb.OleDbConnection With {.ConnectionString = Connection.HeaderConnectionString(txtbox_master_path.Text)}
             'Using cn As New OleDb.OleDbConnection With {.ConnectionString = Connection.HeaderConnectionString(txtPath.Text)}
             Using cmd As New OleDbCommand With {.Connection = cn, .CommandText = SelectStatement}
 
@@ -484,6 +458,51 @@ Public Class userControl
 
             End Using
         End Using
+    End Sub
+
+    ' hsj - DB 종류에 따라서 SqlCMD를 다르게 하기 위해서 새로 제작하는 함수
+    Private Sub AllReadNew(ByVal sender As Object)
+        Try
+            Cursor.Current = Cursors.WaitCursor
+
+            DbTable.Rows.Clear()
+            Dim ResultData As String = Nothing
+            'Console.WriteLine(sender.GetType.Name)
+            If sender Is txtbox_suffix_path Then
+                Dim SqlCMD As String = " Select REC_NO, SUFFIX, ADDITIONAL_MAOUNTING, ADDITIONAL_ASSEMBLY " & "from FAM3_SUFFIX_TIME_TB_TST" 'suffix db 데이터 불러오는 커맨드
+                EtherUty.EtherSendSQL(ProgramConfig.ReadIniDBSetting("HostIP"), 2005, SqlCMD, ResultData)   ' 중복 제거 필요? - 조건문 밖으로 빼면, SqlCMD 정의를 다시 해야함
+            ElseIf sender Is txtbox_carrier_path Then
+                Dim SqlCMD As String = " Select RECNO, CARRIER, LIMIT, QUANTITY " & "from FAM3_CARRIER_TB_TST" ' 캐리어 종류 db 불러오기
+                EtherUty.EtherSendSQL(ProgramConfig.ReadIniDBSetting("HostIP"), 2005, SqlCMD, ResultData)
+            ElseIf sender Is txtbox_limit_path Then
+                Dim SqlCMD As String = " Select RECNO, MODEL, CARRIER " & "from FAM3_LIMIT_CARRIER_TB_TST" ' 캐리어 제한대수 db 불러오기
+                EtherUty.EtherSendSQL(ProgramConfig.ReadIniDBSetting("HostIP"), 2005, SqlCMD, ResultData)
+            ElseIf sender Is txtbox_master_path Then
+                Dim SqlCMD As String = " Select RECNO, MODEL, ACCESSORY, COMPONENT_SET, MAEDZUKE, MAUNT, LEAD_CUTTING, VISUAL_EXAMINATION, PLUS_MAUNT, PICKUP, ASSEMBLY, M_FUNCTION_CHECK, A_FUNCTION_CHECK, PERSON_EXAMINE, INSPECTION_EQUIPMENT, PLUS_ASSEMBLY " & "from FAM3_MODEL_TIME_TB_TST" ' 마스터 db 불러오기
+                EtherUty.EtherSendSQL(ProgramConfig.ReadIniDBSetting("HostIP"), 2005, SqlCMD, ResultData)
+            End If
+
+            '조건문에 삽입할 내용 start
+            'Dim SqlCMD As String = " Select RECNO, MODEL, COMPONENT_SET, MAEDZUKE, MAUNT, LEAD_CUTTING, VISUAL_EXAMINATION, PICKUP, ASSAMBLY, M_FUNCTION_CHECK, A_FUNCTION_CHECK, PERSON_EXAMINE, INSPECTION_EQUIPMENT " & "from FAM3_PRODUCT_TIME_TB"
+            'EtherUty.EtherSendSQL(ProgramConfig.ReadIniDBSetting("HostIP"), 2005, SqlCMD, ResultData)
+
+            ' hsjdb테이블에 별도로 저장하기
+            Dim rowArray As String() = ResultData.Split(CChar(vbCrLf))
+            For i = 1 To rowArray.Length - 2
+                Dim colArray As String() = rowArray(i).Split(CChar(","))
+                If sender Is txtbox_suffix_path Then
+                    DbTable.Rows.Add(Replace(colArray(0), CChar(vbLf), ""), colArray(1), colArray(2), colArray(3), colArray(4), colArray(5), colArray(6), colArray(7), colArray(8), colArray(9), colArray(10), colArray(11), Replace(colArray(12), "\c", ","))
+                End If
+            Next
+            DbTable.DefaultView.Sort = "No"
+            'grdRead.DataSource = DbTable  'hsj test할려고 제거
+            grd_master.DataSource = DbTable
+
+        Catch ex As Exception
+            SystemLogger.Instance.ErrorLog(ProgramEnum.LogType.File, "btnAllRead_Click()", ex.Message)
+        End Try
+        Cursor.Current = Cursors.Default
+
     End Sub
 
     ''' <summary>
@@ -725,7 +744,7 @@ Public Class userControl
 
     End Sub
 
-    Private Sub txtPath1_TextChanged(sender As Object, e As EventArgs) Handles TextBox4.TextChanged 'hsj - 마스터 db ;클릭시 파일 선택; 눌렀을때 이벤트 처리?
+    Private Sub txtPath1_TextChanged(sender As Object, e As EventArgs) Handles txtbox_master_path.TextChanged 'hsj - 마스터 db ;클릭시 파일 선택; 눌렀을때 이벤트 처리?
 
     End Sub
 
