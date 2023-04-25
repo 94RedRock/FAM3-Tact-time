@@ -15,7 +15,7 @@ Public Class userControl
     Private newDBTable As New System.Data.DataTable
     Public masterDatalist As New List(Of DataCenter)
 
-    Public Sub New()
+    Public Sub New(ByVal DbType As Object)
 
         InitializeComponent()
 
@@ -63,7 +63,7 @@ Public Class userControl
         DbTable.Columns.Add(" 機能検査_자동", GetType(String))
         DbTable.Columns.Add("2者検査", GetType(String))
         DbTable.Columns.Add("검사설비", GetType(String))
-
+        '프로시저로 만들어서 배열을 
     End Sub
 
     ''' <summary>
@@ -446,7 +446,7 @@ Public Class userControl
         ElseIf sender Is txtbox_limit_path Then
             SelectStatement = "SELECT [No], [캐리어 명], [제한 대수], [수량]  FROM [Sheet1$]"
         ElseIf sender Is txtbox_master_path Then
-            'Dim SelectStatement As String =   'Suffix 추가 공수 비교 인지 처리 어떻게?
+            SelectStatement = "SELECT [No], [모델 명], [부속품], [수량]  FROM [Sheet1$]"
         End If
 
 
@@ -543,7 +543,8 @@ Public Class userControl
 
     End Sub
     Private Sub CompareDataNew(ByVal sender As Object)
-        Dim arrOb As Object() = DbTable.[Select]().[Select](Function(x) x("모델명")).ToArray()
+        'Dim arrOb As Object() = DbTable.[Select]().[Select](Function(x) x("모델명")).ToArray() 'x("모델명")을 x(1)로 변경 검토중
+        Dim arrOb As Object() = DbTable.[Select]().[Select](Function(x) x(1)).ToArray()
         Dim dbModel As String() = arrOb.Cast(Of String)().ToArray()
 
         For i As Integer = 0 To newDBTable.Rows.Count - 1 ' Range.Rows.Count
@@ -551,14 +552,14 @@ Public Class userControl
                 If dbModel.Contains(Replace(newDBTable.Rows(i).ItemArray(1).ToString(), " ", "")) Then
                     For j As Integer = 0 To DbTable.Rows.Count - 1
                         If Replace(newDBTable.Rows(i).ItemArray(1).ToString(), " ", "") = DbTable.Rows(j).ItemArray(1).ToString() Then
-                            For t As Integer = 2 To 12
+                            For t As Integer = 2 To 12 'DB 종류별로 컬럼 길이 설정을 따로 해줘야 할 것 같습니다. 그냥 그대로 사용하면 err가 발생할까?
                                 If Replace(newDBTable.Rows(i).ItemArray(t).ToString(), " ", "") = DbTable.Rows(j).ItemArray(t).ToString() Then
                                 Else
                                     grd_master.Rows(i).Cells(t).Style.BackColor = Color.Yellow
                                     grd_master.Rows(i).Cells(0).Style.BackColor = Color.Yellow
                                     grd_master.Rows(i).Cells(1).Style.BackColor = Color.Yellow
                                     'grdRead.Rows(i).Cells(t).Style.BackColor = Color.Yellow  ' grdRead 변수 변경 필요
-                                    'grdRead.Rows(i).Cells(0).Style.BackColor = Color.Yellow  ' Cells(0), (1)가 뭐냐
+                                    'grdRead.Rows(i).Cells(0).Style.BackColor = Color.Yellow  ' Cells(0) = No, (1) = 모델명
                                     'grdRead.Rows(i).Cells(1).Style.BackColor = Color.Yellow
                                 End If
                             Next
@@ -571,7 +572,7 @@ Public Class userControl
                 End If
             Catch ex As Exception
                 Console.WriteLine(ex.Message)
-                MessageBox.Show("Data Compare NG.")
+                MessageBox.Show("Data Compare NG")
 
             End Try
 
