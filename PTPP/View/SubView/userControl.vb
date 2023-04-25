@@ -436,8 +436,22 @@ Public Class userControl
     Private Sub NewfileLoad(ByVal sender As Object)
         AllReadNew(sender)
         newDBTable.Clear()
-        Dim SelectStatement As String = "SELECT [No], [모델 명], FORMAT([部品SET], 'HH:mm:ss') as [部品SET], FORMAT([前付け], 'HH:mm:ss') as [前付け], FORMAT([MT], 'HH:mm:ss') as [MT], FORMAT([L/C], 'HH:mm:ss') as [L/C], FORMAT([目視], 'HH:mm:ss') as [目視], FORMAT([Pick up], 'HH:mm:ss') as [Pick up],
-                                           FORMAT([組立], 'HH:mm:ss') as [組立], FORMAT([機能検査(수동)], 'HH:mm:ss') as [機能検査_수동], FORMAT([機能検査(자동)], 'HH:mm:ss') as [機能検査_자동], FORMAT([2者検査], 'HH:mm:ss') as [2者検査], [검사 설비]  FROM [Sheet1$]"
+
+        Dim SelectStatement As String
+
+        If sender Is txtbox_suffix_path Then
+            SelectStatement = "SELECT [No], [SUFFIX], FORMAT([추가 마운팅], 'HH:mm:ss') as [추가 마운팅], FORMAT([추가 조립], 'HH:mm:ss') as [추가 조립]  FROM [Sheet1$]"
+        ElseIf sender Is txtbox_carrier_path Then
+            SelectStatement = "SELECT [No], [모델명], [사용 캐리어] FROM [Sheet1$]"
+        ElseIf sender Is txtbox_limit_path Then
+            SelectStatement = "SELECT [No], [캐리어 명], [제한 대수], [수량]  FROM [Sheet1$]"
+        ElseIf sender Is txtbox_master_path Then
+            'Dim SelectStatement As String =   'Suffix 추가 공수 비교 인지 처리 어떻게?
+        End If
+
+
+        'Dim SelectStatement As String = "SELECT [No], [모델 명], FORMAT([部品SET], 'HH:mm:ss') as [部品SET], FORMAT([前付け], 'HH:mm:ss') as [前付け], FORMAT([MT], 'HH:mm:ss') as [MT], FORMAT([L/C], 'HH:mm:ss') as [L/C], FORMAT([目視], 'HH:mm:ss') as [目視], FORMAT([Pick up], 'HH:mm:ss') as [Pick up],
+        'Format([組立], 'HH:mm:ss') as [組立], FORMAT([機能検査(수동)], 'HH:mm:ss') as [機能検査_수동], FORMAT([機能検査(자동)], 'HH:mm:ss') as [機能検査_자동], FORMAT([2者検査], 'HH:mm:ss') as [2者検査], [검사 설비]  FROM [Sheet1$]"
 
         Using cn As New OleDb.OleDbConnection With {.ConnectionString = Connection.HeaderConnectionString(txtbox_master_path.Text)}
             'Using cn As New OleDb.OleDbConnection With {.ConnectionString = Connection.HeaderConnectionString(txtPath.Text)}
@@ -447,9 +461,18 @@ Public Class userControl
                 Try
                     newDBTable.Load(cmd.ExecuteReader)
                     'grdRead.DataSource = newDBTable
-                    grd_master.DataSource = newDBTable
+                    'grd_master.DataSource = newDBTable
+                    If sender Is txtbox_suffix_path Then
+                        grd_suffix.DataSource = DbTable
+                    ElseIf sender Is txtbox_carrier_path Then
+                        grd_carrier.DataSource = DbTable
+                    ElseIf sender Is txtbox_limit_path Then
+                        grd_limit.DataSource = DbTable
+                    ElseIf sender Is txtbox_master_path Then
+                        grd_master.DataSource = DbTable
+                    End If
 
-                    CompareData()
+                    CompareDataNew(sender)
 
                 Catch ex As Exception
                     Console.WriteLine(ex.Message)
@@ -491,7 +514,8 @@ Public Class userControl
             For i = 1 To rowArray.Length - 2
                 Dim colArray As String() = rowArray(i).Split(CChar(","))
                 If sender Is txtbox_suffix_path Then
-                    DbTable.Rows.Add(Replace(colArray(0), CChar(vbLf), ""), colArray(1), colArray(2), colArray(3), colArray(4))
+                    'DbTable.Rows.Add(Replace(colArray(0), CChar(vbLf), ""), colArray(1), colArray(2), colArray(3), colArray(4))
+                    DbTable.Rows.Add(Replace(colArray(0), CChar(vbLf), ""), colArray(1), colArray(2), colArray(3))
                 ElseIf sender Is txtbox_carrier_path Then
                     DbTable.Rows.Add(Replace(colArray(0), CChar(vbLf), ""), colArray(1), colArray(2))
                 ElseIf sender Is txtbox_limit_path Then
@@ -502,13 +526,57 @@ Public Class userControl
             Next
             DbTable.DefaultView.Sort = "No"
             'grdRead.DataSource = DbTable  'hsj test할려고 제거
-            grd_master.DataSource = DbTable
+            If sender Is txtbox_suffix_path Then
+                grd_suffix.DataSource = DbTable
+            ElseIf sender Is txtbox_carrier_path Then
+                grd_carrier.DataSource = DbTable
+            ElseIf sender Is txtbox_limit_path Then
+                grd_limit.DataSource = DbTable
+            ElseIf sender Is txtbox_master_path Then
+                grd_master.DataSource = DbTable
+            End If
 
         Catch ex As Exception
             SystemLogger.Instance.ErrorLog(ProgramEnum.LogType.File, "btnAllRead_Click()", ex.Message)
         End Try
         Cursor.Current = Cursors.Default
 
+    End Sub
+    Private Sub CompareDataNew(ByVal sender As Object)
+        Dim arrOb As Object() = DbTable.[Select]().[Select](Function(x) x("모델명")).ToArray()
+        Dim dbModel As String() = arrOb.Cast(Of String)().ToArray()
+
+        For i As Integer = 0 To newDBTable.Rows.Count - 1 ' Range.Rows.Count
+            Try ' 에러 확인 용 try
+                If dbModel.Contains(Replace(newDBTable.Rows(i).ItemArray(1).ToString(), " ", "")) Then
+                    For j As Integer = 0 To DbTable.Rows.Count - 1
+                        If Replace(newDBTable.Rows(i).ItemArray(1).ToString(), " ", "") = DbTable.Rows(j).ItemArray(1).ToString() Then
+                            For t As Integer = 2 To 12
+                                If Replace(newDBTable.Rows(i).ItemArray(t).ToString(), " ", "") = DbTable.Rows(j).ItemArray(t).ToString() Then
+                                Else
+                                    grd_master.Rows(i).Cells(t).Style.BackColor = Color.Yellow
+                                    grd_master.Rows(i).Cells(0).Style.BackColor = Color.Yellow
+                                    grd_master.Rows(i).Cells(1).Style.BackColor = Color.Yellow
+                                    'grdRead.Rows(i).Cells(t).Style.BackColor = Color.Yellow  ' grdRead 변수 변경 필요
+                                    'grdRead.Rows(i).Cells(0).Style.BackColor = Color.Yellow  ' Cells(0), (1)가 뭐냐
+                                    'grdRead.Rows(i).Cells(1).Style.BackColor = Color.Yellow
+                                End If
+                            Next
+                        End If
+                    Next
+                Else
+                    For f As Integer = 0 To 12
+                        grdRead.Rows(i).Cells(f).Style.BackColor = Color.DarkOrange
+                    Next
+                End If
+            Catch ex As Exception
+                Console.WriteLine(ex.Message)
+                MessageBox.Show("Data Compare NG.")
+
+            End Try
+
+
+        Next
     End Sub
 
     ''' <summary>
