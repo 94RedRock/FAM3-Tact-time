@@ -15,10 +15,20 @@ Public Class userControl
     Private newDBTable As New System.Data.DataTable
     Public masterDatalist As New List(Of DataCenter)
 
-    Public Sub New(ByVal DbType As Object)
+    Public Sub New()
+        'ByVal DbType As Object
 
         InitializeComponent()
 
+        'hsj 배열로 테이블 만들기
+        Dim list_dbtable_master() As String = {"No", "모델 명", "部品SET", "前付け", "MT", "L/C", "目視", "Pick up", "組立", "機能検査(수동)", "機能検査(자동)", "2者検査", "검사 설비"}
+        Dim list_dbtable_suffix() As String = {"No", "SUFFIX", "추가 마운팅", "추가 조립"}
+        Dim list_dbtable_carrier() As String = {"No", "모델명", "사용 캐리어"}
+        Dim list_dbtable_limit() As String = {"No", "캐리어 명", "제한 대수", "수량"}
+
+        'If Then
+
+        'End If
         _userControlPresenter = New userControlPresenter(Me)
         detailTable.Columns.Add("No", GetType(Int32))
         detailTable.Columns.Add("Model", GetType(String))
@@ -50,20 +60,25 @@ Public Class userControl
         inspectionTable.Columns.Add("총시간", GetType(String))
         inspectionTable.Columns.Add("부하율", GetType(String))
 
-        DbTable.Columns.Add("No", GetType(Int32))
-        DbTable.Columns.Add("모델명", GetType(String))
-        DbTable.Columns.Add("部品SET", GetType(String))
-        DbTable.Columns.Add("前付け", GetType(String))
-        DbTable.Columns.Add("MT", GetType(String))
-        DbTable.Columns.Add("L/C", GetType(String))
-        DbTable.Columns.Add("目視", GetType(String))
-        DbTable.Columns.Add("Pickup", GetType(String))
-        DbTable.Columns.Add("組立", GetType(String))
-        DbTable.Columns.Add(" 機能検査_수동", GetType(String))
-        DbTable.Columns.Add(" 機能検査_자동", GetType(String))
-        DbTable.Columns.Add("2者検査", GetType(String))
-        DbTable.Columns.Add("검사설비", GetType(String))
+        'DbTable.Columns.Add("No", GetType(Int32))
+        'DbTable.Columns.Add("모델명", GetType(String))
+        'DbTable.Columns.Add("部品SET", GetType(String))
+        'DbTable.Columns.Add("前付け", GetType(String))
+        'DbTable.Columns.Add("MT", GetType(String))
+        'DbTable.Columns.Add("L/C", GetType(String))
+        'DbTable.Columns.Add("目視", GetType(String))
+        'DbTable.Columns.Add("Pickup", GetType(String))
+        'DbTable.Columns.Add("組立", GetType(String))
+        'DbTable.Columns.Add(" 機能検査_수동", GetType(String))
+        'DbTable.Columns.Add(" 機能検査_자동", GetType(String))
+        'DbTable.Columns.Add("2者検査", GetType(String))
+        'DbTable.Columns.Add("검사설비", GetType(String))
+        DbTable.Columns.Add("No", GetType(String))
+        DbTable.Columns.Add("SUFFIX", GetType(String))
+        DbTable.Columns.Add("추가 마운팅", GetType(String))
+        DbTable.Columns.Add("추가 조립", GetType(String))
         '프로시저로 만들어서 배열을 
+
     End Sub
 
     ''' <summary>
@@ -366,18 +381,19 @@ Public Class userControl
         End If
     End Sub
 
-    Private Sub TextBox4_Click(sender As Object, e As EventArgs) Handles txtbox_master_path.Click 'hsj test 마스터DB 클릭 시 파일 선택, DB 확인, txt 박스 클릭
-        Dim ofd As OpenFileDialog = New OpenFileDialog With {
-            .Filter = "모든 파일 (*.*) | *.*"
-        }
-        ofd.ShowDialog()
-        Dim path As String = ofd.FileName
-        'txtPath.Text = ofd.FileName 'hsj del
-        txtbox_master_path.Text = ofd.FileName
-        If txtbox_master_path.Text IsNot "" Then
-            NewfileLead()
-        End If
-    End Sub
+    'txtbox test용
+    'Private Sub TextBox4_Click(sender As Object, e As EventArgs) Handles txtbox_master_path.Click 'hsj test 마스터DB 클릭 시 파일 선택, DB 확인, txt 박스 클릭
+    '    Dim ofd As OpenFileDialog = New OpenFileDialog With {
+    '        .Filter = "모든 파일 (*.*) | *.*"
+    '    }
+    '    ofd.ShowDialog()
+    '    Dim path As String = ofd.FileName
+    '    'txtPath.Text = ofd.FileName 'hsj del
+    '    txtbox_master_path.Text = ofd.FileName
+    '    If txtbox_master_path.Text IsNot "" Then
+    '        NewfileLead()
+    '    End If
+    'End Sub
     '  업로드 db 경로 불러오기 기능 - 공통 함수로 test 중, 고의로 master db 찾는 부분은 제외할 거임
     Private Sub txtbox_path_click(sender As Object, e As EventArgs) Handles txtbox_suffix_path.Click, txtbox_carrier_path.Click, txtbox_limit_path.Click, txtbox_master_path.Click '
         Dim ofd As OpenFileDialog = New OpenFileDialog With {
@@ -453,7 +469,8 @@ Public Class userControl
         'Dim SelectStatement As String = "SELECT [No], [모델 명], FORMAT([部品SET], 'HH:mm:ss') as [部品SET], FORMAT([前付け], 'HH:mm:ss') as [前付け], FORMAT([MT], 'HH:mm:ss') as [MT], FORMAT([L/C], 'HH:mm:ss') as [L/C], FORMAT([目視], 'HH:mm:ss') as [目視], FORMAT([Pick up], 'HH:mm:ss') as [Pick up],
         'Format([組立], 'HH:mm:ss') as [組立], FORMAT([機能検査(수동)], 'HH:mm:ss') as [機能検査_수동], FORMAT([機能検査(자동)], 'HH:mm:ss') as [機能検査_자동], FORMAT([2者検査], 'HH:mm:ss') as [2者検査], [검사 설비]  FROM [Sheet1$]"
 
-        Using cn As New OleDb.OleDbConnection With {.ConnectionString = Connection.HeaderConnectionString(txtbox_master_path.Text)}
+        Using cn As New OleDb.OleDbConnection With {.ConnectionString = Connection.HeaderConnectionString(sender.Text)}
+            'Using cn As New OleDb.OleDbConnection With {.ConnectionString = Connection.HeaderConnectionString(txtbox_master_path.Text)}
             'Using cn As New OleDb.OleDbConnection With {.ConnectionString = Connection.HeaderConnectionString(txtPath.Text)}
             Using cmd As New OleDbCommand With {.Connection = cn, .CommandText = SelectStatement}
 
@@ -521,7 +538,7 @@ Public Class userControl
                 ElseIf sender Is txtbox_limit_path Then
                     DbTable.Rows.Add(Replace(colArray(0), CChar(vbLf), ""), colArray(1), colArray(2), colArray(3))
                 ElseIf sender Is txtbox_master_path Then
-                    DbTable.Rows.Add(Replace(colArray(0), CChar(vbLf), ""), colArray(1), colArray(2), colArray(3), colArray(4), colArray(5), colArray(6), colArray(7), colArray(8), colArray(9), colArray(10), colArray(11), colArray(12), colArray(13), colArray(14), Replace(colArray(15), "\c", ","))
+                    DbTable.Rows.Add(Replace(colArray(0), CChar(vbLf), ""), colArray(1), colArray(2), colArray(3), colArray(4), colArray(5), colArray(6), colArray(7), colArray(8), colArray(9), colArray(10), colArray(11), colArray(12), Replace(colArray(13), "\c", ","))
                 End If
             Next
             DbTable.DefaultView.Sort = "No"
@@ -546,18 +563,34 @@ Public Class userControl
         'Dim arrOb As Object() = DbTable.[Select]().[Select](Function(x) x("모델명")).ToArray() 'x("모델명")을 x(1)로 변경 검토중
         Dim arrOb As Object() = DbTable.[Select]().[Select](Function(x) x(1)).ToArray()
         Dim dbModel As String() = arrOb.Cast(Of String)().ToArray()
+        Dim set_grd As Object 'DB별 data grid 설정 변수
+        Dim k As Integer '인덱스 길이 설정 변수
+        If sender Is txtbox_suffix_path Then
+            set_grd = grd_suffix
+            k = 3
+        ElseIf sender Is txtbox_carrier_path Then
+            set_grd = grd_carrier
+            k = 2
+        ElseIf sender Is txtbox_limit_path Then
+            set_grd = grd_limit
+            k = 3
+        ElseIf sender Is txtbox_master_path Then
+            set_grd = grd_master
+            k = 3
+        End If
 
         For i As Integer = 0 To newDBTable.Rows.Count - 1 ' Range.Rows.Count
             Try ' 에러 확인 용 try
                 If dbModel.Contains(Replace(newDBTable.Rows(i).ItemArray(1).ToString(), " ", "")) Then
                     For j As Integer = 0 To DbTable.Rows.Count - 1
                         If Replace(newDBTable.Rows(i).ItemArray(1).ToString(), " ", "") = DbTable.Rows(j).ItemArray(1).ToString() Then
-                            For t As Integer = 2 To 12 'DB 종류별로 컬럼 길이 설정을 따로 해줘야 할 것 같습니다. 그냥 그대로 사용하면 err가 발생할까?
+                            'For t As Integer = 2 To 12 'DB 종류별로 컬럼 길이 설정을 따로 해줘야 할 것 같습니다. 그냥 그대로 사용하면 err가 발생할까?
+                            For t As Integer = 2 To k
                                 If Replace(newDBTable.Rows(i).ItemArray(t).ToString(), " ", "") = DbTable.Rows(j).ItemArray(t).ToString() Then
                                 Else
-                                    grd_master.Rows(i).Cells(t).Style.BackColor = Color.Yellow
-                                    grd_master.Rows(i).Cells(0).Style.BackColor = Color.Yellow
-                                    grd_master.Rows(i).Cells(1).Style.BackColor = Color.Yellow
+                                    set_grd.Rows(i).Cells(t).Style.BackColor = Color.Yellow
+                                    set_grd.Rows(i).Cells(0).Style.BackColor = Color.Yellow
+                                    set_grd.Rows(i).Cells(1).Style.BackColor = Color.Yellow
                                     'grdRead.Rows(i).Cells(t).Style.BackColor = Color.Yellow  ' grdRead 변수 변경 필요
                                     'grdRead.Rows(i).Cells(0).Style.BackColor = Color.Yellow  ' Cells(0) = No, (1) = 모델명
                                     'grdRead.Rows(i).Cells(1).Style.BackColor = Color.Yellow
@@ -566,8 +599,9 @@ Public Class userControl
                         End If
                     Next
                 Else
-                    For f As Integer = 0 To 12
-                        grdRead.Rows(i).Cells(f).Style.BackColor = Color.DarkOrange
+                    For f As Integer = 0 To k
+                        set_grd.Rows(i).Cells(f).Style.BackColor = Color.DarkOrange
+                        'grdRead.Rows(i).Cells(f).Style.BackColor = Color.DarkOrange
                     Next
                 End If
             Catch ex As Exception
