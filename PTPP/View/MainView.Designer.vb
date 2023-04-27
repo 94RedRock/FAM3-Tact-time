@@ -32,7 +32,7 @@ Partial Class MainView
         Me.RibbonButton5 = New System.Windows.Forms.RibbonButton()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.RibbonTab2 = New System.Windows.Forms.RibbonTab()
-        Me.UserControl1 = New PTPP.userControl()
+        Me.UserControl1 = New PTPP.userControl() '초기화에 들어가는 부분이 맞는가?, prg에 기본적으로 필요한 부분일수도 
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '

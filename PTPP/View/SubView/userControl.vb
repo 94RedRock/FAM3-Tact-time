@@ -26,7 +26,15 @@ Public Class userControl
         Dim list_dbtable_carrier() As String = {"No", "모델명", "사용 캐리어"}
         Dim list_dbtable_limit() As String = {"No", "캐리어 명", "제한 대수", "수량"}
 
-        'If Then
+        If txtbox_suffix_path.Text.IndexOf("SUFFIX") Then
+            For i As Integer = 0 To 3
+                If i = 0 Then
+                    DbTable.Columns.Add(list_dbtable_carrier(i), GetType(Int32))
+                Else
+                    DbTable.Columns.Add(list_dbtable_carrier(i), GetType(String))
+                End If
+            Next
+        End If
 
         'End If
         _userControlPresenter = New userControlPresenter(Me)
@@ -73,10 +81,11 @@ Public Class userControl
         'DbTable.Columns.Add(" 機能検査_자동", GetType(String))
         'DbTable.Columns.Add("2者検査", GetType(String))
         'DbTable.Columns.Add("검사설비", GetType(String))
-        DbTable.Columns.Add("No", GetType(String))
-        DbTable.Columns.Add("SUFFIX", GetType(String))
-        DbTable.Columns.Add("추가 마운팅", GetType(String))
-        DbTable.Columns.Add("추가 조립", GetType(String))
+
+        'DbTable.Columns.Add("No", GetType(String))
+        'DbTable.Columns.Add("SUFFIX", GetType(String))
+        'DbTable.Columns.Add("추가 마운팅", GetType(String))
+        'DbTable.Columns.Add("추가 조립", GetType(String))
         '프로시저로 만들어서 배열을 
 
     End Sub
