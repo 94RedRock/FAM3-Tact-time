@@ -20,22 +20,6 @@ Public Class userControl
 
         InitializeComponent()
 
-        'hsj 배열로 테이블 만들기
-        Dim list_dbtable_master() As String = {"No", "모델 명", "部品SET", "前付け", "MT", "L/C", "目視", "Pick up", "組立", "機能検査(수동)", "機能検査(자동)", "2者検査", "검사 설비"}
-        Dim list_dbtable_suffix() As String = {"No", "SUFFIX", "추가 마운팅", "추가 조립"}
-        Dim list_dbtable_carrier() As String = {"No", "모델명", "사용 캐리어"}
-        Dim list_dbtable_limit() As String = {"No", "캐리어 명", "제한 대수", "수량"}
-
-        If txtbox_suffix_path.Text.IndexOf("SUFFIX") Then
-            For i As Integer = 0 To 3
-                If i = 0 Then
-                    DbTable.Columns.Add(list_dbtable_carrier(i), GetType(Int32))
-                Else
-                    DbTable.Columns.Add(list_dbtable_carrier(i), GetType(String))
-                End If
-            Next
-        End If
-
         'End If
         _userControlPresenter = New userControlPresenter(Me)
         detailTable.Columns.Add("No", GetType(Int32))
@@ -68,19 +52,19 @@ Public Class userControl
         inspectionTable.Columns.Add("총시간", GetType(String))
         inspectionTable.Columns.Add("부하율", GetType(String))
 
-        'DbTable.Columns.Add("No", GetType(Int32))
-        'DbTable.Columns.Add("모델명", GetType(String))
-        'DbTable.Columns.Add("部品SET", GetType(String))
-        'DbTable.Columns.Add("前付け", GetType(String))
-        'DbTable.Columns.Add("MT", GetType(String))
-        'DbTable.Columns.Add("L/C", GetType(String))
-        'DbTable.Columns.Add("目視", GetType(String))
-        'DbTable.Columns.Add("Pickup", GetType(String))
-        'DbTable.Columns.Add("組立", GetType(String))
-        'DbTable.Columns.Add(" 機能検査_수동", GetType(String))
-        'DbTable.Columns.Add(" 機能検査_자동", GetType(String))
-        'DbTable.Columns.Add("2者検査", GetType(String))
-        'DbTable.Columns.Add("검사설비", GetType(String))
+        DbTable.Columns.Add("No", GetType(Int32))
+        DbTable.Columns.Add("모델명", GetType(String))
+        DbTable.Columns.Add("部品SET", GetType(String))
+        DbTable.Columns.Add("前付け", GetType(String))
+        DbTable.Columns.Add("MT", GetType(String))
+        DbTable.Columns.Add("L/C", GetType(String))
+        DbTable.Columns.Add("目視", GetType(String))
+        DbTable.Columns.Add("Pickup", GetType(String))
+        DbTable.Columns.Add("組立", GetType(String))
+        DbTable.Columns.Add(" 機能検査_수동", GetType(String))
+        DbTable.Columns.Add(" 機能検査_자동", GetType(String))
+        DbTable.Columns.Add("2者検査", GetType(String))
+        DbTable.Columns.Add("검사설비", GetType(String))
 
         'DbTable.Columns.Add("No", GetType(String))
         'DbTable.Columns.Add("SUFFIX", GetType(String))
@@ -426,6 +410,49 @@ Public Class userControl
         'If TextBox4.Text IsNot "" Then
         '    NewfileLead()
         'End If
+        '파일 선택 클릭시 db table clear
+        DbTable.Columns.Clear()
+
+        'hsj 배열로 테이블 만들기
+        Dim list_dbtable_master() As String = {"No", "부속품", "모델 명", "部品SET", "前付け", "MT", "L/C", "目視", "Pick up", "組立", "機能検査(수동)", "機能検査(자동)", "2者検査", "검사 설비"}
+        Dim list_dbtable_suffix() As String = {"No", "SUFFIX", "추가 마운팅", "추가 조립"}
+        Dim list_dbtable_carrier() As String = {"No", "모델명", "사용 캐리어"}
+        Dim list_dbtable_limit() As String = {"No", "캐리어 명", "제한 대수", "수량"}
+
+        If txtbox_suffix_path.Text.IndexOf("SUFFIX") >= 0 Then '클릭시 파일 선택 ,SUFFIX
+            For i As Integer = 0 To 3
+                If i = 0 Then
+                    DbTable.Columns.Add(list_dbtable_suffix(i), GetType(Int32))
+                Else
+                    DbTable.Columns.Add(list_dbtable_suffix(i), GetType(String))
+                End If
+            Next
+        ElseIf txtbox_carrier_path.Text.IndexOf("MODEL") >= 0 Then
+            For i As Integer = 0 To 2
+                If i = 0 Then
+                    DbTable.Columns.Add(list_dbtable_carrier(i), GetType(Int32))
+                Else
+                    DbTable.Columns.Add(list_dbtable_carrier(i), GetType(String))
+                End If
+            Next
+        ElseIf txtbox_limit_path.Text.IndexOf("LIMIT") >= 0 Then
+            For i As Integer = 0 To 3
+                If i = 0 Then
+                    DbTable.Columns.Add(list_dbtable_limit(i), GetType(Int32))
+                Else
+                    DbTable.Columns.Add(list_dbtable_limit(i), GetType(String))
+                End If
+            Next
+        ElseIf txtbox_master_path.Text.IndexOf("Master Data") >= 0 Then 'sender로 변수 통합해도 되는거 아닌가
+            For i As Integer = 0 To 13
+                If i = 0 Then
+                    DbTable.Columns.Add(list_dbtable_master(i), GetType(Int32))
+                Else
+                    DbTable.Columns.Add(list_dbtable_master(i), GetType(String))
+                End If
+            Next
+        End If
+
         If sender.Text IsNot "" Then
             NewfileLoad(sender)
         End If
