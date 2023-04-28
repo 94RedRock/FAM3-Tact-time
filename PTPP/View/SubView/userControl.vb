@@ -739,17 +739,21 @@ Public Class userControl
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub btnMasterSet_Click_1(sender As Object, e As EventArgs) Handles btnMasterSet.Click
+    'db 업로드 설정
+    Private Sub btnMasterSet_Click_1(sender As Object, e As EventArgs) Handles btn_master_upload.Click, btn_suffix_upload.Click, btn_carrier_upload.Click, btn_limit_upload.Click
         Dim login As Lock = New Lock()
 
-        If txtPath.Text = "" Or txtPath.Text = "클릭시 파일 선택" Then
+        'If txtPath.Text = "" Or txtPath.Text = "클릭시 파일 선택" Then
+        '    MessageBox.Show("변경할 마스터 데이터 파일을 선택하여 주십시오.", "warning", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        'Else
+        If sender.Text = "" Or sender.Text = "클릭시 파일 선택" Then
             MessageBox.Show("변경할 마스터 데이터 파일을 선택하여 주십시오.", "warning", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             login.ShowDialog()
 
             If login.DialogResult = DialogResult.OK Then
                 Cursor.Current = Cursors.WaitCursor
-                MasterRead()
+                MasterReadNew(sender) 'MasterReadNew로 대체 
                 _userControlPresenter.MasterDataInput()
                 masterDatalist.Clear()
                 newDBTable.Rows.Clear()
@@ -764,6 +768,24 @@ Public Class userControl
     ''' Master(NEW DB Table Read_Upload)
     ''' </summary>
     Private Sub MasterRead()
+
+        Try
+            For i As Integer = 0 To newDBTable.Rows.Count - 1 ' Range.Rows.Count
+
+                Dim aa As String() = {newDBTable.Rows(i).ItemArray(0).ToString(), newDBTable.Rows(i).ItemArray(1).ToString(), newDBTable.Rows(i).ItemArray(2).ToString(), newDBTable.Rows(i).ItemArray(3).ToString(), newDBTable.Rows(i).ItemArray(4).ToString(),
+                                      newDBTable.Rows(i).ItemArray(5).ToString(), newDBTable.Rows(i).ItemArray(6).ToString(), newDBTable.Rows(i).ItemArray(7).ToString(), newDBTable.Rows(i).ItemArray(8).ToString(), newDBTable.Rows(i).ItemArray(9).ToString(),
+                                      newDBTable.Rows(i).ItemArray(10).ToString(), newDBTable.Rows(i).ItemArray(11).ToString(), newDBTable.Rows(i).ItemArray(12).ToString()}
+
+                Dim list As DataCenter = New DataCenter(Replace(aa(1), " ", ""), aa(2), aa(3), aa(4), aa(5), aa(6), aa(7), aa(8), aa(9), aa(10), aa(11), aa(12))
+
+                masterDatalist.Add(list)
+            Next
+        Catch ex As Exception
+            SystemLogger.Instance.ErrorLog(ProgramEnum.LogType.File, "MasterRead()", ex.Message)
+        End Try
+    End Sub
+
+    Private Sub MasterReadNew(sender As Object)
 
         Try
             For i As Integer = 0 To newDBTable.Rows.Count - 1 ' Range.Rows.Count
