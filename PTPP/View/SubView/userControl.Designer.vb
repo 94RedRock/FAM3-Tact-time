@@ -508,7 +508,7 @@ Partial Class userControl
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 155.0!))
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106.0!))
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146.0!))
-        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 131.0!))
+        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133.0!))
         Me.TableLayoutPanel10.Controls.Add(Me.labTotalWorker, 5, 1)
         Me.TableLayoutPanel10.Controls.Add(Me.labAssamblyWorker, 3, 1)
         Me.TableLayoutPanel10.Controls.Add(Me.labTotalTime, 5, 0)
@@ -537,9 +537,9 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labTotalWorker.AutoSize = True
         Me.labTotalWorker.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.labTotalWorker.Location = New System.Drawing.Point(676, 35)
+        Me.labTotalWorker.Location = New System.Drawing.Point(674, 35)
         Me.labTotalWorker.Name = "labTotalWorker"
-        Me.labTotalWorker.Size = New System.Drawing.Size(126, 35)
+        Me.labTotalWorker.Size = New System.Drawing.Size(128, 35)
         Me.labTotalWorker.TabIndex = 11
         Me.labTotalWorker.Text = "-"
         Me.labTotalWorker.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -551,7 +551,7 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labAssamblyWorker.AutoSize = True
         Me.labAssamblyWorker.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.labAssamblyWorker.Location = New System.Drawing.Point(424, 35)
+        Me.labAssamblyWorker.Location = New System.Drawing.Point(422, 35)
         Me.labAssamblyWorker.Name = "labAssamblyWorker"
         Me.labAssamblyWorker.Size = New System.Drawing.Size(100, 35)
         Me.labAssamblyWorker.TabIndex = 10
@@ -565,9 +565,9 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labTotalTime.AutoSize = True
         Me.labTotalTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.labTotalTime.Location = New System.Drawing.Point(676, 0)
+        Me.labTotalTime.Location = New System.Drawing.Point(674, 0)
         Me.labTotalTime.Name = "labTotalTime"
-        Me.labTotalTime.Size = New System.Drawing.Size(126, 35)
+        Me.labTotalTime.Size = New System.Drawing.Size(128, 35)
         Me.labTotalTime.TabIndex = 9
         Me.labTotalTime.Text = "-"
         Me.labTotalTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -583,7 +583,7 @@ Partial Class userControl
         Me.Label4.Font = New System.Drawing.Font("굴림", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
         Me.Label4.Location = New System.Drawing.Point(3, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(151, 35)
+        Me.Label4.Size = New System.Drawing.Size(150, 35)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "총 마운팅 시간"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -597,7 +597,7 @@ Partial Class userControl
         Me.ss.BackColor = System.Drawing.Color.LightGreen
         Me.ss.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ss.Font = New System.Drawing.Font("굴림", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.ss.Location = New System.Drawing.Point(269, 0)
+        Me.ss.Location = New System.Drawing.Point(267, 0)
         Me.ss.Name = "ss"
         Me.ss.Size = New System.Drawing.Size(149, 35)
         Me.ss.TabIndex = 1
@@ -628,7 +628,7 @@ Partial Class userControl
         Me.Label7.BackColor = System.Drawing.Color.LightGreen
         Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label7.Font = New System.Drawing.Font("굴림", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.Label7.Location = New System.Drawing.Point(269, 35)
+        Me.Label7.Location = New System.Drawing.Point(267, 35)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(149, 35)
         Me.Label7.TabIndex = 3
@@ -644,7 +644,7 @@ Partial Class userControl
         Me.Label8.BackColor = System.Drawing.Color.SkyBlue
         Me.Label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label8.Font = New System.Drawing.Font("굴림", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.Label8.Location = New System.Drawing.Point(530, 0)
+        Me.Label8.Location = New System.Drawing.Point(528, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(140, 35)
         Me.Label8.TabIndex = 4
@@ -660,7 +660,7 @@ Partial Class userControl
         Me.Label9.BackColor = System.Drawing.Color.SkyBlue
         Me.Label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label9.Font = New System.Drawing.Font("굴림", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.Label9.Location = New System.Drawing.Point(530, 35)
+        Me.Label9.Location = New System.Drawing.Point(528, 35)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(140, 35)
         Me.Label9.TabIndex = 5
@@ -674,9 +674,9 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labMauntingTime.AutoSize = True
         Me.labMauntingTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.labMauntingTime.Location = New System.Drawing.Point(160, 0)
+        Me.labMauntingTime.Location = New System.Drawing.Point(159, 0)
         Me.labMauntingTime.Name = "labMauntingTime"
-        Me.labMauntingTime.Size = New System.Drawing.Size(103, 35)
+        Me.labMauntingTime.Size = New System.Drawing.Size(102, 35)
         Me.labMauntingTime.TabIndex = 6
         Me.labMauntingTime.Text = "-"
         Me.labMauntingTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -688,9 +688,9 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labMauntingWorker.AutoSize = True
         Me.labMauntingWorker.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.labMauntingWorker.Location = New System.Drawing.Point(160, 35)
+        Me.labMauntingWorker.Location = New System.Drawing.Point(159, 35)
         Me.labMauntingWorker.Name = "labMauntingWorker"
-        Me.labMauntingWorker.Size = New System.Drawing.Size(103, 35)
+        Me.labMauntingWorker.Size = New System.Drawing.Size(102, 35)
         Me.labMauntingWorker.TabIndex = 7
         Me.labMauntingWorker.Text = "-"
         Me.labMauntingWorker.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -702,7 +702,7 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.labAssamblyTime.AutoSize = True
         Me.labAssamblyTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.labAssamblyTime.Location = New System.Drawing.Point(424, 0)
+        Me.labAssamblyTime.Location = New System.Drawing.Point(422, 0)
         Me.labAssamblyTime.Name = "labAssamblyTime"
         Me.labAssamblyTime.Size = New System.Drawing.Size(100, 35)
         Me.labAssamblyTime.TabIndex = 8
@@ -849,7 +849,7 @@ Partial Class userControl
         Me.TableLayoutPanel13.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104.0!))
         Me.TableLayoutPanel13.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48.0!))
         Me.TableLayoutPanel13.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95.0!))
-        Me.TableLayoutPanel13.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 780.0!))
+        Me.TableLayoutPanel13.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 782.0!))
         Me.TableLayoutPanel13.Controls.Add(Me.btn_master_upload, 2, 0)
         Me.TableLayoutPanel13.Controls.Add(Me.Label5, 0, 0)
         Me.TableLayoutPanel13.Controls.Add(Me.txtbox_master_path, 1, 0)
@@ -869,7 +869,7 @@ Partial Class userControl
         'btn_master_upload
         '
         Me.btn_master_upload.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_master_upload.Location = New System.Drawing.Point(526, 4)
+        Me.btn_master_upload.Location = New System.Drawing.Point(524, 4)
         Me.btn_master_upload.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_master_upload.Name = "btn_master_upload"
         Me.btn_master_upload.Size = New System.Drawing.Size(116, 44)
@@ -886,7 +886,7 @@ Partial Class userControl
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
         Me.Label5.Location = New System.Drawing.Point(3, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(109, 52)
+        Me.Label5.Size = New System.Drawing.Size(108, 52)
         Me.Label5.TabIndex = 0
         Me.Label5.Text = "Master Data"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -898,10 +898,10 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtbox_master_path.Font = New System.Drawing.Font("굴림", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbox_master_path.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.txtbox_master_path.Location = New System.Drawing.Point(118, 4)
+        Me.txtbox_master_path.Location = New System.Drawing.Point(117, 4)
         Me.txtbox_master_path.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtbox_master_path.Name = "txtbox_master_path"
-        Me.txtbox_master_path.Size = New System.Drawing.Size(402, 35)
+        Me.txtbox_master_path.Size = New System.Drawing.Size(401, 35)
         Me.txtbox_master_path.TabIndex = 1
         Me.txtbox_master_path.Text = "클릭시 파일 선택"
         '
@@ -909,7 +909,7 @@ Partial Class userControl
         '
         Me.TextBox5.BackColor = System.Drawing.Color.Yellow
         Me.TextBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(665, 4)
+        Me.TextBox5.Location = New System.Drawing.Point(663, 4)
         Me.TextBox5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(44, 34)
@@ -919,7 +919,7 @@ Partial Class userControl
         '
         Me.TextBox6.BackColor = System.Drawing.Color.DarkOrange
         Me.TextBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(820, 4)
+        Me.TextBox6.Location = New System.Drawing.Point(818, 4)
         Me.TextBox6.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(41, 34)
@@ -931,7 +931,7 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(716, 0)
+        Me.Label10.Location = New System.Drawing.Point(714, 0)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(98, 52)
         Me.Label10.TabIndex = 5
@@ -944,7 +944,7 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(868, 0)
+        Me.Label11.Location = New System.Drawing.Point(866, 0)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(89, 52)
         Me.Label11.TabIndex = 6
@@ -1064,7 +1064,7 @@ Partial Class userControl
         Me.TableLayoutPanel16.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104.0!))
         Me.TableLayoutPanel16.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48.0!))
         Me.TableLayoutPanel16.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95.0!))
-        Me.TableLayoutPanel16.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 780.0!))
+        Me.TableLayoutPanel16.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 782.0!))
         Me.TableLayoutPanel16.Controls.Add(Me.btn_suffix_upload, 2, 0)
         Me.TableLayoutPanel16.Controls.Add(Me.Label12, 0, 0)
         Me.TableLayoutPanel16.Controls.Add(Me.txtbox_suffix_path, 1, 0)
@@ -1084,12 +1084,12 @@ Partial Class userControl
         'btn_suffix_upload
         '
         Me.btn_suffix_upload.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_suffix_upload.Location = New System.Drawing.Point(526, 4)
+        Me.btn_suffix_upload.Location = New System.Drawing.Point(524, 4)
         Me.btn_suffix_upload.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_suffix_upload.Name = "btn_suffix_upload"
         Me.btn_suffix_upload.Size = New System.Drawing.Size(116, 44)
         Me.btn_suffix_upload.TabIndex = 2
-        Me.btn_suffix_upload.Text = "DB 업로드"
+        Me.btn_suffix_upload.Text = "Suffix DB 업로드"
         Me.btn_suffix_upload.UseVisualStyleBackColor = True
         '
         'Label12
@@ -1101,7 +1101,7 @@ Partial Class userControl
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
         Me.Label12.Location = New System.Drawing.Point(3, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(109, 52)
+        Me.Label12.Size = New System.Drawing.Size(108, 52)
         Me.Label12.TabIndex = 0
         Me.Label12.Text = "Suffix Data"
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1113,10 +1113,10 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtbox_suffix_path.Font = New System.Drawing.Font("굴림", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbox_suffix_path.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.txtbox_suffix_path.Location = New System.Drawing.Point(118, 4)
+        Me.txtbox_suffix_path.Location = New System.Drawing.Point(117, 4)
         Me.txtbox_suffix_path.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtbox_suffix_path.Name = "txtbox_suffix_path"
-        Me.txtbox_suffix_path.Size = New System.Drawing.Size(402, 35)
+        Me.txtbox_suffix_path.Size = New System.Drawing.Size(401, 35)
         Me.txtbox_suffix_path.TabIndex = 1
         Me.txtbox_suffix_path.Text = "클릭시 파일 선택"
         '
@@ -1124,7 +1124,7 @@ Partial Class userControl
         '
         Me.TextBox9.BackColor = System.Drawing.Color.Yellow
         Me.TextBox9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.TextBox9.Location = New System.Drawing.Point(665, 4)
+        Me.TextBox9.Location = New System.Drawing.Point(663, 4)
         Me.TextBox9.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TextBox9.Name = "TextBox9"
         Me.TextBox9.Size = New System.Drawing.Size(44, 34)
@@ -1134,7 +1134,7 @@ Partial Class userControl
         '
         Me.TextBox10.BackColor = System.Drawing.Color.DarkOrange
         Me.TextBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.TextBox10.Location = New System.Drawing.Point(820, 4)
+        Me.TextBox10.Location = New System.Drawing.Point(818, 4)
         Me.TextBox10.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TextBox10.Name = "TextBox10"
         Me.TextBox10.Size = New System.Drawing.Size(41, 34)
@@ -1146,7 +1146,7 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(716, 0)
+        Me.Label13.Location = New System.Drawing.Point(714, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(98, 52)
         Me.Label13.TabIndex = 5
@@ -1159,7 +1159,7 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(868, 0)
+        Me.Label14.Location = New System.Drawing.Point(866, 0)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(89, 52)
         Me.Label14.TabIndex = 6
@@ -1279,7 +1279,7 @@ Partial Class userControl
         Me.TableLayoutPanel19.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104.0!))
         Me.TableLayoutPanel19.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48.0!))
         Me.TableLayoutPanel19.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95.0!))
-        Me.TableLayoutPanel19.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 780.0!))
+        Me.TableLayoutPanel19.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 782.0!))
         Me.TableLayoutPanel19.Controls.Add(Me.btn_carrier_upload, 2, 0)
         Me.TableLayoutPanel19.Controls.Add(Me.Label15, 0, 0)
         Me.TableLayoutPanel19.Controls.Add(Me.txtbox_carrier_path, 1, 0)
@@ -1299,7 +1299,7 @@ Partial Class userControl
         'btn_carrier_upload
         '
         Me.btn_carrier_upload.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_carrier_upload.Location = New System.Drawing.Point(526, 4)
+        Me.btn_carrier_upload.Location = New System.Drawing.Point(524, 4)
         Me.btn_carrier_upload.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_carrier_upload.Name = "btn_carrier_upload"
         Me.btn_carrier_upload.Size = New System.Drawing.Size(116, 44)
@@ -1316,7 +1316,7 @@ Partial Class userControl
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
         Me.Label15.Location = New System.Drawing.Point(3, 0)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(109, 52)
+        Me.Label15.Size = New System.Drawing.Size(108, 52)
         Me.Label15.TabIndex = 0
         Me.Label15.Text = "Carrier Data"
         Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1328,10 +1328,10 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtbox_carrier_path.Font = New System.Drawing.Font("굴림", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbox_carrier_path.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.txtbox_carrier_path.Location = New System.Drawing.Point(118, 4)
+        Me.txtbox_carrier_path.Location = New System.Drawing.Point(117, 4)
         Me.txtbox_carrier_path.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtbox_carrier_path.Name = "txtbox_carrier_path"
-        Me.txtbox_carrier_path.Size = New System.Drawing.Size(402, 35)
+        Me.txtbox_carrier_path.Size = New System.Drawing.Size(401, 35)
         Me.txtbox_carrier_path.TabIndex = 1
         Me.txtbox_carrier_path.Text = "클릭시 파일 선택"
         '
@@ -1339,7 +1339,7 @@ Partial Class userControl
         '
         Me.TextBox13.BackColor = System.Drawing.Color.Yellow
         Me.TextBox13.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.TextBox13.Location = New System.Drawing.Point(665, 4)
+        Me.TextBox13.Location = New System.Drawing.Point(663, 4)
         Me.TextBox13.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TextBox13.Name = "TextBox13"
         Me.TextBox13.Size = New System.Drawing.Size(44, 34)
@@ -1349,7 +1349,7 @@ Partial Class userControl
         '
         Me.TextBox14.BackColor = System.Drawing.Color.DarkOrange
         Me.TextBox14.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.TextBox14.Location = New System.Drawing.Point(820, 4)
+        Me.TextBox14.Location = New System.Drawing.Point(818, 4)
         Me.TextBox14.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TextBox14.Name = "TextBox14"
         Me.TextBox14.Size = New System.Drawing.Size(41, 34)
@@ -1361,7 +1361,7 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(716, 0)
+        Me.Label16.Location = New System.Drawing.Point(714, 0)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(98, 52)
         Me.Label16.TabIndex = 5
@@ -1374,7 +1374,7 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(868, 0)
+        Me.Label17.Location = New System.Drawing.Point(866, 0)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(89, 52)
         Me.Label17.TabIndex = 6
@@ -1494,7 +1494,7 @@ Partial Class userControl
         Me.TableLayoutPanel22.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104.0!))
         Me.TableLayoutPanel22.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48.0!))
         Me.TableLayoutPanel22.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95.0!))
-        Me.TableLayoutPanel22.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 780.0!))
+        Me.TableLayoutPanel22.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 782.0!))
         Me.TableLayoutPanel22.Controls.Add(Me.btn_limit_upload, 2, 0)
         Me.TableLayoutPanel22.Controls.Add(Me.Label18, 0, 0)
         Me.TableLayoutPanel22.Controls.Add(Me.txtbox_limit_path, 1, 0)
@@ -1514,7 +1514,7 @@ Partial Class userControl
         'btn_limit_upload
         '
         Me.btn_limit_upload.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_limit_upload.Location = New System.Drawing.Point(526, 4)
+        Me.btn_limit_upload.Location = New System.Drawing.Point(524, 4)
         Me.btn_limit_upload.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btn_limit_upload.Name = "btn_limit_upload"
         Me.btn_limit_upload.Size = New System.Drawing.Size(116, 44)
@@ -1531,7 +1531,7 @@ Partial Class userControl
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
         Me.Label18.Location = New System.Drawing.Point(3, 0)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(109, 52)
+        Me.Label18.Size = New System.Drawing.Size(108, 52)
         Me.Label18.TabIndex = 0
         Me.Label18.Text = "Carrier Limit Data"
         Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1543,10 +1543,10 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtbox_limit_path.Font = New System.Drawing.Font("굴림", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbox_limit_path.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.txtbox_limit_path.Location = New System.Drawing.Point(118, 4)
+        Me.txtbox_limit_path.Location = New System.Drawing.Point(117, 4)
         Me.txtbox_limit_path.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtbox_limit_path.Name = "txtbox_limit_path"
-        Me.txtbox_limit_path.Size = New System.Drawing.Size(402, 35)
+        Me.txtbox_limit_path.Size = New System.Drawing.Size(401, 35)
         Me.txtbox_limit_path.TabIndex = 1
         Me.txtbox_limit_path.Text = "클릭시 파일 선택"
         '
@@ -1554,7 +1554,7 @@ Partial Class userControl
         '
         Me.TextBox17.BackColor = System.Drawing.Color.Yellow
         Me.TextBox17.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.TextBox17.Location = New System.Drawing.Point(665, 4)
+        Me.TextBox17.Location = New System.Drawing.Point(663, 4)
         Me.TextBox17.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TextBox17.Name = "TextBox17"
         Me.TextBox17.Size = New System.Drawing.Size(44, 34)
@@ -1564,7 +1564,7 @@ Partial Class userControl
         '
         Me.TextBox18.BackColor = System.Drawing.Color.DarkOrange
         Me.TextBox18.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.TextBox18.Location = New System.Drawing.Point(820, 4)
+        Me.TextBox18.Location = New System.Drawing.Point(818, 4)
         Me.TextBox18.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TextBox18.Name = "TextBox18"
         Me.TextBox18.Size = New System.Drawing.Size(41, 34)
@@ -1576,7 +1576,7 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(716, 0)
+        Me.Label19.Location = New System.Drawing.Point(714, 0)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(98, 52)
         Me.Label19.TabIndex = 5
@@ -1589,7 +1589,7 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(868, 0)
+        Me.Label20.Location = New System.Drawing.Point(866, 0)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(89, 52)
         Me.Label20.TabIndex = 6
@@ -1697,7 +1697,7 @@ Partial Class userControl
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104.0!))
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48.0!))
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95.0!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 780.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 782.0!))
         Me.TableLayoutPanel6.Controls.Add(Me.btnMasterSet, 2, 0)
         Me.TableLayoutPanel6.Controls.Add(Me.Label1, 0, 0)
         Me.TableLayoutPanel6.Controls.Add(Me.txtPath, 1, 0)
@@ -1717,7 +1717,7 @@ Partial Class userControl
         'btnMasterSet
         '
         Me.btnMasterSet.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnMasterSet.Location = New System.Drawing.Point(526, 4)
+        Me.btnMasterSet.Location = New System.Drawing.Point(524, 4)
         Me.btnMasterSet.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnMasterSet.Name = "btnMasterSet"
         Me.btnMasterSet.Size = New System.Drawing.Size(116, 44)
@@ -1734,7 +1734,7 @@ Partial Class userControl
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
         Me.Label1.Location = New System.Drawing.Point(3, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(109, 52)
+        Me.Label1.Size = New System.Drawing.Size(108, 52)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Master Data"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1746,10 +1746,10 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtPath.Font = New System.Drawing.Font("굴림", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPath.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.txtPath.Location = New System.Drawing.Point(118, 4)
+        Me.txtPath.Location = New System.Drawing.Point(117, 4)
         Me.txtPath.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtPath.Name = "txtPath"
-        Me.txtPath.Size = New System.Drawing.Size(402, 35)
+        Me.txtPath.Size = New System.Drawing.Size(401, 35)
         Me.txtPath.TabIndex = 1
         Me.txtPath.Text = "클릭시 파일 선택"
         '
@@ -1757,7 +1757,7 @@ Partial Class userControl
         '
         Me.TextBox1.BackColor = System.Drawing.Color.Yellow
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(665, 4)
+        Me.TextBox1.Location = New System.Drawing.Point(663, 4)
         Me.TextBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(44, 34)
@@ -1767,7 +1767,7 @@ Partial Class userControl
         '
         Me.TextBox2.BackColor = System.Drawing.Color.DarkOrange
         Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(820, 4)
+        Me.TextBox2.Location = New System.Drawing.Point(818, 4)
         Me.TextBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(41, 34)
@@ -1779,7 +1779,7 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(716, 0)
+        Me.Label2.Location = New System.Drawing.Point(714, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(98, 52)
         Me.Label2.TabIndex = 5
@@ -1792,7 +1792,7 @@ Partial Class userControl
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(868, 0)
+        Me.Label3.Location = New System.Drawing.Point(866, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(89, 52)
         Me.Label3.TabIndex = 6

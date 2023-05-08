@@ -122,6 +122,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Common\ExcelConnection.vb" />
+    <Compile Include="Model\DataCenterSuffix.vb" />
     <Compile Include="Model\ReadModel.vb" />
     <Compile Include="Common\ProgramDefine.vb" />
     <Compile Include="Config\ProgramConfig.vb" />

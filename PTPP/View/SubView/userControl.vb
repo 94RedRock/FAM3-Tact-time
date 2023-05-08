@@ -14,6 +14,7 @@ Public Class userControl
     Private DbTable As New System.Data.DataTable
     Private newDBTable As New System.Data.DataTable
     Public masterDatalist As New List(Of DataCenter)
+    Public masterDatalistSuffix As New List(Of DataCenterSuffix)
 
     Public Sub New()
         'ByVal DbType As Object
@@ -753,7 +754,7 @@ Public Class userControl
 
             If login.DialogResult = DialogResult.OK Then
                 Cursor.Current = Cursors.WaitCursor
-                MasterReadNew(sender) 'MasterReadNew로 대체 
+                MasterReadNew() 'MasterReadNew로 대체 
                 _userControlPresenter.MasterDataInput()
                 masterDatalist.Clear()
                 newDBTable.Rows.Clear()
@@ -785,18 +786,38 @@ Public Class userControl
         End Try
     End Sub
 
-    Private Sub MasterReadNew(sender As Object)
+    Private Sub MasterReadNew() 'hsj db 종류별로 데이터 매칭을 다르게 설정한다
 
         Try
             For i As Integer = 0 To newDBTable.Rows.Count - 1 ' Range.Rows.Count
+                If txtbox_suffix_path.Text.IndexOf("SUFFIX") >= 0 Then
+                    Dim aa As String() = {newDBTable.Rows(i).ItemArray(0).ToString(), newDBTable.Rows(i).ItemArray(1).ToString(), newDBTable.Rows(i).ItemArray(2).ToString(), newDBTable.Rows(i).ItemArray(3).ToString()}
 
-                Dim aa As String() = {newDBTable.Rows(i).ItemArray(0).ToString(), newDBTable.Rows(i).ItemArray(1).ToString(), newDBTable.Rows(i).ItemArray(2).ToString(), newDBTable.Rows(i).ItemArray(3).ToString(), newDBTable.Rows(i).ItemArray(4).ToString(),
+                    Dim list As DataCenterSuffix = New DataCenterSuffix(Replace(aa(1), " ", ""), aa(2), aa(3))
+                    masterDatalistSuffix.Add(list)
+                ElseIf txtbox_carrier_path.Text.IndexOf("MODEL") >= 0 Then '캐리어 0-2 
+                    Dim aa As String() = {newDBTable.Rows(i).ItemArray(0).ToString(), newDBTable.Rows(i).ItemArray(1).ToString(), newDBTable.Rows(i).ItemArray(2).ToString(), newDBTable.Rows(i).ItemArray(3).ToString(), newDBTable.Rows(i).ItemArray(4).ToString(),
                                       newDBTable.Rows(i).ItemArray(5).ToString(), newDBTable.Rows(i).ItemArray(6).ToString(), newDBTable.Rows(i).ItemArray(7).ToString(), newDBTable.Rows(i).ItemArray(8).ToString(), newDBTable.Rows(i).ItemArray(9).ToString(),
                                       newDBTable.Rows(i).ItemArray(10).ToString(), newDBTable.Rows(i).ItemArray(11).ToString(), newDBTable.Rows(i).ItemArray(12).ToString()}
 
-                Dim list As DataCenter = New DataCenter(Replace(aa(1), " ", ""), aa(2), aa(3), aa(4), aa(5), aa(6), aa(7), aa(8), aa(9), aa(10), aa(11), aa(12))
+                    Dim list As DataCenter = New DataCenter(Replace(aa(1), " ", ""), aa(2), aa(3), aa(4), aa(5), aa(6), aa(7), aa(8), aa(9), aa(10), aa(11), aa(12))
+                    masterDatalist.Add(list)
+                ElseIf txtbox_limit_path.Text.IndexOf("LIMIT") >= 0 Then '리미트  0-3
+                    Dim aa As String() = {newDBTable.Rows(i).ItemArray(0).ToString(), newDBTable.Rows(i).ItemArray(1).ToString(), newDBTable.Rows(i).ItemArray(2).ToString(), newDBTable.Rows(i).ItemArray(3).ToString(), newDBTable.Rows(i).ItemArray(4).ToString(),
+                                      newDBTable.Rows(i).ItemArray(5).ToString(), newDBTable.Rows(i).ItemArray(6).ToString(), newDBTable.Rows(i).ItemArray(7).ToString(), newDBTable.Rows(i).ItemArray(8).ToString(), newDBTable.Rows(i).ItemArray(9).ToString(),
+                                      newDBTable.Rows(i).ItemArray(10).ToString(), newDBTable.Rows(i).ItemArray(11).ToString(), newDBTable.Rows(i).ItemArray(12).ToString()}
 
-                masterDatalist.Add(list)
+                    Dim list As DataCenter = New DataCenter(Replace(aa(1), " ", ""), aa(2), aa(3), aa(4), aa(5), aa(6), aa(7), aa(8), aa(9), aa(10), aa(11), aa(12))
+                    masterDatalist.Add(list)
+                ElseIf txtbox_master_path.Text.IndexOf("Master Data") >= 0 Then '마스터 0-13
+                    Dim aa As String() = {newDBTable.Rows(i).ItemArray(0).ToString(), newDBTable.Rows(i).ItemArray(1).ToString(), newDBTable.Rows(i).ItemArray(2).ToString(), newDBTable.Rows(i).ItemArray(3).ToString(), newDBTable.Rows(i).ItemArray(4).ToString(),
+                                      newDBTable.Rows(i).ItemArray(5).ToString(), newDBTable.Rows(i).ItemArray(6).ToString(), newDBTable.Rows(i).ItemArray(7).ToString(), newDBTable.Rows(i).ItemArray(8).ToString(), newDBTable.Rows(i).ItemArray(9).ToString(),
+                                      newDBTable.Rows(i).ItemArray(10).ToString(), newDBTable.Rows(i).ItemArray(11).ToString(), newDBTable.Rows(i).ItemArray(12).ToString()}
+
+                    Dim list As DataCenter = New DataCenter(Replace(aa(1), " ", ""), aa(2), aa(3), aa(4), aa(5), aa(6), aa(7), aa(8), aa(9), aa(10), aa(11), aa(12))
+                    masterDatalist.Add(list)
+                End If
+
             Next
         Catch ex As Exception
             SystemLogger.Instance.ErrorLog(ProgramEnum.LogType.File, "MasterRead()", ex.Message)
