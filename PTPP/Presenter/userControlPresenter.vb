@@ -141,18 +141,65 @@ Public Class userControlPresenter
     ''' <summary>
     ''' Master Data 수정
     ''' </summary>
-    Public Sub MasterDataInput()
+    Public Sub MasterDataInput(sender As Object)
 
         Dim RtnData As String = Nothing
         Dim ErrMsg As String = Nothing
         Dim QDBWResult As Boolean
-        Dim Field As String() = {"RECNO", "MODEL", "COMPONENT_SET", "MAEDZUKE", "MAUNT", "LEAD_CUTTING", "VISUAL_EXAMINATION", "PICKUP", "ASSAMBLY", "M_FUNCTION_CHECK", "A_FUNCTION_CHECK", "PERSON_EXAMINE", "INSPECTION_EQUIPMENT", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
+        'Dim Field As String() = {"RECNO", "MODEL", "COMPONENT_SET", "MAEDZUKE", "MAUNT", "LEAD_CUTTING", "VISUAL_EXAMINATION", "PICKUP", "ASSAMBLY", "M_FUNCTION_CHECK", "A_FUNCTION_CHECK", "PERSON_EXAMINE", "INSPECTION_EQUIPMENT", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
         Dim MasterDataList As List(Of DataCenter) = _userControl.masterDatalist
+        Dim MasterDataListSuffix As List(Of DataCenterSuffix) = _userControl.masterDatalistSuffix
+        Dim Field As String() = {}
+
+        'Dim className As String
+
         Dim WrData As String() = {}
         Dim rdData As String() = {}
         Dim ResultData As String = Nothing
 
-        Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
+        If sender.Text.IndexOf("Suffix") >= 0 Then
+            Field = {"REC_NO", "SUFFIX", "ADDITIONAL_MAOUNTING", "ADDITIONAL_ASSEMBLY", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
+
+            Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
+            Try
+                For i As Integer = 0 To MasterDataListSuffix.Count() - 1
+                    Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _table, "REC_NO", RtnData)
+                    Select Case MxMnResult
+                        Case True
+                            WrData = {"", MasterDataListSuffix(i).Suffix, MasterDataListSuffix(i).AdditionalMount, MasterDataListSuffix(i).AdditionalAssembly,
+                                         "PTPP", "1.0.0", DateTime.Now.ToString("yyyy/MM/dd")}
+
+                            Dim ChkResult = EtherUty.QDBRead(_hostIP, Convert.ToInt32(_hostPort), _table, "SUFFIX", MasterDataListSuffix(i).Suffix, Field, rdData, ErrMsg)
+
+                            If ChkResult = False Then
+                                WrData(0) = CStr(CInt(RtnData) + 1)
+                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _table, Field, WrData, ErrMsg)
+                            Else
+                                WrData(0) = rdData(0)
+                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _table, Field, WrData, ErrMsg, "U") 'U가 뭐냐
+                            End If
+
+                    End Select
+                Next
+            Catch ex As Exception
+                SystemLogger.Instance.ErrorLog(ProgramEnum.LogType.File, "RegistWorker()", ex.Message)
+            End Try
+            Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
+
+            'className = GetType(DataCenter).Name
+        ElseIf sender.Text.IndexOf("Carrier") >= 0 Then
+            Field = {"REC_NO", "CARRIER", "LIMIT", "QUANTITY", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
+            Dim MasterDataList As List(Of DataCenter) = _userControl.masterDatalist
+        ElseIf sender.Text.IndexOf("Limit") >= 0 Then
+            Field = {"REC_NO", "MODEL", "CARRIER", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
+            Dim MasterDataList As List(Of DataCenter) = _userControl.masterDatalist
+        ElseIf sender.Text.IndexOf("Master") >= 0 Then
+            Field = {"RECNO", "MODEL", "ACCESSORY", "COMPONENT_SET", "MAEDZUKE", "MAUNT", "LEAD_CUTTING", "VISUAL_EXAMINATION", "PICKUP", "ASSAMBLY", "M_FUNCTION_CHECK", "A_FUNCTION_CHECK", "PERSON_EXAMINE", "INSPECTION_EQUIPMENT", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
+            Dim MasterDataList As List(Of DataCenter) = _userControl.masterDatalist
+        End If
+
+
+
 
         Try
             For i As Integer = 0 To MasterDataList.Count() - 1

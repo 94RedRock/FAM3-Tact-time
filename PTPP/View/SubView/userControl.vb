@@ -755,19 +755,23 @@ Public Class userControl
             If login.DialogResult = DialogResult.OK Then
                 Cursor.Current = Cursors.WaitCursor
                 MasterReadNew() 'MasterReadNew로 대체 
-                _userControlPresenter.MasterDataInput()
+                _userControlPresenter.MasterDataInput(sender)
+                newDBTable.Rows.Clear()
                 'masterDatalist 종류별로 초기화
                 If sender.Text.IndexOf("Suffix") >= 0 Then
                     masterDatalistSuffix.Clear()
+                    txtbox_suffix_path.Text = ""
                 ElseIf sender.Text.IndexOf("Carrier") >= 0 Then
                     masterDatalist.Clear() '리스트 변경 필요
+                    txtbox_carrier_path.Text = ""
                 ElseIf sender.Text.IndexOf("Limit") >= 0 Then
                     masterDatalist.Clear() '리스트 변경 필요
+                    txtbox_limit_path.Text = ""
                 ElseIf sender.Text.IndexOf("Master") >= 0 Then
                     masterDatalist.Clear() '리스트 변경 필요
+                    txtbox_master_path.Text = ""
                 End If
 
-                newDBTable.Rows.Clear()
                 txtPath.Text = ""
                 Cursor.Current = Cursors.Default
                 MsgBox("Database 수정이 완료되었습니다.")
