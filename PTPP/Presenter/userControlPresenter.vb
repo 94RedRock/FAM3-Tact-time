@@ -147,12 +147,13 @@ Public Class userControlPresenter
         Dim ErrMsg As String = Nothing
         Dim QDBWResult As Boolean
         'Dim Field As String() = {"RECNO", "MODEL", "COMPONENT_SET", "MAEDZUKE", "MAUNT", "LEAD_CUTTING", "VISUAL_EXAMINATION", "PICKUP", "ASSAMBLY", "M_FUNCTION_CHECK", "A_FUNCTION_CHECK", "PERSON_EXAMINE", "INSPECTION_EQUIPMENT", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
+
         Dim MasterDataList As List(Of DataCenter) = _userControl.masterDatalist
         Dim MasterDataListSuffix As List(Of DataCenterSuffix) = _userControl.masterDatalistSuffix
+        Dim MasterDataListCarrier As List(Of DataCenterCarrier) = _userControl.masterDatalistCarrier
+        Dim MasterDataListLimit As List(Of DataCenterLimit) = _userControl.masterDatalistLimit
+
         Dim Field As String() = {}
-
-        'Dim className As String
-
         Dim WrData As String() = {}
         Dim rdData As String() = {}
         Dim ResultData As String = Nothing
@@ -189,45 +190,90 @@ Public Class userControlPresenter
             'className = GetType(DataCenter).Name
         ElseIf sender.Text.IndexOf("Carrier") >= 0 Then
             Field = {"REC_NO", "CARRIER", "LIMIT", "QUANTITY", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
-            Dim MasterDataList As List(Of DataCenter) = _userControl.masterDatalist
+            Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
+            Try
+                For i As Integer = 0 To MasterDataListCarrier.Count() - 1
+                    Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _table, "REC_NO", RtnData)
+                    Select Case MxMnResult
+                        Case True
+                            WrData = {"", MasterDataListCarrier(i).Carrier, MasterDataListCarrier(i).Limit, MasterDataListCarrier(i).Quantity,
+                                         "PTPP", "1.0.0", DateTime.Now.ToString("yyyy/MM/dd")}
+
+                            Dim ChkResult = EtherUty.QDBRead(_hostIP, Convert.ToInt32(_hostPort), _table, "CARRIER", MasterDataListCarrier(i).Carrier, Field, rdData, ErrMsg)
+
+                            If ChkResult = False Then
+                                WrData(0) = CStr(CInt(RtnData) + 1)
+                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _table, Field, WrData, ErrMsg)
+                            Else
+                                WrData(0) = rdData(0)
+                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _table, Field, WrData, ErrMsg, "U") 'U가 뭐냐
+                            End If
+
+                    End Select
+                Next
+            Catch ex As Exception
+                SystemLogger.Instance.ErrorLog(ProgramEnum.LogType.File, "RegistWorker()", ex.Message)
+            End Try
+            Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
+
         ElseIf sender.Text.IndexOf("Limit") >= 0 Then
             Field = {"REC_NO", "MODEL", "CARRIER", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
-            Dim MasterDataList As List(Of DataCenter) = _userControl.masterDatalist
+            Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
+            Try
+                For i As Integer = 0 To MasterDataListLimit.Count() - 1
+                    Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _table, "REC_NO", RtnData)
+                    Select Case MxMnResult
+                        Case True
+                            WrData = {"", MasterDataListLimit(i).ModelLimit, MasterDataListLimit(i).CarrierLimit,
+                                         "PTPP", "1.0.0", DateTime.Now.ToString("yyyy/MM/dd")}
+
+                            Dim ChkResult = EtherUty.QDBRead(_hostIP, Convert.ToInt32(_hostPort), _table, "CARRIER", MasterDataListLimit(i).ModelLimit, Field, rdData, ErrMsg)
+
+                            If ChkResult = False Then
+                                WrData(0) = CStr(CInt(RtnData) + 1)
+                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _table, Field, WrData, ErrMsg)
+                            Else
+                                WrData(0) = rdData(0)
+                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _table, Field, WrData, ErrMsg, "U") 'U가 뭐냐
+                            End If
+
+                    End Select
+                Next
+            Catch ex As Exception
+                SystemLogger.Instance.ErrorLog(ProgramEnum.LogType.File, "RegistWorker()", ex.Message)
+            End Try
+            Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
+
         ElseIf sender.Text.IndexOf("Master") >= 0 Then
             Field = {"RECNO", "MODEL", "ACCESSORY", "COMPONENT_SET", "MAEDZUKE", "MAUNT", "LEAD_CUTTING", "VISUAL_EXAMINATION", "PICKUP", "ASSAMBLY", "M_FUNCTION_CHECK", "A_FUNCTION_CHECK", "PERSON_EXAMINE", "INSPECTION_EQUIPMENT", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
-            Dim MasterDataList As List(Of DataCenter) = _userControl.masterDatalist
-        End If
-
-
-
-
-        Try
-            For i As Integer = 0 To MasterDataList.Count() - 1
-                Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _table, "RECNO", RtnData)
-                Select Case MxMnResult
-                    Case True
-                        WrData = {"", MasterDataList(i).Model, MasterDataList(i).ComponentSet, MasterDataList(i).Maedzuke, MasterDataList(i).Mount,
+            Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
+            Try
+                For i As Integer = 0 To MasterDataListSuffix.Count() - 1
+                    Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _table, "RECNO", RtnData)
+                    Select Case MxMnResult
+                        Case True
+                            WrData = {"", MasterDataList(i).Model, MasterDataList(i).Accessory, MasterDataList(i).ComponentSet, MasterDataList(i).Maedzuke, MasterDataList(i).Mount,
                                      MasterDataList(i).LeadCutting, MasterDataList(i).VisualExamination, MasterDataList(i).PickUp, MasterDataList(i).Assambly,
                                      MasterDataList(i).MFunctionCheck, MasterDataList(i).AFunctionCheck, MasterDataList(i).PersonalExamine, MasterDataList(i).ExamineEquipment,
                                      "PTPP", "1.0.0", DateTime.Now.ToString("yyyy/MM/dd")}
 
-                        Dim ChkResult = EtherUty.QDBRead(_hostIP, Convert.ToInt32(_hostPort), _table, "MODEL", MasterDataList(i).Model, Field, rdData, ErrMsg)
+                            Dim ChkResult = EtherUty.QDBRead(_hostIP, Convert.ToInt32(_hostPort), _table, "MODEL", MasterDataList(i).Model, Field, rdData, ErrMsg)
 
-                        If ChkResult = False Then
-                            WrData(0) = CStr(CInt(RtnData) + 1)
-                            QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _table, Field, WrData, ErrMsg)
-                        Else
-                            WrData(0) = rdData(0)
-                            QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _table, Field, WrData, ErrMsg, "U")
-                        End If
+                            If ChkResult = False Then
+                                WrData(0) = CStr(CInt(RtnData) + 1)
+                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _table, Field, WrData, ErrMsg)
+                            Else
+                                WrData(0) = rdData(0)
+                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _table, Field, WrData, ErrMsg, "U") 'U가 뭐냐
+                            End If
 
-                End Select
-            Next
-        Catch ex As Exception
-            SystemLogger.Instance.ErrorLog(ProgramEnum.LogType.File, "RegistWorker()", ex.Message)
-        End Try
-
-        Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
+                    End Select
+                Next
+            Catch ex As Exception
+                SystemLogger.Instance.ErrorLog(ProgramEnum.LogType.File, "RegistWorker()", ex.Message)
+            End Try
+            Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
+        End If
 
     End Sub
 

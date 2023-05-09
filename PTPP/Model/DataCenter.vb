@@ -13,6 +13,11 @@
     Private _model As String
 
     ''' <summary>
+    ''' 부속품
+    ''' </summary>
+    Private _accessory As String
+
+    ''' <summary>
     ''' 部品 SET
     ''' </summary>
     Private _componentSet As String
@@ -87,6 +92,18 @@
         End Get
         Set(value As String)
             _model = value
+        End Set
+    End Property
+    ''' <summary>
+    ''' 부속품
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property Accessory As String
+        Get
+            Return _accessory
+        End Get
+        Set(value As String)
+            _accessory = value
         End Set
     End Property
 
@@ -234,8 +251,9 @@
     End Property
 #End Region
 
-    Public Sub New(model As String, componentSet As String, maedzuke As String, mount As String, leadCutting As String, visualExamination As String, pickup As String, assambly As String, mFunctionCheck As String, aFunctionCheck As String, personExamine As String, examineEquipment As String)
+    Public Sub New(model As String, accessory As String, componentSet As String, maedzuke As String, mount As String, leadCutting As String, visualExamination As String, pickup As String, assambly As String, mFunctionCheck As String, aFunctionCheck As String, personExamine As String, examineEquipment As String)
         _model = model
+        _accessory = accessory
         _componentSet = componentSet
         _maedzuke = maedzuke
         _mount = mount
