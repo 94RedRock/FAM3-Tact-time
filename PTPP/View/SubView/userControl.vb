@@ -757,17 +757,17 @@ Public Class userControl
             If login.DialogResult = DialogResult.OK Then
                 Cursor.Current = Cursors.WaitCursor
                 MasterReadNew() 'MasterReadNew로 대체 
-                _userControlPresenter.MasterDataInput(sender)
+                _userControlPresenter.MasterDataInputNew(sender)
                 newDBTable.Rows.Clear()
                 'masterDatalist 종류별로 초기화
                 If sender.Text.IndexOf("Suffix") >= 0 Then
                     masterDatalistSuffix.Clear()
                     txtbox_suffix_path.Text = ""
                 ElseIf sender.Text.IndexOf("Carrier") >= 0 Then
-                    masterDatalist.Clear() '리스트 변경 필요
+                    masterDatalistCarrier.Clear() '리스트 변경 필요
                     txtbox_carrier_path.Text = ""
                 ElseIf sender.Text.IndexOf("Limit") >= 0 Then
-                    masterDatalist.Clear() '리스트 변경 필요
+                    masterDatalistLimit.Clear() '리스트 변경 필요
                     txtbox_limit_path.Text = ""
                 ElseIf sender.Text.IndexOf("Master") >= 0 Then
                     masterDatalist.Clear() '리스트 변경 필요
@@ -811,7 +811,7 @@ Public Class userControl
 
                     Dim list As DataCenterSuffix = New DataCenterSuffix(Replace(aa(1), " ", ""), aa(2), aa(3))
                     masterDatalistSuffix.Add(list)
-                ElseIf txtbox_carrier_path.Text.IndexOf("MODEL") >= 0 Then '캐리어 0-2 
+                ElseIf txtbox_carrier_path.Text.IndexOf("MODEL") >= 0 Then '캐리어 0-2 변경 필요
                     Dim aa As String() = {newDBTable.Rows(i).ItemArray(0).ToString(), newDBTable.Rows(i).ItemArray(1).ToString(), newDBTable.Rows(i).ItemArray(2).ToString(), newDBTable.Rows(i).ItemArray(3).ToString(), newDBTable.Rows(i).ItemArray(4).ToString(),
                                       newDBTable.Rows(i).ItemArray(5).ToString(), newDBTable.Rows(i).ItemArray(6).ToString(), newDBTable.Rows(i).ItemArray(7).ToString(), newDBTable.Rows(i).ItemArray(8).ToString(), newDBTable.Rows(i).ItemArray(9).ToString(),
                                       newDBTable.Rows(i).ItemArray(10).ToString(), newDBTable.Rows(i).ItemArray(11).ToString(), newDBTable.Rows(i).ItemArray(12).ToString()}

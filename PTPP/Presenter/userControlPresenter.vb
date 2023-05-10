@@ -10,6 +10,11 @@ Public Class userControlPresenter
     Public _hostIP As String = ProgramConfig.ReadIniDBSetting("HostIP")
     Public _hostPort As String = ProgramConfig.ReadIniDBSetting("HostPort")
     Public _table As String = ProgramConfig.ReadIniDBSetting("Table")
+
+    Public _tableSuffix As String = ProgramConfig.ReadIniDBSetting("SuffixTable") ' 테이블 설정, 
+    Public _tableCarrier As String = ProgramConfig.ReadIniDBSetting("CarrierTable")
+    Public _tableLimit As String = ProgramConfig.ReadIniDBSetting("LimitTable")
+
     Private Connection As ExcelConnection = New ExcelConnection
 
     Shared excelApp As New Excel.Application
@@ -141,7 +146,7 @@ Public Class userControlPresenter
     ''' <summary>
     ''' Master Data 수정
     ''' </summary>
-    Public Sub MasterDataInput(sender As Object)
+    Public Sub MasterDataInputNew(sender As Object)
 
         Dim RtnData As String = Nothing
         Dim ErrMsg As String = Nothing
@@ -164,20 +169,20 @@ Public Class userControlPresenter
             Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
             Try
                 For i As Integer = 0 To MasterDataListSuffix.Count() - 1
-                    Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _table, "REC_NO", RtnData)
+                    Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _tableSuffix, "REC_NO", RtnData)
                     Select Case MxMnResult
                         Case True
                             WrData = {"", MasterDataListSuffix(i).Suffix, MasterDataListSuffix(i).AdditionalMount, MasterDataListSuffix(i).AdditionalAssembly,
                                          "PTPP", "1.0.0", DateTime.Now.ToString("yyyy/MM/dd")}
 
-                            Dim ChkResult = EtherUty.QDBRead(_hostIP, Convert.ToInt32(_hostPort), _table, "SUFFIX", MasterDataListSuffix(i).Suffix, Field, rdData, ErrMsg)
+                            Dim ChkResult = EtherUty.QDBRead(_hostIP, Convert.ToInt32(_hostPort), _tableSuffix, "SUFFIX", MasterDataListSuffix(i).Suffix, Field, rdData, ErrMsg)
 
                             If ChkResult = False Then
                                 WrData(0) = CStr(CInt(RtnData) + 1)
-                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _table, Field, WrData, ErrMsg)
+                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _tableSuffix, Field, WrData, ErrMsg)
                             Else
                                 WrData(0) = rdData(0)
-                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _table, Field, WrData, ErrMsg, "U") 'U가 뭐냐
+                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _tableSuffix, Field, WrData, ErrMsg, "U") 'U가 뭐냐
                             End If
 
                     End Select
@@ -193,20 +198,20 @@ Public Class userControlPresenter
             Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
             Try
                 For i As Integer = 0 To MasterDataListCarrier.Count() - 1
-                    Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _table, "REC_NO", RtnData)
+                    Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _tableCarrier, "REC_NO", RtnData)
                     Select Case MxMnResult
                         Case True
                             WrData = {"", MasterDataListCarrier(i).Carrier, MasterDataListCarrier(i).Limit, MasterDataListCarrier(i).Quantity,
                                          "PTPP", "1.0.0", DateTime.Now.ToString("yyyy/MM/dd")}
 
-                            Dim ChkResult = EtherUty.QDBRead(_hostIP, Convert.ToInt32(_hostPort), _table, "CARRIER", MasterDataListCarrier(i).Carrier, Field, rdData, ErrMsg)
+                            Dim ChkResult = EtherUty.QDBRead(_hostIP, Convert.ToInt32(_hostPort), _tableCarrier, "CARRIER", MasterDataListCarrier(i).Carrier, Field, rdData, ErrMsg)
 
                             If ChkResult = False Then
                                 WrData(0) = CStr(CInt(RtnData) + 1)
-                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _table, Field, WrData, ErrMsg)
+                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _tableCarrier, Field, WrData, ErrMsg)
                             Else
                                 WrData(0) = rdData(0)
-                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _table, Field, WrData, ErrMsg, "U") 'U가 뭐냐
+                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _tableCarrier, Field, WrData, ErrMsg, "U") 'U가 뭐냐
                             End If
 
                     End Select
@@ -221,20 +226,20 @@ Public Class userControlPresenter
             Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
             Try
                 For i As Integer = 0 To MasterDataListLimit.Count() - 1
-                    Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _table, "REC_NO", RtnData)
+                    Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _tableLimit, "REC_NO", RtnData)
                     Select Case MxMnResult
                         Case True
                             WrData = {"", MasterDataListLimit(i).ModelLimit, MasterDataListLimit(i).CarrierLimit,
                                          "PTPP", "1.0.0", DateTime.Now.ToString("yyyy/MM/dd")}
 
-                            Dim ChkResult = EtherUty.QDBRead(_hostIP, Convert.ToInt32(_hostPort), _table, "CARRIER", MasterDataListLimit(i).ModelLimit, Field, rdData, ErrMsg)
+                            Dim ChkResult = EtherUty.QDBRead(_hostIP, Convert.ToInt32(_hostPort), _tableLimit, "CARRIER", MasterDataListLimit(i).ModelLimit, Field, rdData, ErrMsg)
 
                             If ChkResult = False Then
                                 WrData(0) = CStr(CInt(RtnData) + 1)
-                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _table, Field, WrData, ErrMsg)
+                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _tableLimit, Field, WrData, ErrMsg)
                             Else
                                 WrData(0) = rdData(0)
-                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _table, Field, WrData, ErrMsg, "U") 'U가 뭐냐
+                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _tableLimit, Field, WrData, ErrMsg, "U") 'U가 뭐냐
                             End If
 
                     End Select
