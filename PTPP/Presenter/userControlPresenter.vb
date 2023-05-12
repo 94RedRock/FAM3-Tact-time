@@ -168,21 +168,22 @@ Public Class userControlPresenter
 
             Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
             Try
-                For i As Integer = 0 To MasterDataListSuffix.Count() - 1
-                    Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _tableSuffix, "REC_NO", RtnData)
+                For i As Integer = 0 To MasterDataListSuffix.Count() - 1 ' 
+                    Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _tableSuffix, "REC_NO", RtnData) 'max 값을 왜 읽을까
                     Select Case MxMnResult
                         Case True
                             WrData = {"", MasterDataListSuffix(i).Suffix, MasterDataListSuffix(i).AdditionalMount, MasterDataListSuffix(i).AdditionalAssembly,
-                                         "PTPP", "1.0.0", DateTime.Now.ToString("yyyy/MM/dd")}
+                                         "PTPP", "1.0.0", DateTime.Now.ToString("yyyy/MM/dd")} ' ptpp, 1.0.0 자동 변경 필요함
 
                             Dim ChkResult = EtherUty.QDBRead(_hostIP, Convert.ToInt32(_hostPort), _tableSuffix, "SUFFIX", MasterDataListSuffix(i).Suffix, Field, rdData, ErrMsg)
+                            'QDBR   테이블명, 대상컬럼명 = 대상키, 취득할 컬럼명.
 
                             If ChkResult = False Then
                                 WrData(0) = CStr(CInt(RtnData) + 1)
                                 QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _tableSuffix, Field, WrData, ErrMsg)
                             Else
                                 WrData(0) = rdData(0)
-                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _tableSuffix, Field, WrData, ErrMsg, "U") 'U가 뭐냐
+                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _tableSuffix, Field, WrData, ErrMsg, "U") 'U가 뭐냐 >> 갱신임ㅋ, I : 신규등록
                             End If
 
                     End Select

@@ -1352,7 +1352,7 @@ Exec:
 
         Do
             'データベースパソコンへ転送します。
-            RtnMsg$ = Ethercom.ComHost(ServerIP$, ServerSIP$, ServerPort, SendDt$)
+            RtnMsg$ = Ethercom.ComHost(ServerIP$, ServerSIP$, ServerPort, SendDt$) ' Ethercom.ComHost(프라이머리, 세컨더리, 포트, 통신커맨드 [ 세컨더리 통신 커맨드 ])
 
             'MXMNコマンド実行成功した場合はループから抜ける
             If YInStr(RtnMsg$, "ERROR") = 0 Then

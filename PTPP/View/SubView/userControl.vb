@@ -327,10 +327,10 @@ Public Class userControl
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub btnAllRead_Click_1(sender As Object, e As EventArgs) Handles btnAllRead.Click
-        txtPath.Text = ""
-        AllRead()
-    End Sub
+    'Private Sub btnAllRead_Click_1(sender As Object, e As EventArgs)
+    '    txtPath.Text = ""
+    '    AllRead()
+    'End Sub
 
     Private Sub AllRead()
         Try
@@ -363,19 +363,19 @@ Public Class userControl
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub txtPath_Click(sender As Object, e As EventArgs) Handles txtPath.Click
-        Dim ofd As OpenFileDialog = New OpenFileDialog With {
-            .Filter = "모든 파일 (*.*) | *.*"
-        }
-        ofd.ShowDialog()
-        Dim path As String = ofd.FileName
-        txtPath.Text = ofd.FileName
-        'Dim variableType As Type = txtPath.GetType() 'hsj test
-        Console.WriteLine(txtPath.GetType.Name) 'hsj test
-        If txtPath.Text IsNot "" Then
-            NewfileLead()
-        End If
-    End Sub
+    'Private Sub txtPath_Click(sender As Object, e As EventArgs)
+    '    Dim ofd As OpenFileDialog = New OpenFileDialog With {
+    '        .Filter = "모든 파일 (*.*) | *.*"
+    '    }
+    '    ofd.ShowDialog()
+    '    Dim path As String = ofd.FileName
+    '    txtPath.Text = ofd.FileName
+    '    'Dim variableType As Type = txtPath.GetType() 'hsj test
+    '    Console.WriteLine(txtPath.GetType.Name) 'hsj test
+    '    If txtPath.Text IsNot "" Then
+    '        NewfileLead()
+    '    End If
+    'End Sub
 
     'txtbox test용
     'Private Sub TextBox4_Click(sender As Object, e As EventArgs) Handles txtbox_master_path.Click 'hsj test 마스터DB 클릭 시 파일 선택, DB 확인, txt 박스 클릭
@@ -421,8 +421,9 @@ Public Class userControl
         Dim list_dbtable_suffix() As String = {"No", "SUFFIX", "추가 마운팅", "추가 조립"}
         Dim list_dbtable_carrier() As String = {"No", "모델명", "사용 캐리어"}
         Dim list_dbtable_limit() As String = {"No", "캐리어 명", "제한 대수", "수량"}
+        'If txtbox_suffix_path.Text.IndexOf("SUFFIX") >= 0 Then
 
-        If txtbox_suffix_path.Text.IndexOf("SUFFIX") >= 0 Then '클릭시 파일 선택 ,SUFFIX
+        If sender.Text.IndexOf("SUFFIX") >= 0 Then '클릭시 파일 선택 ,SUFFIX
             For i As Integer = 0 To 3
                 If i = 0 Then
                     DbTable.Columns.Add(list_dbtable_suffix(i), GetType(Int32))
@@ -430,7 +431,7 @@ Public Class userControl
                     DbTable.Columns.Add(list_dbtable_suffix(i), GetType(String))
                 End If
             Next
-        ElseIf txtbox_carrier_path.Text.IndexOf("MODEL") >= 0 Then
+        ElseIf sender.Text.IndexOf("MODEL") >= 0 Then
             For i As Integer = 0 To 2
                 If i = 0 Then
                     DbTable.Columns.Add(list_dbtable_carrier(i), GetType(Int32))
@@ -438,7 +439,7 @@ Public Class userControl
                     DbTable.Columns.Add(list_dbtable_carrier(i), GetType(String))
                 End If
             Next
-        ElseIf txtbox_limit_path.Text.IndexOf("LIMIT") >= 0 Then
+        ElseIf sender.Text.IndexOf("LIMIT") >= 0 Then
             For i As Integer = 0 To 3
                 If i = 0 Then
                     DbTable.Columns.Add(list_dbtable_limit(i), GetType(Int32))
@@ -446,7 +447,7 @@ Public Class userControl
                     DbTable.Columns.Add(list_dbtable_limit(i), GetType(String))
                 End If
             Next
-        ElseIf txtbox_master_path.Text.IndexOf("Master Data") >= 0 Then 'sender로 변수 통합해도 되는거 아닌가
+        ElseIf sender.Text.IndexOf("Master Data") >= 0 Then 'sender로 변수 통합해도 되는거 아닌가
             For i As Integer = 0 To 13
                 If i = 0 Then
                     DbTable.Columns.Add(list_dbtable_master(i), GetType(Int32))
@@ -461,32 +462,32 @@ Public Class userControl
         End If
     End Sub
 
-    Private Sub NewfileLead()
-        AllRead()
-        newDBTable.Clear()
-        Dim SelectStatement As String = "SELECT [No], [모델 명], FORMAT([部品SET], 'HH:mm:ss') as [部品SET], FORMAT([前付け], 'HH:mm:ss') as [前付け], FORMAT([MT], 'HH:mm:ss') as [MT], FORMAT([L/C], 'HH:mm:ss') as [L/C], FORMAT([目視], 'HH:mm:ss') as [目視], FORMAT([Pick up], 'HH:mm:ss') as [Pick up],
-                                           FORMAT([組立], 'HH:mm:ss') as [組立], FORMAT([機能検査(수동)], 'HH:mm:ss') as [機能検査_수동], FORMAT([機能検査(자동)], 'HH:mm:ss') as [機能検査_자동], FORMAT([2者検査], 'HH:mm:ss') as [2者検査], [검사 설비]  FROM [Sheet1$]"
+    'Private Sub NewfileLead()
+    '    AllRead()
+    '    newDBTable.Clear()
+    '    Dim SelectStatement As String = "SELECT [No], [모델 명], FORMAT([部品SET], 'HH:mm:ss') as [部品SET], FORMAT([前付け], 'HH:mm:ss') as [前付け], FORMAT([MT], 'HH:mm:ss') as [MT], FORMAT([L/C], 'HH:mm:ss') as [L/C], FORMAT([目視], 'HH:mm:ss') as [目視], FORMAT([Pick up], 'HH:mm:ss') as [Pick up],
+    '                                       FORMAT([組立], 'HH:mm:ss') as [組立], FORMAT([機能検査(수동)], 'HH:mm:ss') as [機能検査_수동], FORMAT([機能検査(자동)], 'HH:mm:ss') as [機能検査_자동], FORMAT([2者検査], 'HH:mm:ss') as [2者検査], [검사 설비]  FROM [Sheet1$]"
 
-        Using cn As New OleDb.OleDbConnection With {.ConnectionString = Connection.HeaderConnectionString(txtbox_master_path.Text)}
-            'Using cn As New OleDb.OleDbConnection With {.ConnectionString = Connection.HeaderConnectionString(txtPath.Text)}
-            Using cmd As New OleDbCommand With {.Connection = cn, .CommandText = SelectStatement}
+    '    Using cn As New OleDb.OleDbConnection With {.ConnectionString = Connection.HeaderConnectionString(txtbox_master_path.Text)}
+    '        'Using cn As New OleDb.OleDbConnection With {.ConnectionString = Connection.HeaderConnectionString(txtPath.Text)}
+    '        Using cmd As New OleDbCommand With {.Connection = cn, .CommandText = SelectStatement}
 
-                cn.Open()
-                Try
-                    newDBTable.Load(cmd.ExecuteReader)
-                    'grdRead.DataSource = newDBTable
-                    grd_master.DataSource = newDBTable
+    '            cn.Open()
+    '            Try
+    '                newDBTable.Load(cmd.ExecuteReader)
+    '                'grdRead.DataSource = newDBTable
+    '                grd_master.DataSource = newDBTable
 
-                    CompareData()
+    '                CompareData()
 
-                Catch ex As Exception
-                    Console.WriteLine(ex.Message)
-                    MessageBox.Show("잘못된 Master 파일형식입니다.")
-                End Try
+    '            Catch ex As Exception
+    '                Console.WriteLine(ex.Message)
+    '                MessageBox.Show("잘못된 Master 파일형식입니다.")
+    '            End Try
 
-            End Using
-        End Using
-    End Sub
+    '        End Using
+    '    End Using
+    'End Sub
     ' hsj 공통으로 업로드할 엑셀 파일 불러오는 함수 제작 진행중
     Private Sub NewfileLoad(ByVal sender As Object)
         AllReadNew(sender)
@@ -560,6 +561,7 @@ Public Class userControl
                 Dim SqlCMD As String = " Select RECNO, MODEL, ACCESSORY, COMPONENT_SET, MAEDZUKE, MAUNT, LEAD_CUTTING, VISUAL_EXAMINATION, PLUS_MAUNT, PICKUP, ASSEMBLY, M_FUNCTION_CHECK, A_FUNCTION_CHECK, PERSON_EXAMINE, INSPECTION_EQUIPMENT, PLUS_ASSEMBLY " & "from FAM3_MODEL_TIME_TB_TST" ' 마스터 db 불러오기
                 EtherUty.EtherSendSQL(ProgramConfig.ReadIniDBSetting("HostIP"), 2005, SqlCMD, ResultData)
             End If
+            '=======================EtherUty.EtherSendSQL 빼려고 했는데 SqlCMD가 정의 되지 않아서 err
 
             '조건문에 삽입할 내용 start
             'Dim SqlCMD As String = " Select RECNO, MODEL, COMPONENT_SET, MAEDZUKE, MAUNT, LEAD_CUTTING, VISUAL_EXAMINATION, PICKUP, ASSAMBLY, M_FUNCTION_CHECK, A_FUNCTION_CHECK, PERSON_EXAMINE, INSPECTION_EQUIPMENT " & "from FAM3_PRODUCT_TIME_TB"
@@ -656,86 +658,86 @@ Public Class userControl
     ''' <summary>
     ''' Data Compare
     ''' </summary>
-    Private Sub CompareData()
-        Dim arrOb As Object() = DbTable.[Select]().[Select](Function(x) x("모델명")).ToArray()
-        Dim dbModel As String() = arrOb.Cast(Of String)().ToArray()
+    'Private Sub CompareData()
+    '    Dim arrOb As Object() = DbTable.[Select]().[Select](Function(x) x("모델명")).ToArray()
+    '    Dim dbModel As String() = arrOb.Cast(Of String)().ToArray()
 
-        For i As Integer = 0 To newDBTable.Rows.Count - 1 ' Range.Rows.Count
-            Try ' 에러 확인 용 try
-                If dbModel.Contains(Replace(newDBTable.Rows(i).ItemArray(1).ToString(), " ", "")) Then
-                    For j As Integer = 0 To DbTable.Rows.Count - 1
-                        If Replace(newDBTable.Rows(i).ItemArray(1).ToString(), " ", "") = DbTable.Rows(j).ItemArray(1).ToString() Then
-                            For t As Integer = 2 To 12
-                                If Replace(newDBTable.Rows(i).ItemArray(t).ToString(), " ", "") = DbTable.Rows(j).ItemArray(t).ToString() Then
-                                Else
-                                    grd_master.Rows(i).Cells(t).Style.BackColor = Color.Yellow
-                                    grd_master.Rows(i).Cells(0).Style.BackColor = Color.Yellow
-                                    grd_master.Rows(i).Cells(1).Style.BackColor = Color.Yellow
-                                    'grdRead.Rows(i).Cells(t).Style.BackColor = Color.Yellow  ' grdRead 변수 변경 필요
-                                    'grdRead.Rows(i).Cells(0).Style.BackColor = Color.Yellow  ' Cells(0), (1)가 뭐냐
-                                    'grdRead.Rows(i).Cells(1).Style.BackColor = Color.Yellow
-                                End If
-                            Next
-                        End If
-                    Next
-                Else
-                    For f As Integer = 0 To 12
-                        grdRead.Rows(i).Cells(f).Style.BackColor = Color.DarkOrange
-                    Next
-                End If
-            Catch ex As Exception
-                Console.WriteLine(ex.Message)
-                MessageBox.Show("Data Compare NG.")
+    '    For i As Integer = 0 To newDBTable.Rows.Count - 1 ' Range.Rows.Count
+    '        Try ' 에러 확인 용 try
+    '            If dbModel.Contains(Replace(newDBTable.Rows(i).ItemArray(1).ToString(), " ", "")) Then
+    '                For j As Integer = 0 To DbTable.Rows.Count - 1
+    '                    If Replace(newDBTable.Rows(i).ItemArray(1).ToString(), " ", "") = DbTable.Rows(j).ItemArray(1).ToString() Then
+    '                        For t As Integer = 2 To 12
+    '                            If Replace(newDBTable.Rows(i).ItemArray(t).ToString(), " ", "") = DbTable.Rows(j).ItemArray(t).ToString() Then
+    '                            Else
+    '                                grd_master.Rows(i).Cells(t).Style.BackColor = Color.Yellow
+    '                                grd_master.Rows(i).Cells(0).Style.BackColor = Color.Yellow
+    '                                grd_master.Rows(i).Cells(1).Style.BackColor = Color.Yellow
+    '                                'grdRead.Rows(i).Cells(t).Style.BackColor = Color.Yellow  ' grdRead 변수 변경 필요
+    '                                'grdRead.Rows(i).Cells(0).Style.BackColor = Color.Yellow  ' Cells(0), (1)가 뭐냐
+    '                                'grdRead.Rows(i).Cells(1).Style.BackColor = Color.Yellow
+    '                            End If
+    '                        Next
+    '                    End If
+    '                Next
+    '            Else
+    '                For f As Integer = 0 To 12
+    '                    grdRead.Rows(i).Cells(f).Style.BackColor = Color.DarkOrange
+    '                Next
+    '            End If
+    '        Catch ex As Exception
+    '            Console.WriteLine(ex.Message)
+    '            MessageBox.Show("Data Compare NG.")
 
-            End Try
+    '        End Try
 
 
-        Next
-    End Sub
+    '    Next
+    'End Sub
 
     ''' <summary>
     ''' Model 검색
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub btnSearch_Click_1(sender As Object, e As EventArgs) Handles btnSearch.Click
-        Cursor.Current = Cursors.WaitCursor
-        Try
-            DbTable.Rows.Clear()
-            If txtSearch.Text = Nothing Then
-                MsgBox("찾으실 모델명을 입력하여 주십시오")
-            Else
+    'Private Sub btnSearch_Click_1(sender As Object, e As EventArgs)
+    '    Cursor.Current = Cursors.WaitCursor
+    '    Try
+    '        DbTable.Rows.Clear()
+    '        If txtSearch.Text = Nothing Then
+    '            MsgBox("찾으실 모델명을 입력하여 주십시오")
+    '        Else
 
-                Dim list As List(Of String()) = New List(Of String())
-                Dim ResultData As String = Nothing
-                Dim SqlCMD As String = "Select * from FAM3_PRODUCT_TIME_TB WHERE MODEL Like" & "'" & (txtSearch.Text).ToUpper & "'"
+    '            Dim list As List(Of String()) = New List(Of String())
+    '            Dim ResultData As String = Nothing
+    '            Dim SqlCMD As String = "Select * from FAM3_PRODUCT_TIME_TB WHERE MODEL Like" & "'" & (txtSearch.Text).ToUpper & "'"
 
-                If (txtSearch.Text).Contains("*") Then
-                    SqlCMD = "select * from FAM3_PRODUCT_TIME_TB WHERE MODEL LIKE" & "'%" & Replace(txtSearch.Text, CChar("*"), "").ToUpper & "%'"
-                Else
-                    SqlCMD = "select * from FAM3_PRODUCT_TIME_TB WHERE MODEL LIKE" & "'" & (txtSearch.Text).ToUpper & "'"
-                End If
+    '            If (txtSearch.Text).Contains("*") Then
+    '                SqlCMD = "select * from FAM3_PRODUCT_TIME_TB WHERE MODEL LIKE" & "'%" & Replace(txtSearch.Text, CChar("*"), "").ToUpper & "%'"
+    '            Else
+    '                SqlCMD = "select * from FAM3_PRODUCT_TIME_TB WHERE MODEL LIKE" & "'" & (txtSearch.Text).ToUpper & "'"
+    '            End If
 
-                EtherUty.EtherSendSQL(ProgramConfig.ReadIniDBSetting("HostIP"), 2005, SqlCMD, ResultData)
+    '            EtherUty.EtherSendSQL(ProgramConfig.ReadIniDBSetting("HostIP"), 2005, SqlCMD, ResultData)
 
-                If ResultData = "ERROR:A0 Nothing" Then
-                    MessageBox.Show("검색 결과가 존재하지 않습니다.", "warning", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Else
-                    Dim rowArray As String() = ResultData.Split(CChar(vbCrLf))
-                    For i = 1 To rowArray.Length - 2
-                        Dim colArray As String() = rowArray(i).Split(CChar(","))
-                        list.Add(colArray)
-                        DbTable.Rows.Add(i, colArray(1), colArray(2), colArray(3), colArray(4), colArray(5), colArray(6), colArray(7), colArray(8), colArray(9), colArray(10), colArray(11), Replace(colArray(12), "\c", ","))
-                    Next
-                End If
-                grdRead.DataSource = DbTable
-            End If
+    '            If ResultData = "ERROR:A0 Nothing" Then
+    '                MessageBox.Show("검색 결과가 존재하지 않습니다.", "warning", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    '            Else
+    '                Dim rowArray As String() = ResultData.Split(CChar(vbCrLf))
+    '                For i = 1 To rowArray.Length - 2
+    '                    Dim colArray As String() = rowArray(i).Split(CChar(","))
+    '                    list.Add(colArray)
+    '                    DbTable.Rows.Add(i, colArray(1), colArray(2), colArray(3), colArray(4), colArray(5), colArray(6), colArray(7), colArray(8), colArray(9), colArray(10), colArray(11), Replace(colArray(12), "\c", ","))
+    '                Next
+    '            End If
+    '            grdRead.DataSource = DbTable
+    '        End If
 
-        Catch ex As Exception
-            SystemLogger.Instance.ErrorLog(ProgramEnum.LogType.File, "btnSearch_Click()", ex.Message)
-        End Try
-        Cursor.Current = Cursors.Default
-    End Sub
+    '    Catch ex As Exception
+    '        SystemLogger.Instance.ErrorLog(ProgramEnum.LogType.File, "btnSearch_Click()", ex.Message)
+    '    End Try
+    '    Cursor.Current = Cursors.Default
+    'End Sub
 
     ''' <summary>
     ''' Master 파일 수정
@@ -774,7 +776,7 @@ Public Class userControl
                     txtbox_master_path.Text = ""
                 End If
 
-                txtPath.Text = ""
+                'txtPath.Text = ""
                 Cursor.Current = Cursors.Default
                 MsgBox("Database 수정이 완료되었습니다.")
             End If
@@ -845,47 +847,47 @@ Public Class userControl
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub txtSearch_Leave(sender As Object, e As EventArgs) Handles txtSearch.Leave
-        If txtSearch.Text = "" Then
-            txtSearch.Text = "모델명 입력"
-            txtSearch.ForeColor = Color.Gray
-        End If
-    End Sub
+    'Private Sub txtSearch_Leave(sender As Object, e As EventArgs)
+    '    If txtSearch.Text = "" Then
+    '        txtSearch.Text = "모델명 입력"
+    '        txtSearch.ForeColor = Color.Gray
+    '    End If
+    'End Sub
 
-    ''' <summary>
-    '''  background text
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>    
-    Private Sub txtSearch_Enter(sender As Object, e As EventArgs) Handles txtSearch.Enter 'hsj 텍스트 상자에서 포커스가 벗어났을때 발생하는 이벤트 핸들러
-        If txtSearch.Text = "모델명 입력" Then
-            txtSearch.Text = ""
-            txtSearch.ForeColor = Color.Black
-        End If
-    End Sub
+    '''' <summary>
+    ''''  background text
+    '''' </summary>
+    '''' <param name="sender"></param>
+    '''' <param name="e"></param>    
+    'Private Sub txtSearch_Enter(sender As Object, e As EventArgs)  'hsj 텍스트 상자에서 포커스가 벗어났을때 발생하는 이벤트 핸들러
+    '    If txtSearch.Text = "모델명 입력" Then
+    '        txtSearch.Text = ""
+    '        txtSearch.ForeColor = Color.Black
+    '    End If
+    'End Sub
 
-    ''' <summary>
-    ''' SaveOption Dialog Show
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    Private Sub 파일경로설정ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 메뉴얼ToolStripMenuItem.Click
-        _userControlPresenter.ShowSaveOption()
-    End Sub
+    '''' <summary>
+    '''' SaveOption Dialog Show
+    '''' </summary>
+    '''' <param name="sender"></param>
+    '''' <param name="e"></param>
+    'Private Sub 파일경로설정ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 메뉴얼ToolStripMenuItem.Click
+    '    _userControlPresenter.ShowSaveOption()
+    'End Sub
 
-    Private Sub txtPath_Leave(sender As Object, e As EventArgs) Handles txtPath.Leave
-        If txtPath.Text = "" Then
-            txtPath.Text = "클릭시 파일 선택"
-            txtPath.ForeColor = Color.Gray
-        End If
-    End Sub
+    'Private Sub txtPath_Leave(sender As Object, e As EventArgs)
+    '    If txtPath.Text = "" Then
+    '        txtPath.Text = "클릭시 파일 선택"
+    '        txtPath.ForeColor = Color.Gray
+    '    End If
+    'End Sub
 
-    Private Sub txtPath_Enter(sender As Object, e As EventArgs) Handles txtPath.Enter
-        If txtPath.Text = "클릭시 파일 선택" Then
-            txtPath.Text = ""
-            txtPath.ForeColor = Color.Black
-        End If
-    End Sub
+    'Private Sub txtPath_Enter(sender As Object, e As EventArgs)
+    '    If txtPath.Text = "클릭시 파일 선택" Then
+    '        txtPath.Text = ""
+    '        txtPath.ForeColor = Color.Black
+    '    End If
+    'End Sub
 
     Private Sub 설정파일관리ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 시스템정보ToolStripMenuItem.Click
         System.Diagnostics.Process.Start(Directory.GetCurrentDirectory() + "\Config\Program.ini")
@@ -912,11 +914,11 @@ Public Class userControl
 
     End Sub
 
-    Private Sub TableLayoutPanel3_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel3.Paint
+    Private Sub TableLayoutPanel3_Paint(sender As Object, e As PaintEventArgs)
 
     End Sub
 
-    Private Sub grdRead_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdRead.CellContentClick
+    Private Sub grdRead_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
 
     End Sub
 
@@ -929,7 +931,7 @@ Public Class userControl
 
     'End Sub
 
-    Private Sub txtPath_TextChanged(sender As Object, e As EventArgs) Handles txtPath.TextChanged
+    Private Sub txtPath_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -956,7 +958,7 @@ Public Class userControl
 
     End Sub
 
-    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 
