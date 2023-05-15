@@ -583,7 +583,8 @@ Public Class userControl
                     DbTable.Rows.Add(Replace(colArray(0), CChar(vbLf), ""), colArray(1), colArray(2), colArray(3), colArray(4), colArray(5), colArray(6), colArray(7), colArray(8), colArray(9), colArray(10), colArray(11), colArray(12), Replace(colArray(13), "\c", ","))
                 End If
             Next
-            DbTable.DefaultView.Sort = "No"
+            'DbTable.DefaultView.Sort = "No"
+            DbTable.DefaultView.Sort = DbTable.Columns(0).ColumnName 'DbTable 첫 번째 컬럼 "No"로 sort
             'grdRead.DataSource = DbTable  'hsj test할려고 제거
             If sender Is txtbox_suffix_path Then
                 grd_suffix.DataSource = DbTable
