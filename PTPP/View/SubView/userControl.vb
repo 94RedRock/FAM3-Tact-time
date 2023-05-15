@@ -549,13 +549,13 @@ Public Class userControl
             Dim ResultData As String = Nothing
             'Console.WriteLine(sender.GetType.Name)
             If sender Is txtbox_suffix_path Then
-                Dim SqlCMD As String = " Select RECNO, SUFFIX, ADDITIONAL_MAOUNTING, ADDITIONAL_ASSEMBLY " & "from FAM3_SUFFIX_TIME_TB_TST" 'suffix db 데이터 불러오는 커맨드
+                Dim SqlCMD As String = " Select RECNO, SUFFIX, ADDITIONAL_MAOUNTING, ADDITIONAL_ASSEMBLY " & "from FAM3_SUFFIX_TIME_TB" 'suffix db 데이터 불러오는 커맨드
                 EtherUty.EtherSendSQL(ProgramConfig.ReadIniDBSetting("HostIP"), 2005, SqlCMD, ResultData)   ' 중복 제거 필요? - 조건문 밖으로 빼면, SqlCMD 정의를 다시 해야함
             ElseIf sender Is txtbox_carrier_path Then
-                Dim SqlCMD As String = " Select RECNO, CARRIER, LIMIT, QUANTITY " & "from FAM3_CARRIER_TB_TST" ' 캐리어 종류 db 불러오기
+                Dim SqlCMD As String = " Select RECNO, MODEL, CARRIER " & "from FAM3_CARRIER_TB" ' 캐리어 종류 db 불러오기
                 EtherUty.EtherSendSQL(ProgramConfig.ReadIniDBSetting("HostIP"), 2005, SqlCMD, ResultData)
             ElseIf sender Is txtbox_limit_path Then
-                Dim SqlCMD As String = " Select RECNO, MODEL, CARRIER " & "from FAM3_LIMIT_CARRIER_TB_TST" ' 캐리어 제한대수 db 불러오기
+                Dim SqlCMD As String = " Select RECNO, CARRIER, LIMIT, QUANTITY " & "from FAM3_LIMIT_TB" ' 캐리어 제한대수 db 불러오기
                 EtherUty.EtherSendSQL(ProgramConfig.ReadIniDBSetting("HostIP"), 2005, SqlCMD, ResultData)
             ElseIf sender Is txtbox_master_path Then
                 Dim SqlCMD As String = " Select RECNO, MODEL, ACCESSORY, COMPONENT_SET, MAEDZUKE, MAUNT, LEAD_CUTTING, VISUAL_EXAMINATION, PLUS_MAUNT, PICKUP, ASSEMBLY, M_FUNCTION_CHECK, A_FUNCTION_CHECK, PERSON_EXAMINE, INSPECTION_EQUIPMENT, PLUS_ASSEMBLY " & "from FAM3_MODEL_TIME_TB_TST" ' 마스터 db 불러오기
@@ -607,20 +607,18 @@ Public Class userControl
         Dim arrOb As Object() = DbTable.[Select]().[Select](Function(x) x(1)).ToArray()
         Dim dbModel As String() = arrOb.Cast(Of String)().ToArray()
         Dim set_grd As Object 'DB별 data grid 설정 변수
-        Dim k As Integer '인덱스 길이 설정 변수
+        'Dim k As Integer '인덱스 길이 설정 변수
         If sender Is txtbox_suffix_path Then
             set_grd = grd_suffix
-            k = 3
+            'k = 3
         ElseIf sender Is txtbox_carrier_path Then
             set_grd = grd_carrier
-            k = 2
         ElseIf sender Is txtbox_limit_path Then
             set_grd = grd_limit
-            k = 3
         ElseIf sender Is txtbox_master_path Then
             set_grd = grd_master
-            k = 3
         End If
+        k = DbTable.Columns.Count - 1
 
         For i As Integer = 0 To newDBTable.Rows.Count - 1 ' Range.Rows.Count
             Try ' 에러 확인 용 try
@@ -628,7 +626,7 @@ Public Class userControl
                     For j As Integer = 0 To DbTable.Rows.Count - 1
                         If Replace(newDBTable.Rows(i).ItemArray(1).ToString(), " ", "") = DbTable.Rows(j).ItemArray(1).ToString() Then
                             'For t As Integer = 2 To 12 'DB 종류별로 컬럼 길이 설정을 따로 해줘야 할 것 같습니다. 그냥 그대로 사용하면 err가 발생할까?
-                            For t As Integer = 2 To k
+                            For t As Integer = 2 To DbTable.Columns.Count - 1 'ｋ를　코드로　변환
                                 If Replace(newDBTable.Rows(i).ItemArray(t).ToString(), " ", "") = DbTable.Rows(j).ItemArray(t).ToString() Then
                                 Else
                                     set_grd.Rows(i).Cells(t).Style.BackColor = Color.Yellow
