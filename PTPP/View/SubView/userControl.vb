@@ -424,7 +424,7 @@ Public Class userControl
         'If txtbox_suffix_path.Text.IndexOf("SUFFIX") >= 0 Then
 
         If sender.Text.IndexOf("SUFFIX") >= 0 Then '클릭시 파일 선택 ,SUFFIX
-            For i As Integer = 0 To 3
+            For i As Integer = 0 To list_dbtable_suffix.Count() - 1
                 If i = 0 Then
                     DbTable.Columns.Add(list_dbtable_suffix(i), GetType(Int32))
                 Else
@@ -432,7 +432,7 @@ Public Class userControl
                 End If
             Next
         ElseIf sender.Text.IndexOf("MODEL") >= 0 Then
-            For i As Integer = 0 To 2
+            For i As Integer = 0 To list_dbtable_carrier.Count() - 1
                 If i = 0 Then
                     DbTable.Columns.Add(list_dbtable_carrier(i), GetType(Int32))
                 Else
@@ -440,7 +440,7 @@ Public Class userControl
                 End If
             Next
         ElseIf sender.Text.IndexOf("LIMIT") >= 0 Then
-            For i As Integer = 0 To 3
+            For i As Integer = 0 To list_dbtable_limit.Count() - 1
                 If i = 0 Then
                     DbTable.Columns.Add(list_dbtable_limit(i), GetType(Int32))
                 Else
@@ -448,7 +448,7 @@ Public Class userControl
                 End If
             Next
         ElseIf sender.Text.IndexOf("Master Data") >= 0 Then 'sender로 변수 통합해도 되는거 아닌가
-            For i As Integer = 0 To 13
+            For i As Integer = 0 To list_dbtable_master.Count() - 1
                 If i = 0 Then
                     DbTable.Columns.Add(list_dbtable_master(i), GetType(Int32))
                 Else
