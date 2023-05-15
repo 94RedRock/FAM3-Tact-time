@@ -549,7 +549,7 @@ Public Class userControl
             Dim ResultData As String = Nothing
             'Console.WriteLine(sender.GetType.Name)
             If sender Is txtbox_suffix_path Then
-                Dim SqlCMD As String = " Select REC_NO, SUFFIX, ADDITIONAL_MAOUNTING, ADDITIONAL_ASSEMBLY " & "from FAM3_SUFFIX_TIME_TB_TST" 'suffix db 데이터 불러오는 커맨드
+                Dim SqlCMD As String = " Select RECNO, SUFFIX, ADDITIONAL_MAOUNTING, ADDITIONAL_ASSEMBLY " & "from FAM3_SUFFIX_TIME_TB_TST" 'suffix db 데이터 불러오는 커맨드
                 EtherUty.EtherSendSQL(ProgramConfig.ReadIniDBSetting("HostIP"), 2005, SqlCMD, ResultData)   ' 중복 제거 필요? - 조건문 밖으로 빼면, SqlCMD 정의를 다시 해야함
             ElseIf sender Is txtbox_carrier_path Then
                 Dim SqlCMD As String = " Select RECNO, CARRIER, LIMIT, QUANTITY " & "from FAM3_CARRIER_TB_TST" ' 캐리어 종류 db 불러오기
@@ -561,6 +561,7 @@ Public Class userControl
                 Dim SqlCMD As String = " Select RECNO, MODEL, ACCESSORY, COMPONENT_SET, MAEDZUKE, MAUNT, LEAD_CUTTING, VISUAL_EXAMINATION, PLUS_MAUNT, PICKUP, ASSEMBLY, M_FUNCTION_CHECK, A_FUNCTION_CHECK, PERSON_EXAMINE, INSPECTION_EQUIPMENT, PLUS_ASSEMBLY " & "from FAM3_MODEL_TIME_TB_TST" ' 마스터 db 불러오기
                 EtherUty.EtherSendSQL(ProgramConfig.ReadIniDBSetting("HostIP"), 2005, SqlCMD, ResultData)
             End If
+
             '=======================EtherUty.EtherSendSQL 빼려고 했는데 SqlCMD가 정의 되지 않아서 err
 
             '조건문에 삽입할 내용 start

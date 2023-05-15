@@ -164,12 +164,12 @@ Public Class userControlPresenter
         Dim ResultData As String = Nothing
 
         If sender.Text.IndexOf("Suffix") >= 0 Then
-            Field = {"REC_NO", "SUFFIX", "ADDITIONAL_MAOUNTING", "ADDITIONAL_ASSEMBLY", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
+            Field = {"RECNO", "SUFFIX", "ADDITIONAL_MAOUNTING", "ADDITIONAL_ASSEMBLY", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
 
             Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
             Try
                 For i As Integer = 0 To MasterDataListSuffix.Count() - 1 ' 
-                    Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _tableSuffix, "REC_NO", RtnData) 'max 값을 왜 읽을까
+                    Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _tableSuffix, "RECNO", RtnData) 'max 값을 왜 읽을까
                     Select Case MxMnResult
                         Case True
                             WrData = {"", MasterDataListSuffix(i).Suffix, MasterDataListSuffix(i).AdditionalMount, MasterDataListSuffix(i).AdditionalAssembly,
@@ -195,11 +195,11 @@ Public Class userControlPresenter
 
             'className = GetType(DataCenter).Name
         ElseIf sender.Text.IndexOf("Carrier") >= 0 Then
-            Field = {"REC_NO", "CARRIER", "LIMIT", "QUANTITY", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
+            Field = {"RECNO", "CARRIER", "LIMIT", "QUANTITY", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
             Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
             Try
                 For i As Integer = 0 To MasterDataListCarrier.Count() - 1
-                    Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _tableCarrier, "REC_NO", RtnData)
+                    Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _tableCarrier, "RECNO", RtnData)
                     Select Case MxMnResult
                         Case True
                             WrData = {"", MasterDataListCarrier(i).Carrier, MasterDataListCarrier(i).Limit, MasterDataListCarrier(i).Quantity,
@@ -223,11 +223,11 @@ Public Class userControlPresenter
             Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
 
         ElseIf sender.Text.IndexOf("Limit") >= 0 Then
-            Field = {"REC_NO", "MODEL", "CARRIER", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
+            Field = {"RECNO", "MODEL", "CARRIER", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
             Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
             Try
                 For i As Integer = 0 To MasterDataListLimit.Count() - 1
-                    Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _tableLimit, "REC_NO", RtnData)
+                    Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _tableLimit, "RECNO", RtnData)
                     Select Case MxMnResult
                         Case True
                             WrData = {"", MasterDataListLimit(i).ModelLimit, MasterDataListLimit(i).CarrierLimit,
