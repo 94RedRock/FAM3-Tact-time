@@ -498,11 +498,12 @@ Public Class userControl
         If sender Is txtbox_suffix_path Then
             SelectStatement = "SELECT [No], [SUFFIX], FORMAT([추가 마운팅], 'HH:mm:ss') as [추가 마운팅], FORMAT([추가 조립], 'HH:mm:ss') as [추가 조립]  FROM [Sheet1$]"
         ElseIf sender Is txtbox_carrier_path Then
-            SelectStatement = "SELECT [No], [모델명], [사용 캐리어] FROM [Sheet1$]"
+            SelectStatement = "SELECT [No], [모델명],[사용 캐리어] FROM [Sheet1$]"
         ElseIf sender Is txtbox_limit_path Then
             SelectStatement = "SELECT [No], [캐리어 명], [제한 대수], [수량]  FROM [Sheet1$]"
         ElseIf sender Is txtbox_master_path Then
-            SelectStatement = "SELECT [No], [모델 명], [부속품], [수량]  FROM [Sheet1$]"
+            SelectStatement = "SELECT [No], [모델 명], [부속품], FORMAT([部品SET], 'HH:mm:ss') as [部品SET], FORMAT([前付け], 'HH:mm:ss') as [前付け], FORMAT([MT], 'HH:mm:ss') as [MT], FORMAT([L/C], 'HH:mm:ss') as [L/C], FORMAT([目視], 'HH:mm:ss') as [目視], FORMAT([Pick up], 'HH:mm:ss') as [Pick up],
+                                           FORMAT([組立], 'HH:mm:ss') as [組立], FORMAT([機能検査(수동)], 'HH:mm:ss') as [機能検査_수동], FORMAT([機能検査(자동)], 'HH:mm:ss') as [機能検査_자동], FORMAT([2者検査], 'HH:mm:ss') as [2者検査], [검사 설비]  FROM [Sheet1$]"
         End If
 
 
@@ -558,7 +559,7 @@ Public Class userControl
                 Dim SqlCMD As String = " Select RECNO, CARRIER, LIMIT, QUANTITY " & "from FAM3_LIMIT_TB" ' 캐리어 제한대수 db 불러오기
                 EtherUty.EtherSendSQL(ProgramConfig.ReadIniDBSetting("HostIP"), 2005, SqlCMD, ResultData)
             ElseIf sender Is txtbox_master_path Then
-                Dim SqlCMD As String = " Select RECNO, MODEL, ACCESSORY, COMPONENT_SET, MAEDZUKE, MAUNT, LEAD_CUTTING, VISUAL_EXAMINATION, PLUS_MAUNT, PICKUP, ASSEMBLY, M_FUNCTION_CHECK, A_FUNCTION_CHECK, PERSON_EXAMINE, INSPECTION_EQUIPMENT, PLUS_ASSEMBLY " & "from FAM3_MODEL_TIME_TB_TST" ' 마스터 db 불러오기
+                Dim SqlCMD As String = " Select RECNO, MODEL, ACCESSORY, COMPONENT_SET, MAEDZUKE, MAUNT, LEAD_CUTTING, VISUAL_EXAMINATION, PLUS_MAUNT, PICKUP, ASSEMBLY, M_FUNCTION_CHECK, A_FUNCTION_CHECK, PERSON_EXAMINE, INSPECTION_EQUIPMENT, PLUS_ASSEMBLY " & "from FAM3_MODEL_TIME_TB" ' 마스터 db 불러오기
                 EtherUty.EtherSendSQL(ProgramConfig.ReadIniDBSetting("HostIP"), 2005, SqlCMD, ResultData)
             End If
 
@@ -618,7 +619,7 @@ Public Class userControl
         ElseIf sender Is txtbox_master_path Then
             set_grd = grd_master
         End If
-        k = DbTable.Columns.Count - 1
+        'k = DbTable.Columns.Count - 1
 
         For i As Integer = 0 To newDBTable.Rows.Count - 1 ' Range.Rows.Count
             Try ' 에러 확인 용 try
@@ -640,10 +641,12 @@ Public Class userControl
                         End If
                     Next
                 Else
-                    For f As Integer = 0 To k
-                        set_grd.Rows(i).Cells(f).Style.BackColor = Color.DarkOrange
-                        'grdRead.Rows(i).Cells(f).Style.BackColor = Color.DarkOrange
-                    Next
+                    If newDBTable.Rows.Count = DbTable.Rows.Count Then 'TPROD 서버 데이터와 엑셀데이터 행의 개수가 같을때?
+                        For f As Integer = 0 To DbTable.Columns.Count - 1
+                            set_grd.Rows(i).Cells(f).Style.BackColor = Color.DarkOrange
+                            'grdRead.Rows(i).Cells(f).Style.BackColor = Color.DarkOrange
+                        Next
+                    End If
                 End If
             Catch ex As Exception
                 Console.WriteLine(ex.Message)

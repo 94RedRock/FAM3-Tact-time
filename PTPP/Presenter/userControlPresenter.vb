@@ -195,7 +195,8 @@ Public Class userControlPresenter
 
             'className = GetType(DataCenter).Name
         ElseIf sender.Text.IndexOf("Carrier") >= 0 Then
-            Field = {"RECNO", "CARRIER", "LIMIT", "QUANTITY", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
+
+            Field = {"RECNO", "MODEL", "CARRIER", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
             Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
             Try
                 For i As Integer = 0 To MasterDataListCarrier.Count() - 1
@@ -212,7 +213,7 @@ Public Class userControlPresenter
                                 QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _tableCarrier, Field, WrData, ErrMsg)
                             Else
                                 WrData(0) = rdData(0)
-                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _tableCarrier, Field, WrData, ErrMsg, "U") 'U가 뭐냐
+                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _tableCarrier, Field, WrData, ErrMsg, "U")
                             End If
 
                     End Select
@@ -223,7 +224,7 @@ Public Class userControlPresenter
             Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
 
         ElseIf sender.Text.IndexOf("Limit") >= 0 Then
-            Field = {"RECNO", "MODEL", "CARRIER", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
+            Field = {"RECNO", "CARRIER", "LIMIT", "QUANTITY", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
             Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
             Try
                 For i As Integer = 0 To MasterDataListLimit.Count() - 1
@@ -240,7 +241,7 @@ Public Class userControlPresenter
                                 QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _tableLimit, Field, WrData, ErrMsg)
                             Else
                                 WrData(0) = rdData(0)
-                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _tableLimit, Field, WrData, ErrMsg, "U") 'U가 뭐냐
+                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _tableLimit, Field, WrData, ErrMsg, "U")
                             End If
 
                     End Select
@@ -254,7 +255,7 @@ Public Class userControlPresenter
             Field = {"RECNO", "MODEL", "ACCESSORY", "COMPONENT_SET", "MAEDZUKE", "MAUNT", "LEAD_CUTTING", "VISUAL_EXAMINATION", "PICKUP", "ASSAMBLY", "M_FUNCTION_CHECK", "A_FUNCTION_CHECK", "PERSON_EXAMINE", "INSPECTION_EQUIPMENT", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
             Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
             Try
-                For i As Integer = 0 To MasterDataListSuffix.Count() - 1
+                For i As Integer = 0 To MasterDataList.Count() - 1
                     Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _table, "RECNO", RtnData)
                     Select Case MxMnResult
                         Case True
@@ -270,7 +271,7 @@ Public Class userControlPresenter
                                 QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _table, Field, WrData, ErrMsg)
                             Else
                                 WrData(0) = rdData(0)
-                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _table, Field, WrData, ErrMsg, "U") 'U가 뭐냐
+                                QDBWResult = EtherUty.QDBWrite(_hostIP, Convert.ToInt32(_hostPort), _table, Field, WrData, ErrMsg, "U")
                             End If
 
                     End Select
