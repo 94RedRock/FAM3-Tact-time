@@ -9,7 +9,7 @@ Public Class userControlPresenter
 
     Public _hostIP As String = ProgramConfig.ReadIniDBSetting("HostIP")
     Public _hostPort As String = ProgramConfig.ReadIniDBSetting("HostPort")
-    Public _table As String = ProgramConfig.ReadIniDBSetting("Table")
+    Public _table As String = ProgramConfig.ReadIniDBSetting("MasterTable")
 
     Public _tableSuffix As String = ProgramConfig.ReadIniDBSetting("SuffixTable") ' 테이블 설정, 
     Public _tableCarrier As String = ProgramConfig.ReadIniDBSetting("CarrierTable")
@@ -252,7 +252,7 @@ Public Class userControlPresenter
             Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
 
         ElseIf sender.Text.IndexOf("Master") >= 0 Then
-            Field = {"RECNO", "MODEL", "ACCESSORY", "COMPONENT_SET", "MAEDZUKE", "MAUNT", "LEAD_CUTTING", "VISUAL_EXAMINATION", "PICKUP", "ASSAMBLY", "M_FUNCTION_CHECK", "A_FUNCTION_CHECK", "PERSON_EXAMINE", "INSPECTION_EQUIPMENT", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
+            Field = {"RECNO", "MODEL", "ACCESSORY", "COMPONENT_SET", "MAEDZUKE", "MAUNT", "LEAD_CUTTING", "VISUAL_EXAMINATION", "PICKUP", "ASSEMBLY", "M_FUNCTION_CHECK", "A_FUNCTION_CHECK", "PERSON_EXAMINE", "INSPECTION_EQUIPMENT", "SOFT_NAME", "SOFT_VERSION", "REVISE_DATE"}
             Console.WriteLine(DateTime.Now.ToString("hh:mm:ss"))
             Try
                 For i As Integer = 0 To MasterDataList.Count() - 1

@@ -502,7 +502,7 @@ Public Class userControl
         ElseIf sender Is txtbox_limit_path Then
             SelectStatement = "SELECT [No], [캐리어 명], [제한 대수], [수량]  FROM [Sheet1$]"
         ElseIf sender Is txtbox_master_path Then
-            SelectStatement = "SELECT [No], [모델 명], [부속품], FORMAT([部品SET], 'HH:mm:ss') as [部品SET], FORMAT([前付け], 'HH:mm:ss') as [前付け], FORMAT([MT], 'HH:mm:ss') as [MT], FORMAT([L/C], 'HH:mm:ss') as [L/C], FORMAT([目視], 'HH:mm:ss') as [目視], FORMAT([Pick up], 'HH:mm:ss') as [Pick up],
+            SelectStatement = "SELECT [No], [모델 명], FORMAT([부속품], 'HH:mm:ss') as [부속품], FORMAT([部品SET], 'HH:mm:ss') as [部品SET], FORMAT([前付け], 'HH:mm:ss') as [前付け], FORMAT([MT], 'HH:mm:ss') as [MT], FORMAT([L/C], 'HH:mm:ss') as [L/C], FORMAT([目視], 'HH:mm:ss') as [目視], FORMAT([Pick up], 'HH:mm:ss') as [Pick up],
                                            FORMAT([組立], 'HH:mm:ss') as [組立], FORMAT([機能検査(수동)], 'HH:mm:ss') as [機能検査_수동], FORMAT([機能検査(자동)], 'HH:mm:ss') as [機能検査_자동], FORMAT([2者検査], 'HH:mm:ss') as [2者検査], [검사 설비]  FROM [Sheet1$]"
         End If
 
@@ -559,7 +559,7 @@ Public Class userControl
                 Dim SqlCMD As String = " Select RECNO, CARRIER, LIMIT, QUANTITY " & "from FAM3_LIMIT_TB" ' 캐리어 제한대수 db 불러오기
                 EtherUty.EtherSendSQL(ProgramConfig.ReadIniDBSetting("HostIP"), 2005, SqlCMD, ResultData)
             ElseIf sender Is txtbox_master_path Then
-                Dim SqlCMD As String = " Select RECNO, MODEL, ACCESSORY, COMPONENT_SET, MAEDZUKE, MAUNT, LEAD_CUTTING, VISUAL_EXAMINATION, PLUS_MAUNT, PICKUP, ASSEMBLY, M_FUNCTION_CHECK, A_FUNCTION_CHECK, PERSON_EXAMINE, INSPECTION_EQUIPMENT, PLUS_ASSEMBLY " & "from FAM3_MODEL_TIME_TB" ' 마스터 db 불러오기
+                Dim SqlCMD As String = " Select RECNO, MODEL, ACCESSORY, COMPONENT_SET, MAEDZUKE, MAUNT, LEAD_CUTTING, VISUAL_EXAMINATION, PICKUP, ASSEMBLY, M_FUNCTION_CHECK, A_FUNCTION_CHECK, PERSON_EXAMINE, INSPECTION_EQUIPMENT " & "from FAM3_MODEL_TIME_TB" ' 마스터 db 불러오기
                 EtherUty.EtherSendSQL(ProgramConfig.ReadIniDBSetting("HostIP"), 2005, SqlCMD, ResultData)
             End If
 
