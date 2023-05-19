@@ -817,23 +817,19 @@ Public Class userControl
                     Dim list As DataCenterSuffix = New DataCenterSuffix(Replace(aa(1), " ", ""), aa(2), aa(3))
                     masterDatalistSuffix.Add(list)
                 ElseIf txtbox_carrier_path.Text.IndexOf("MODEL") >= 0 Then '캐리어 0-2 변경 필요
-                    Dim aa As String() = {newDBTable.Rows(i).ItemArray(0).ToString(), newDBTable.Rows(i).ItemArray(1).ToString(), newDBTable.Rows(i).ItemArray(2).ToString(), newDBTable.Rows(i).ItemArray(3).ToString(), newDBTable.Rows(i).ItemArray(4).ToString(),
-                                      newDBTable.Rows(i).ItemArray(5).ToString(), newDBTable.Rows(i).ItemArray(6).ToString(), newDBTable.Rows(i).ItemArray(7).ToString(), newDBTable.Rows(i).ItemArray(8).ToString(), newDBTable.Rows(i).ItemArray(9).ToString(),
-                                      newDBTable.Rows(i).ItemArray(10).ToString(), newDBTable.Rows(i).ItemArray(11).ToString(), newDBTable.Rows(i).ItemArray(12).ToString()}
+                    Dim aa As String() = {newDBTable.Rows(i).ItemArray(0).ToString(), newDBTable.Rows(i).ItemArray(1).ToString(), newDBTable.Rows(i).ItemArray(2).ToString()}
 
-                    Dim list As DataCenter = New DataCenter(Replace(aa(1), " ", ""), aa(2), aa(3), aa(4), aa(5), aa(6), aa(7), aa(8), aa(9), aa(10), aa(11), aa(12), aa(13))
-                    masterDatalist.Add(list)
-                ElseIf txtbox_limit_path.Text.IndexOf("LIMIT") >= 0 Then '리미트  0-3
-                    Dim aa As String() = {newDBTable.Rows(i).ItemArray(0).ToString(), newDBTable.Rows(i).ItemArray(1).ToString(), newDBTable.Rows(i).ItemArray(2).ToString(), newDBTable.Rows(i).ItemArray(3).ToString(), newDBTable.Rows(i).ItemArray(4).ToString(),
-                                      newDBTable.Rows(i).ItemArray(5).ToString(), newDBTable.Rows(i).ItemArray(6).ToString(), newDBTable.Rows(i).ItemArray(7).ToString(), newDBTable.Rows(i).ItemArray(8).ToString(), newDBTable.Rows(i).ItemArray(9).ToString(),
-                                      newDBTable.Rows(i).ItemArray(10).ToString(), newDBTable.Rows(i).ItemArray(11).ToString(), newDBTable.Rows(i).ItemArray(12).ToString()}
+                    Dim list As DataCenterCarrier = New DataCenterCarrier(Replace(aa(1), " ", ""), aa(2))
+                    masterDatalistCarrier.Add(list)
+                ElseIf txtbox_limit_path.Text.IndexOf("LIMIT") >= 0 Then
+                    Dim aa As String() = {newDBTable.Rows(i).ItemArray(0).ToString(), newDBTable.Rows(i).ItemArray(1).ToString(), newDBTable.Rows(i).ItemArray(2).ToString(), newDBTable.Rows(i).ItemArray(3).ToString()}
 
-                    Dim list As DataCenter = New DataCenter(Replace(aa(1), " ", ""), aa(2), aa(3), aa(4), aa(5), aa(6), aa(7), aa(8), aa(9), aa(10), aa(11), aa(12), aa(13))
-                    masterDatalist.Add(list)
+                    Dim list As DataCenterLimit = New DataCenterLimit(Replace(aa(1), " ", ""), aa(2), aa(3))
+                    masterDatalistLimit.Add(list)
                 ElseIf txtbox_master_path.Text.IndexOf("Master Data") >= 0 Then '마스터 0-13
                     Dim aa As String() = {newDBTable.Rows(i).ItemArray(0).ToString(), newDBTable.Rows(i).ItemArray(1).ToString(), newDBTable.Rows(i).ItemArray(2).ToString(), newDBTable.Rows(i).ItemArray(3).ToString(), newDBTable.Rows(i).ItemArray(4).ToString(),
                                       newDBTable.Rows(i).ItemArray(5).ToString(), newDBTable.Rows(i).ItemArray(6).ToString(), newDBTable.Rows(i).ItemArray(7).ToString(), newDBTable.Rows(i).ItemArray(8).ToString(), newDBTable.Rows(i).ItemArray(9).ToString(),
-                                      newDBTable.Rows(i).ItemArray(10).ToString(), newDBTable.Rows(i).ItemArray(11).ToString(), newDBTable.Rows(i).ItemArray(12).ToString()}
+                                      newDBTable.Rows(i).ItemArray(10).ToString(), newDBTable.Rows(i).ItemArray(11).ToString(), newDBTable.Rows(i).ItemArray(12).ToString(), newDBTable.Rows(i).ItemArray(13).ToString()}
 
                     Dim list As DataCenter = New DataCenter(Replace(aa(1), " ", ""), aa(2), aa(3), aa(4), aa(5), aa(6), aa(7), aa(8), aa(9), aa(10), aa(11), aa(12), aa(13))
                     masterDatalist.Add(list)

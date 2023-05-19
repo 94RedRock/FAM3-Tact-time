@@ -203,10 +203,10 @@ Public Class userControlPresenter
                     Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _tableCarrier, "RECNO", RtnData)
                     Select Case MxMnResult
                         Case True
-                            WrData = {"", MasterDataListCarrier(i).Carrier, MasterDataListCarrier(i).Limit, MasterDataListCarrier(i).Quantity,
+                            WrData = {"", MasterDataListCarrier(i).CarrierModel, MasterDataListCarrier(i).CarrierCarrier,
                                          "PTPP", "1.0.0", DateTime.Now.ToString("yyyy/MM/dd")}
 
-                            Dim ChkResult = EtherUty.QDBRead(_hostIP, Convert.ToInt32(_hostPort), _tableCarrier, "CARRIER", MasterDataListCarrier(i).Carrier, Field, rdData, ErrMsg)
+                            Dim ChkResult = EtherUty.QDBRead(_hostIP, Convert.ToInt32(_hostPort), _tableCarrier, "MODEL", MasterDataListCarrier(i).CarrierModel, Field, rdData, ErrMsg)
 
                             If ChkResult = False Then
                                 WrData(0) = CStr(CInt(RtnData) + 1)
@@ -231,10 +231,10 @@ Public Class userControlPresenter
                     Dim MxMnResult = EtherUty.EtherMXMN(_hostIP, Convert.ToInt32(_hostPort), _tableLimit, "RECNO", RtnData)
                     Select Case MxMnResult
                         Case True
-                            WrData = {"", MasterDataListLimit(i).ModelLimit, MasterDataListLimit(i).CarrierLimit,
+                            WrData = {"", MasterDataListLimit(i).Carrier, MasterDataListLimit(i).Limit, MasterDataListLimit(i).Quantity,
                                          "PTPP", "1.0.0", DateTime.Now.ToString("yyyy/MM/dd")}
 
-                            Dim ChkResult = EtherUty.QDBRead(_hostIP, Convert.ToInt32(_hostPort), _tableLimit, "CARRIER", MasterDataListLimit(i).ModelLimit, Field, rdData, ErrMsg)
+                            Dim ChkResult = EtherUty.QDBRead(_hostIP, Convert.ToInt32(_hostPort), _tableLimit, "CARRIER", MasterDataListLimit(i).Carrier, Field, rdData, ErrMsg)
 
                             If ChkResult = False Then
                                 WrData(0) = CStr(CInt(RtnData) + 1)

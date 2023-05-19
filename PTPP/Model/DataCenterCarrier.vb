@@ -8,19 +8,14 @@
 #Region "MEMBER_VARIABLES"
 
     ''' <summary>
-    ''' carrier name
+    ''' 모델
     ''' </summary>
-    Private _carrier As String
+    Private _carrier_model As String
 
     ''' <summary>
-    ''' 제한대수
+    ''' 캐리어명
     ''' </summary>
-    Private _limit As String
-
-    ''' <summary>
-    ''' 캐리어 수량
-    ''' </summary>
-    Private _quantity As String
+    Private _carrier_carrier As String
 
 
 #End Region
@@ -37,12 +32,12 @@
     ''' CARRIER
     ''' </summary>
     ''' <returns></returns>
-    Public Property Carrier As String
+    Public Property CarrierModel As String
         Get
-            Return _carrier
+            Return _carrier_model
         End Get
         Set(value As String)
-            _carrier = value
+            _carrier_model = value
         End Set
     End Property
 
@@ -50,35 +45,20 @@
     ''' LIMIT
     ''' </summary>
     ''' <returns></returns>
-    Public Property Limit As String
+    Public Property CarrierCarrier As String
         Get
-            Return _limit
+            Return _carrier_carrier
         End Get
         Set(value As String)
-            _limit = value
+            _carrier_carrier = value
         End Set
     End Property
-
-    ''' <summary>
-    ''' QUANTITY
-    ''' </summary>
-    ''' <returns></returns>
-    Public Property Quantity As String
-        Get
-            Return _quantity
-        End Get
-        Set(value As String)
-            _quantity = value
-        End Set
-    End Property
-
 
 #End Region
 
-    Public Sub New(carrier As String, limit As String, quantity As String)
-        _carrier = carrier
-        _limit = limit
-        _quantity = quantity
+    Public Sub New(carrierModel As String, carrierCarrier As String)
+        _carrier_model = carrierModel
+        _carrier_carrier = carrierCarrier
     End Sub
 
 End Class
