@@ -964,4 +964,12 @@ Public Class userControl
     Private Sub Label12_Click(sender As Object, e As EventArgs) Handles Label12.Click
 
     End Sub
+
+    Private Sub TableLayoutPanel7_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel7.Paint
+
+    End Sub
+
+    Private Sub DataGridView4_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView4.CellContentClick
+
+    End Sub
 End Class
