@@ -51,13 +51,13 @@ Partial Class userControl
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TabControl3 = New System.Windows.Forms.TabControl()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.grid_all_model = New System.Windows.Forms.DataGridView()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.grid_main = New System.Windows.Forms.DataGridView()
         Me.TabPage12 = New System.Windows.Forms.TabPage()
-        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.grid_power = New System.Windows.Forms.DataGridView()
         Me.TabPage13 = New System.Windows.Forms.TabPage()
-        Me.DataGridView4 = New System.Windows.Forms.DataGridView()
+        Me.grid_special = New System.Windows.Forms.DataGridView()
         Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
         Me.grdDetailModel = New System.Windows.Forms.DataGridView()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
@@ -160,13 +160,13 @@ Partial Class userControl
         Me.TabPage3.SuspendLayout()
         Me.TabControl3.SuspendLayout()
         Me.TabPage10.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grid_all_model, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage11.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grid_main, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage12.SuspendLayout()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grid_power, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage13.SuspendLayout()
-        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grid_special, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel7.SuspendLayout()
         CType(Me.grdDetailModel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage4.SuspendLayout()
@@ -304,7 +304,7 @@ Partial Class userControl
         '
         'TabPage10
         '
-        Me.TabPage10.Controls.Add(Me.DataGridView1)
+        Me.TabPage10.Controls.Add(Me.grid_all_model)
         Me.TabPage10.Location = New System.Drawing.Point(4, 25)
         Me.TabPage10.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TabPage10.Name = "TabPage10"
@@ -314,7 +314,7 @@ Partial Class userControl
         Me.TabPage10.Text = "전체모델"
         Me.TabPage10.UseVisualStyleBackColor = True
         '
-        'DataGridView1
+        'grid_all_model
         '
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
@@ -323,8 +323,8 @@ Partial Class userControl
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grid_all_model.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.grid_all_model.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
@@ -332,10 +332,10 @@ Partial Class userControl
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridView1.Location = New System.Drawing.Point(3, 2)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.DataGridView1.Name = "DataGridView1"
+        Me.grid_all_model.DefaultCellStyle = DataGridViewCellStyle2
+        Me.grid_all_model.Location = New System.Drawing.Point(3, 2)
+        Me.grid_all_model.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.grid_all_model.Name = "grid_all_model"
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle3.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
@@ -343,15 +343,15 @@ Partial Class userControl
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.RowTemplate.Height = 27
-        Me.DataGridView1.Size = New System.Drawing.Size(1590, 539)
-        Me.DataGridView1.TabIndex = 0
+        Me.grid_all_model.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.grid_all_model.RowHeadersWidth = 51
+        Me.grid_all_model.RowTemplate.Height = 27
+        Me.grid_all_model.Size = New System.Drawing.Size(1590, 539)
+        Me.grid_all_model.TabIndex = 0
         '
         'TabPage11
         '
-        Me.TabPage11.Controls.Add(Me.DataGridView2)
+        Me.TabPage11.Controls.Add(Me.grid_main)
         Me.TabPage11.Location = New System.Drawing.Point(4, 25)
         Me.TabPage11.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TabPage11.Name = "TabPage11"
@@ -361,7 +361,7 @@ Partial Class userControl
         Me.TabPage11.Text = "메인"
         Me.TabPage11.UseVisualStyleBackColor = True
         '
-        'DataGridView2
+        'grid_main
         '
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
@@ -370,8 +370,8 @@ Partial Class userControl
         DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grid_main.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.grid_main.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle5.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
@@ -379,10 +379,10 @@ Partial Class userControl
         DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle5
-        Me.DataGridView2.Location = New System.Drawing.Point(5, 2)
-        Me.DataGridView2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.DataGridView2.Name = "DataGridView2"
+        Me.grid_main.DefaultCellStyle = DataGridViewCellStyle5
+        Me.grid_main.Location = New System.Drawing.Point(5, 2)
+        Me.grid_main.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.grid_main.Name = "grid_main"
         DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle6.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
@@ -390,15 +390,15 @@ Partial Class userControl
         DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView2.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
-        Me.DataGridView2.RowHeadersWidth = 51
-        Me.DataGridView2.RowTemplate.Height = 27
-        Me.DataGridView2.Size = New System.Drawing.Size(1589, 542)
-        Me.DataGridView2.TabIndex = 0
+        Me.grid_main.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        Me.grid_main.RowHeadersWidth = 51
+        Me.grid_main.RowTemplate.Height = 27
+        Me.grid_main.Size = New System.Drawing.Size(1589, 542)
+        Me.grid_main.TabIndex = 0
         '
         'TabPage12
         '
-        Me.TabPage12.Controls.Add(Me.DataGridView3)
+        Me.TabPage12.Controls.Add(Me.grid_power)
         Me.TabPage12.Location = New System.Drawing.Point(4, 25)
         Me.TabPage12.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TabPage12.Name = "TabPage12"
@@ -408,7 +408,7 @@ Partial Class userControl
         Me.TabPage12.Text = "전원"
         Me.TabPage12.UseVisualStyleBackColor = True
         '
-        'DataGridView3
+        'grid_power
         '
         DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
@@ -417,8 +417,8 @@ Partial Class userControl
         DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView3.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
-        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grid_power.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        Me.grid_power.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle8.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
@@ -426,10 +426,10 @@ Partial Class userControl
         DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView3.DefaultCellStyle = DataGridViewCellStyle8
-        Me.DataGridView3.Location = New System.Drawing.Point(3, 0)
-        Me.DataGridView3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.DataGridView3.Name = "DataGridView3"
+        Me.grid_power.DefaultCellStyle = DataGridViewCellStyle8
+        Me.grid_power.Location = New System.Drawing.Point(3, 0)
+        Me.grid_power.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.grid_power.Name = "grid_power"
         DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle9.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
@@ -437,15 +437,15 @@ Partial Class userControl
         DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView3.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
-        Me.DataGridView3.RowHeadersWidth = 51
-        Me.DataGridView3.RowTemplate.Height = 27
-        Me.DataGridView3.Size = New System.Drawing.Size(1593, 545)
-        Me.DataGridView3.TabIndex = 0
+        Me.grid_power.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
+        Me.grid_power.RowHeadersWidth = 51
+        Me.grid_power.RowTemplate.Height = 27
+        Me.grid_power.Size = New System.Drawing.Size(1593, 545)
+        Me.grid_power.TabIndex = 0
         '
         'TabPage13
         '
-        Me.TabPage13.Controls.Add(Me.DataGridView4)
+        Me.TabPage13.Controls.Add(Me.grid_special)
         Me.TabPage13.Location = New System.Drawing.Point(4, 25)
         Me.TabPage13.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TabPage13.Name = "TabPage13"
@@ -455,7 +455,7 @@ Partial Class userControl
         Me.TabPage13.Text = "특수"
         Me.TabPage13.UseVisualStyleBackColor = True
         '
-        'DataGridView4
+        'grid_special
         '
         DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
@@ -464,8 +464,8 @@ Partial Class userControl
         DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView4.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
-        Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grid_special.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
+        Me.grid_special.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle11.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
@@ -473,10 +473,10 @@ Partial Class userControl
         DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView4.DefaultCellStyle = DataGridViewCellStyle11
-        Me.DataGridView4.Location = New System.Drawing.Point(2, 2)
-        Me.DataGridView4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.DataGridView4.Name = "DataGridView4"
+        Me.grid_special.DefaultCellStyle = DataGridViewCellStyle11
+        Me.grid_special.Location = New System.Drawing.Point(2, 2)
+        Me.grid_special.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.grid_special.Name = "grid_special"
         DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle12.Font = New System.Drawing.Font("굴림", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
@@ -484,11 +484,11 @@ Partial Class userControl
         DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView4.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
-        Me.DataGridView4.RowHeadersWidth = 51
-        Me.DataGridView4.RowTemplate.Height = 27
-        Me.DataGridView4.Size = New System.Drawing.Size(1594, 609)
-        Me.DataGridView4.TabIndex = 0
+        Me.grid_special.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
+        Me.grid_special.RowHeadersWidth = 51
+        Me.grid_special.RowTemplate.Height = 27
+        Me.grid_special.Size = New System.Drawing.Size(1594, 609)
+        Me.grid_special.TabIndex = 0
         '
         'TableLayoutPanel7
         '
@@ -933,7 +933,7 @@ Partial Class userControl
         Me.TabPage2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TabPage2.Size = New System.Drawing.Size(1618, 832)
+        Me.TabPage2.Size = New System.Drawing.Size(1619, 831)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "마스터 데이터 관리"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -1889,13 +1889,13 @@ Partial Class userControl
         Me.TabPage3.ResumeLayout(False)
         Me.TabControl3.ResumeLayout(False)
         Me.TabPage10.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grid_all_model, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage11.ResumeLayout(False)
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grid_main, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage12.ResumeLayout(False)
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grid_power, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage13.ResumeLayout(False)
-        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grid_special, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel7.ResumeLayout(False)
         CType(Me.grdDetailModel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage4.ResumeLayout(False)
@@ -2048,8 +2048,8 @@ Partial Class userControl
     Friend WithEvents TabPage11 As TabPage
     Friend WithEvents TabPage12 As TabPage
     Friend WithEvents TabPage13 As TabPage
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents DataGridView2 As DataGridView
-    Friend WithEvents DataGridView3 As DataGridView
-    Friend WithEvents DataGridView4 As DataGridView
+    Friend WithEvents grid_all_model As DataGridView
+    Friend WithEvents grid_main As DataGridView
+    Friend WithEvents grid_power As DataGridView
+    Friend WithEvents grid_special As DataGridView
 End Class

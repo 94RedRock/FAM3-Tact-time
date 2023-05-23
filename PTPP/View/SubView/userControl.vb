@@ -27,16 +27,19 @@ Public Class userControl
         _userControlPresenter = New userControlPresenter(Me)
         detailTable.Columns.Add("No", GetType(Int32))
         detailTable.Columns.Add("Model", GetType(String))
+        detailTable.Columns.Add("부속품", GetType(String))     'hsj test
         detailTable.Columns.Add("部品SET", GetType(String))
         detailTable.Columns.Add("前付け", GetType(String))
         detailTable.Columns.Add("MT", GetType(String))
         detailTable.Columns.Add("LC", GetType(String))
         detailTable.Columns.Add("目視", GetType(String))
+        detailTable.Columns.Add("추가마운팅", GetType(String))  'hsj test
         detailTable.Columns.Add("Pickup", GetType(String))
         detailTable.Columns.Add("組立", GetType(String))
         detailTable.Columns.Add("機能検査수동", GetType(String))
         detailTable.Columns.Add("機能検査자동", GetType(String))
         detailTable.Columns.Add("2者検査", GetType(String))
+        detailTable.Columns.Add("추가조립", GetType(String))  'hsj test
         detailTable.Columns.Add("검사설비", GetType(String))
         detailTable.Columns.Add("총공정시간", GetType(String))
         detailTable.Columns.Add("인공수", GetType(Double))
@@ -97,14 +100,15 @@ Public Class userControl
             Dim inspectionList As List(Of String()) = _userControlPresenter.inspectionList
 
             For i As Integer = 0 To time.Count() - 1
-                For j As Integer = 1 To 10
+                'For j As Integer = 1 To 10
+                For j As Integer = 1 To 11
 
                     If time(i)(j) = "-" Then
                         time(i)(j) = "00:00:00"
                     End If
 
                     If time(i)(j) = "" Then
-                        timespanList.Add(TimeSpan.Parse("0"))
+                        timespanList.Add(TimeSpan.Parse("0")) 'TimeSpan.Parse() : 시간 간격을 나타내는 문자열 표현을 TimeSpan 개체로 변환하는 데 사용
                     Else
                         timespanList.Add(TimeSpan.Parse(time(i)(j)))
                     End If
@@ -118,7 +122,7 @@ Public Class userControl
                 mountTime.Add(mount)
                 assamblyTime.Add(assambly)
 
-                Dim worker = (totalts / 60) / 460
+                Dim worker = (totalts / 60) / 460 'why divide 60 and 460
 
                 detailTable.Rows.Add(i + 1, Replace(time(i)(0), CChar(vbLf), ""), time(i)(1), time(i)(2), time(i)(3), time(i)(4), time(i)(5), time(i)(6), time(i)(7), time(i)(8), time(i)(9), time(i)(10), Replace(time(i)(11), "\c", ","), totalTimeSecond.ToString(), worker.ToString("f2"))
 
@@ -969,7 +973,7 @@ Public Class userControl
 
     End Sub
 
-    Private Sub DataGridView4_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView4.CellContentClick
+    Private Sub DataGridView4_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid_special.CellContentClick
 
     End Sub
 End Class

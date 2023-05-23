@@ -48,17 +48,18 @@ Public Class userControlPresenter
     Public Function DataCalculate() As List(Of String())
 
         Dim ErrMsg As String = Nothing
-        Dim field As String() = {"MODEL", "COMPONENT_SET", "MAEDZUKE", "MAUNT", "LEAD_CUTTING", "VISUAL_EXAMINATION", "PICKUP", "ASSAMBLY", "M_FUNCTION_CHECK", "A_FUNCTION_CHECK", "PERSON_EXAMINE", "INSPECTION_EQUIPMENT"}
+        Dim field As String() = {"MODEL", "ACCESSORY", "COMPONENT_SET", "MAEDZUKE", "MAUNT", "LEAD_CUTTING", "VISUAL_EXAMINATION", "PICKUP", "ASSAMBLY", "M_FUNCTION_CHECK", "A_FUNCTION_CHECK", "PERSON_EXAMINE", "INSPECTION_EQUIPMENT"}
         Dim list As New List(Of String())
         Dim modelList As List(Of ReadModel) = ModelNameRead()
-        Dim rdData(12) As String
+        'Dim rdData(12) As String
+        Dim rdData(13) As String
         Dim SqlCMD As String = ""
         Dim ResultData As String = Nothing
 
         Try
             For i As Integer = 0 To modelList.Count() - 1
-                SqlCMD &= " select" & " MODEL, COMPONENT_SET, MAEDZUKE, MAUNT, LEAD_CUTTING, VISUAL_EXAMINATION, PICKUP, ASSAMBLY, M_FUNCTION_CHECK, A_FUNCTION_CHECK, PERSON_EXAMINE, INSPECTION_EQUIPMENT " & "from FAM3_PRODUCT_TIME_TB WHERE MODEL = " & "'" & modelList(i).ModelName & "' union all select" & "'" & modelList(i).ModelName & " ','','','','','','','','','','','' FROM DUAL WHERE NOT EXISTS(Select * " & "from FAM3_PRODUCT_TIME_TB WHERE MODEL = " & "'" & modelList(i).ModelName & "'" & ")"
-
+                'SqlCMD &= " select" & " MODEL, ACCESSORY, COMPONENT_SET, MAEDZUKE, MAUNT, LEAD_CUTTING, VISUAL_EXAMINATION, PICKUP, ASSAMBLY, M_FUNCTION_CHECK, A_FUNCTION_CHECK, PERSON_EXAMINE, INSPECTION_EQUIPMENT " & "from FAM3_PRODUCT_TIME_TB WHERE MODEL = " & "'" & modelList(i).ModelName & "' union all select" & "'" & modelList(i).ModelName & " ','','','','','','','','','','','' FROM DUAL WHERE NOT EXISTS(Select * " & "from FAM3_PRODUCT_TIME_TB WHERE MODEL = " & "'" & modelList(i).ModelName & "'" & ")"
+                SqlCMD &= " select" & " MODEL, ACCESSORY, COMPONENT_SET, MAEDZUKE, MAUNT, LEAD_CUTTING, VISUAL_EXAMINATION, PICKUP, ASSAMBLY, M_FUNCTION_CHECK, A_FUNCTION_CHECK, PERSON_EXAMINE, INSPECTION_EQUIPMENT " & "from FAM3_PRODUCT_TIME_TB WHERE MODEL = " & "'" & modelList(i).ModelName.Substring(0, 9) & "' union all select" & "'" & modelList(i).ModelName.Substring(0, 9) & " ','','','','','','','','','','','' FROM DUAL WHERE NOT EXISTS(Select * " & "from FAM3_PRODUCT_TIME_TB WHERE MODEL = " & "'" & modelList(i).ModelName.Substring(0, 9) & "'" & ")"
                 If i < modelList.Count() - 1 Then
                     SqlCMD += " UNION ALL"
                 End If
@@ -70,13 +71,65 @@ Public Class userControlPresenter
             Dim rowArray As String() = ResultData.Split(CChar(vbCrLf))
             For i = 1 To rowArray.Length - 2
                 Dim colArray As String() = rowArray(i).Split(CChar(","))
-                If colArray(1) = "" Then
+                If colArray(1) = "" Then '*****왜 두 번째 배열이 공란일때를 조건으로 설정 했을까?
                     list.Add(colArray)
                 Else
                     list.Add(colArray)
-                    Replace(colArray(11), "\c", ",")
-                    simpleModelList.Add({colArray(0).Substring(0, 7), colArray(1), colArray(2), colArray(3), colArray(4), colArray(5), colArray(6), colArray(7), colArray(8), colArray(9), colArray(10), colArray(11)})
-                    inspectionList.Add({colArray(0), colArray(8), colArray(9), colArray(11)})
+                    'Replace(colArray(11), "\c", ",")
+                    Replace(colArray(12), "\c", ",")
+                    simpleModelList.Add({colArray(0).Substring(0, 7), colArray(1), colArray(2), colArray(3), colArray(4), colArray(5), colArray(6), colArray(7), colArray(8), colArray(9), colArray(10), colArray(11), colArray(12)})
+                    inspectionList.Add({colArray(0), colArray(9), colArray(10), colArray(12)})
+                    'simpleModelList.Add({colArray(0).Substring(0, 7), colArray(1), colArray(2), colArray(3), colArray(4), colArray(5), colArray(6), colArray(7), colArray(8), colArray(9), colArray(10), colArray(11)})
+                    'inspectionList.Add({colArray(0), colArray(8), colArray(9), colArray(11)})
+                End If
+
+            Next
+        Catch ex As Exception
+            SystemLogger.Instance.ErrorLog(ProgramEnum.LogType.File, "DataCalculate()", ex.Message)
+        End Try
+
+        Return list
+
+    End Function
+    ''' <summary>
+    ''' SuffixTime Data Calculator, hsj 
+    ''' </summary>
+    ''' <returns></returns>
+    Public Function DataCalculateSuffix() As List(Of String())
+
+        Dim ErrMsg As String = Nothing
+        Dim field As String() = {"SUFFIX", "ADDITIONAL_MAOUNTING", "ADDITIONAL_ASSEMBLY"}
+        Dim list As New List(Of String())
+        Dim modelList As List(Of ReadModel) = ModelNameReadSuffix()
+        Dim rdData(3) As String
+        Dim SqlCMD As String = ""
+        Dim ResultData As String = Nothing
+
+        Try
+            For i As Integer = 0 To modelList.Count() - 1
+                'SqlCMD &= " select" & " MODEL, ACCESSORY, COMPONENT_SET, MAEDZUKE, MAUNT, LEAD_CUTTING, VISUAL_EXAMINATION, PICKUP, ASSAMBLY, M_FUNCTION_CHECK, A_FUNCTION_CHECK, PERSON_EXAMINE, INSPECTION_EQUIPMENT " & "from FAM3_PRODUCT_TIME_TB WHERE MODEL = " & "'" & modelList(i).ModelName & "' union all select" & "'" & modelList(i).ModelName & " ','','','','','','','','','','','' FROM DUAL WHERE NOT EXISTS(Select * " & "from FAM3_PRODUCT_TIME_TB WHERE MODEL = " & "'" & modelList(i).ModelName & "'" & ")"
+                SqlCMD &= " select" & " SUFFIX, ADDITIONAL_MAOUNTING, ADDITIONAL_ASSEMBLY " & "from FAM3_SUFFIX_TIME_TB WHERE MODEL = " & "'" & modelList(i).ModelName.Substring(0, 9) & "' union all select" & "'" & modelList(i).ModelName.Substring(0, 9) & " ','','','','','','','','','','','' FROM DUAL WHERE NOT EXISTS(Select * " & "from FAM3_PRODUCT_TIME_TB WHERE MODEL = " & "'" & modelList(i).ModelName.Substring(0, 9) & "'" & ")"
+                If i < modelList.Count() - 1 Then
+                    SqlCMD += " UNION ALL"
+                End If
+
+            Next
+
+            EtherUty.EtherSendSQL(ProgramConfig.ReadIniDBSetting("HostIP"), 2005, SqlCMD, ResultData)
+
+            Dim rowArray As String() = ResultData.Split(CChar(vbCrLf))
+            For i = 1 To rowArray.Length - 2
+                Dim colArray As String() = rowArray(i).Split(CChar(","))
+                If colArray(1) = "" Then '*****왜 두 번째 배열이 공란일때를 조건으로 설정 했을까?
+                    list.Add(colArray)
+                Else
+                    list.Add(colArray)
+                    'Replace(colArray(11), "\c", ",")
+                    Replace(colArray(12), "\c", ",")
+                    simpleModelList.Add({colArray(0).Substring(0, 7), colArray(1), colArray(2), colArray(3), colArray(4), colArray(5), colArray(6), colArray(7), colArray(8), colArray(9), colArray(10), colArray(11), colArray(12)})
+                    inspectionList.Add({colArray(0), colArray(9), colArray(10), colArray(12)})
+                    'simpleModelList.Add({colArray(0).Substring(0, 7), colArray(1), colArray(2), colArray(3), colArray(4), colArray(5), colArray(6), colArray(7), colArray(8), colArray(9), colArray(10), colArray(11)})
+                    'inspectionList.Add({colArray(0), colArray(8), colArray(9), colArray(11)})
                 End If
 
             Next
@@ -92,6 +145,57 @@ Public Class userControlPresenter
     ''' ExcelFile ModelName Read list
     ''' </summary>
     Public Function ModelNameRead() As List(Of ReadModel)
+        Dim ModelNamelist As New List(Of ReadModel)
+
+        'Dim strFile As String = ProgramConfig.ReadIniUserSetting("InputfilePath") + "\" + ProgramConfig.ReadIniUserSetting("InputFileName") + "20210322"
+        Dim strFile As String = ProgramConfig.ReadIniUserSetting("InputfilePath") + "\" + ProgramConfig.ReadIniUserSetting("InputFileName") + DateTime.Now.ToString("yyyyMMdd")
+
+        Dim fileInfo As FileInfo = New FileInfo(strFile + ".xls")
+        Dim fileInfo2 As FileInfo = New FileInfo(strFile + ".xlsx")
+
+        If fileInfo.Exists Or fileInfo2.Exists Then
+            'Dim oBook As Object = excelApp.Workbooks.Open(ProgramConfig.ReadIniUserSetting("InputfilePath") + "\" + ProgramConfig.ReadIniUserSetting("InputFileName") + "20210322")
+            Dim oBook As Object = excelApp.Workbooks.Open(ProgramConfig.ReadIniUserSetting("InputfilePath") + "\" + ProgramConfig.ReadIniUserSetting("InputFileName") + DateTime.Now.ToString("yyyyMMdd"))
+            Dim oSheet As Object = excelApp.Worksheets(1)
+
+            Dim range As Range = oSheet.UsedRange
+            Dim data As String = Nothing
+
+            Try
+                For i As Integer = 3 To range.Rows.Count
+
+                    '워크시트 변경에 따라 모델명 읽어오는 행 수정 (14 → 16) - Ver 1.01 KJ
+                    '모델 명 외에도 읽어오는 에러 수정
+
+                    'data = range.Cells(i, 14).Value
+                    data = range.Cells(i, 16).Value
+
+                    If data IsNot Nothing Then
+                        If Len(data) > 0 And Not data.Equals("ORDER ENTRY CODE") Then
+                            Dim data1 As ReadModel = New ReadModel(data)
+                            ModelNamelist.Add(data1)
+                        End If
+                    End If
+                Next
+
+            Catch ex As Exception
+                SystemLogger.Instance.ErrorLog(ProgramEnum.LogType.File, "ModelNameRead()", ex.Message)
+            End Try
+            Try
+                excelApp.DisplayAlerts = False
+            Catch __unusedException1__ As Exception
+            Finally
+                excelApp.Workbooks.Close()
+                excelApp.Quit()
+            End Try
+        Else
+            MsgBox(DateTime.Now.ToString("yyyy/MM/dd") + " 작업지시서파일이 존재하지않습니다")
+        End If
+
+        Return ModelNamelist
+
+    End Function
+    Public Function ModelNameReadSuffix() As List(Of ReadModel)
         Dim ModelNamelist As New List(Of ReadModel)
 
         'Dim strFile As String = ProgramConfig.ReadIniUserSetting("InputfilePath") + "\" + ProgramConfig.ReadIniUserSetting("InputFileName") + "20210322"
