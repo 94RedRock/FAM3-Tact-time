@@ -108,7 +108,7 @@ Public Class userControlPresenter
         Try
             For i As Integer = 0 To modelList.Count() - 1
                 'SqlCMD &= " select" & " MODEL, ACCESSORY, COMPONENT_SET, MAEDZUKE, MAUNT, LEAD_CUTTING, VISUAL_EXAMINATION, PICKUP, ASSAMBLY, M_FUNCTION_CHECK, A_FUNCTION_CHECK, PERSON_EXAMINE, INSPECTION_EQUIPMENT " & "from FAM3_PRODUCT_TIME_TB WHERE MODEL = " & "'" & modelList(i).ModelName & "' union all select" & "'" & modelList(i).ModelName & " ','','','','','','','','','','','' FROM DUAL WHERE NOT EXISTS(Select * " & "from FAM3_PRODUCT_TIME_TB WHERE MODEL = " & "'" & modelList(i).ModelName & "'" & ")"
-                SqlCMD &= " select" & " SUFFIX, ADDITIONAL_MAOUNTING, ADDITIONAL_ASSEMBLY " & "from FAM3_SUFFIX_TIME_TB WHERE MODEL = " & "'" & modelList(i).ModelName.Substring(0, 9) & "' union all select" & "'" & modelList(i).ModelName.Substring(0, 9) & " ','','','','','','','','','','','' FROM DUAL WHERE NOT EXISTS(Select * " & "from FAM3_PRODUCT_TIME_TB WHERE MODEL = " & "'" & modelList(i).ModelName.Substring(0, 9) & "'" & ")"
+                SqlCMD &= " select" & " SUFFIX, ADDITIONAL_MAOUNTING, ADDITIONAL_ASSEMBLY " & "from FAM3_SUFFIX_TIME_TB WHERE MODEL = " & "'" & modelList(i).ModelName & "' union all select" & "'" & modelList(i).ModelName & " ','','','','','','','','','','','' FROM DUAL WHERE NOT EXISTS(Select * " & "from FAM3_SUFFIX_TIME_TB WHERE MODEL = " & "'" & modelList(i).ModelName & "'" & ")"
                 If i < modelList.Count() - 1 Then
                     SqlCMD += " UNION ALL"
                 End If
