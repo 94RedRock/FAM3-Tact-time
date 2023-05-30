@@ -125,6 +125,7 @@
     <Compile Include="Model\DataCenterLimit.vb" />
     <Compile Include="Model\DataCenterCarrier.vb" />
     <Compile Include="Model\DataCenterSuffix.vb" />
+    <Compile Include="Model\ReadSuffix.vb" />
     <Compile Include="Model\ReadModel.vb" />
     <Compile Include="Common\ProgramDefine.vb" />
     <Compile Include="Config\ProgramConfig.vb" />

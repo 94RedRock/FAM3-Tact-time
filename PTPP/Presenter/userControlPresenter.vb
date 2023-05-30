@@ -95,10 +95,11 @@ Public Class userControlPresenter
     ''' SuffixTime Data Calculator, hsj 
     ''' </summary>
     ''' <returns></returns>
-    Public Function DataCalculateSuffix() As List(Of String())
+    Public Function DataCalculateSuffix() As List(Of String()) 'data calculate test용)
 
         Dim ErrMsg As String = Nothing
-        Dim field As String() = {"SUFFIX", "ADDITIONAL_MAOUNTING", "ADDITIONAL_ASSEMBLY"}
+        Dim field As String() = {"MODEL", "ACCESSORY", "COMPONENT_SET", "MAEDZUKE", "MAUNT", "LEAD_CUTTING", "VISUAL_EXAMINATION", "PICKUP", "ASSAMBLY", "M_FUNCTION_CHECK", "A_FUNCTION_CHECK", "PERSON_EXAMINE", "INSPECTION_EQUIPMENT"}
+        Dim fieldSuffix As String() = {"SUFFIX", "ADDITIONAL_MAOUNTING", "ADDITIONAL_ASSEMBLY"}
         Dim list As New List(Of String())
         Dim modelList As List(Of ReadModel) = ModelNameReadSuffix()
         Dim rdData(3) As String
@@ -144,8 +145,9 @@ Public Class userControlPresenter
     ''' <summary>
     ''' ExcelFile ModelName Read list
     ''' </summary>
-    Public Function ModelNameRead() As List(Of ReadModel)
+    Public Function ModelNameRead() As (List(Of ReadModel), List(Of ReadSuffix))
         Dim ModelNamelist As New List(Of ReadModel)
+        Dim SuffixNamelist As New List(Of ReadSuffix) 'hsj add
 
         'Dim strFile As String = ProgramConfig.ReadIniUserSetting("InputfilePath") + "\" + ProgramConfig.ReadIniUserSetting("InputFileName") + "20210322"
         Dim strFile As String = ProgramConfig.ReadIniUserSetting("InputfilePath") + "\" + ProgramConfig.ReadIniUserSetting("InputFileName") + DateTime.Now.ToString("yyyyMMdd")
@@ -193,6 +195,38 @@ Public Class userControlPresenter
         End If
 
         Return ModelNamelist
+
+        '====================== hsj add start======================
+        'Try
+        '    For i As Integer = 3 To Range.Rows.Count
+
+        '        '워크시트 변경에 따라 모델명 읽어오는 행 수정 (14 → 16) - Ver 1.01 KJ
+        '        '모델 명 외에도 읽어오는 에러 수정
+
+        '        'data = range.Cells(i, 14).Value
+        '        Data = Range.Cells(i, 16).Value
+
+        '        If Data IsNot Nothing Then
+        '            If Len(Data) > 0 And Not Data.Equals("ORDER ENTRY CODE") Then
+        '                Dim data1 As ReadModel = New ReadModel(Data)
+        '                ModelNamelist.Add(data1)
+        '            End If
+        '        End If
+        '    Next
+
+        'Catch ex As Exception
+        '    SystemLogger.Instance.ErrorLog(ProgramEnum.LogType.File, "ModelNameRead()", ex.Message)
+        'End Try
+        'Try
+        '    excelApp.DisplayAlerts = False
+        'Catch __unusedException1__ As Exception
+        'Finally
+        '    excelApp.Workbooks.Close()
+        '    excelApp.Quit()
+        'End Try
+        'Else
+        'MsgBox(DateTime.Now.ToString("yyyy/MM/dd") + " 작업지시서파일이 존재하지않습니다")
+        'End If
 
     End Function
     Public Function ModelNameReadSuffix() As List(Of ReadModel)
