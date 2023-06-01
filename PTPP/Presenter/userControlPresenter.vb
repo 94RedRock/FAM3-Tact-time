@@ -50,7 +50,10 @@ Public Class userControlPresenter
         Dim ErrMsg As String = Nothing
         Dim field As String() = {"MODEL", "ACCESSORY", "COMPONENT_SET", "MAEDZUKE", "MAUNT", "LEAD_CUTTING", "VISUAL_EXAMINATION", "PICKUP", "ASSAMBLY", "M_FUNCTION_CHECK", "A_FUNCTION_CHECK", "PERSON_EXAMINE", "INSPECTION_EQUIPMENT"}
         Dim list As New List(Of String())
-        Dim modelList As List(Of ReadModel) = ModelNameRead()
+        Dim modelList As List(Of ReadModel)
+        Dim suffixList As List(Of ReadSuffix)
+
+        (modelList, suffixList) = ModelNameRead()
         'Dim rdData(12) As String
         Dim rdData(13) As String
         Dim SqlCMD As String = ""
@@ -194,7 +197,8 @@ Public Class userControlPresenter
             MsgBox(DateTime.Now.ToString("yyyy/MM/dd") + " 작업지시서파일이 존재하지않습니다")
         End If
 
-        Return ModelNamelist
+        Return (ModelNamelist, SuffixNamelist)  '맞음?
+
 
         '====================== hsj add start======================
         'Try
